@@ -9,8 +9,8 @@
 
     <Grid Background="AliceBlue" >
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
-            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <Grid x:Name="Header" Height="30" Margin="10">
             <Grid.ColumnDefinitions>
