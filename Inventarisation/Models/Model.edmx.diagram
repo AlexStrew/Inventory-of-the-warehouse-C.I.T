@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="InventarisationDBModel.UnitsMeasurement" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="InventarisationDBModel.Users" Width="1.5" PointX="2.75" PointY="8.75" />
         <EntityTypeShape EntityType="InventarisationDBModel.Workplace" Width="1.5" PointX="8.25" PointY="4.25" />
-        <EntityTypeShape EntityType="InventarisationDBModel.WriteOff" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="InventarisationDBModel.WriteOff" Width="1.5" PointX="6.5" PointY="8" />
         <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Companies" />
         <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Employer" />
         <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Nomenclature" />

@@ -25,7 +25,7 @@
             <ScrollViewer >
                 <DataGrid>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Инв. №" Width="*"/>
+                        <DataGridTextColumn Header="Инв. №" Width="*" Binding=""/>
                         <DataGridTextColumn Header="Наименование" Width="*"/>
                         <DataGridTextColumn Header="Привязка" Width="*"/>
                         <DataGridTextColumn Header="Движение" Width="*"/>
