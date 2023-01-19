@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MovementModalWindow" Height="450" Width="800">
     <Grid>
-        
+        <ScrollViewer>
+            <DataGrid>
+                <DataGrid.Columns>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </Window>
