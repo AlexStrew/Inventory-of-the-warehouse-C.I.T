@@ -59,6 +59,9 @@
     <Compile Include="Windows\AddModalWindow.xaml.cs">
       <DependentUpon>AddModalWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MovementModalWindow.xaml.cs">
+      <DependentUpon>MovementModalWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddModalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MovementModalWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
