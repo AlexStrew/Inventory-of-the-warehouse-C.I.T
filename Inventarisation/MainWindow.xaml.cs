@@ -27,5 +27,15 @@ namespace Inventarisation
             MainFrame.Navigate(new MainPage());
 
         }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        {
+
+        }
     }
 }

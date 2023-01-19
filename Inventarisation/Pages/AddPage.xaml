@@ -10,8 +10,6 @@
 
     <Grid>
         <DataGrid>
-
-
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Инвентаризационный номер" Width="*"/>
                 <DataGridTextColumn Header="Наименование" Width="*"/>
@@ -22,7 +20,6 @@
                 <DataGridTextColumn Header="Комментарии" Width="*"/>
                 <DataGridTextColumn Header="Накладная" Width="*"/>
             </DataGrid.Columns>
-
         </DataGrid>
     </Grid>
 </Page>

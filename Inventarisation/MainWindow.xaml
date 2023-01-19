@@ -31,8 +31,8 @@
         <Button Grid.Column="6" Height="30" Width="auto" Name="Вход" Margin="20 0 20 0"></Button>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="8">
-            <Frame  x:Name="MainFrame" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" BorderBrush = "Transparent" d:IsHidden = "True"/>
+            
         </StackPanel>
-
+        <Frame x:Name="MainFrame" Navigated="MainFrame_Navigated" ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" BorderBrush="Transparent" d:IsHidden="True"/>
     </Grid>
 </Window>

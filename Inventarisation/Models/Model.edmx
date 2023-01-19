@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище InventarisationDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company_name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="patronymic" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomenclature_id" Type="int" />
+          <Property Name="move_id" Type="int" />
+          <Property Name="company_id" Type="int" />
+          <Property Name="payment_num" Type="int" />
+          <Property Name="comment" Type="varchar" MaxLength="200" />
+          <Property Name="inv_num" Type="char" MaxLength="6" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Movements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_inventory" Type="int" Nullable="false" />
+          <Property Name="date_move" Type="date" />
+          <Property Name="id_placement" Type="int" />
+          <Property Name="planner" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Nomenclature">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_device" Type="varchar" MaxLength="100" />
+          <Property Name="count_device" Type="int" />
+        </EntityType>
+        <EntityType Name="Placements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_placement" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_role" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UnitsMeasurement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_unit" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="patronymic" Type="varchar" MaxLength="150" />
+          <Property Name="login" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workplace">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_inventory" Type="int" />
+          <Property Name="name_workplace" Type="varchar" MaxLength="150" />
+          <Property Name="id_placement" Type="int" />
+          <Property Name="mol" Type="varchar" MaxLength="150" />
+          <Property Name="device" Type="varchar" MaxLength="100" />
+          <Property Name="employer_id" Type="int" />
+        </EntityType>
+        <EntityType Name="WriteOff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_inventory" Type="int" Nullable="false" />
+          <Property Name="count_writeoff" Type="int" />
+          <Property Name="reason" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_Inventory_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Nomenclature">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="nomenclature_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movements_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Movements">
+              <PropertyRef Name="id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movements_Placements">
+          <End Role="Placements" Type="Self.Placements" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Placements">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Movements">
+              <PropertyRef Name="id_placement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workplace_Employer">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workplace">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workplace_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workplace">
+              <PropertyRef Name="id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workplace_Placements">
+          <End Role="Placements" Type="Self.Placements" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Placements">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workplace">
+              <PropertyRef Name="id_placement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WriteOff_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WriteOff" Type="Self.WriteOff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="WriteOff">
+              <PropertyRef Name="id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище InventarisationDBModelContainer">
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employer" EntityType="Self.Employer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movements" EntityType="Self.Movements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nomenclature" EntityType="Self.Nomenclature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Placements" EntityType="Self.Placements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitsMeasurement" EntityType="Self.UnitsMeasurement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workplace" EntityType="Self.Workplace" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WriteOff" EntityType="Self.WriteOff" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Inventory_Companies" Association="Self.FK_Inventory_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Nomenclature" Association="Self.FK_Inventory_Nomenclature">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movements_Inventory" Association="Self.FK_Movements_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Movements" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movements_Placements" Association="Self.FK_Movements_Placements">
+            <End Role="Placements" EntitySet="Placements" />
+            <End Role="Movements" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workplace_Employer" Association="Self.FK_Workplace_Employer">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Workplace" EntitySet="Workplace" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workplace_Inventory" Association="Self.FK_Workplace_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Workplace" EntitySet="Workplace" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workplace_Placements" Association="Self.FK_Workplace_Placements">
+            <End Role="Placements" EntitySet="Placements" />
+            <End Role="Workplace" EntitySet="Workplace" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WriteOff_Inventory" Association="Self.FK_WriteOff_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="WriteOff" EntitySet="WriteOff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventarisationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_Companies" FromRole="Companies" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="last_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Workplace" Relationship="Self.FK_Workplace_Employer" FromRole="Employer" ToRole="Workplace" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomenclature_id" Type="Int32" />
+          <Property Name="move_id" Type="Int32" />
+          <Property Name="company_id" Type="Int32" />
+          <Property Name="payment_num" Type="Int32" />
+          <Property Name="comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="inv_num" Type="String" MaxLength="6" FixedLength="true" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Inventory_Companies" FromRole="Inventory" ToRole="Companies" />
+          <NavigationProperty Name="Nomenclature" Relationship="Self.FK_Inventory_Nomenclature" FromRole="Inventory" ToRole="Nomenclature" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Movements_Inventory" FromRole="Inventory" ToRole="Movements" />
+          <NavigationProperty Name="Workplace" Relationship="Self.FK_Workplace_Inventory" FromRole="Inventory" ToRole="Workplace" />
+          <NavigationProperty Name="WriteOff" Relationship="Self.FK_WriteOff_Inventory" FromRole="Inventory" ToRole="WriteOff" />
+        </EntityType>
+        <EntityType Name="Movements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_inventory" Type="Int32" Nullable="false" />
+          <Property Name="date_move" Type="DateTime" Precision="0" />
+          <Property Name="id_placement" Type="Int32" />
+          <Property Name="planner" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Movements_Inventory" FromRole="Movements" ToRole="Inventory" />
+          <NavigationProperty Name="Placements" Relationship="Self.FK_Movements_Placements" FromRole="Movements" ToRole="Placements" />
+        </EntityType>
+        <EntityType Name="Nomenclature">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_device" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="count_device" Type="Int32" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Inventory_Nomenclature" FromRole="Nomenclature" ToRole="Inventory" />
+        </EntityType>
+        <EntityType Name="Placements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_placement" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK_Movements_Placements" FromRole="Placements" ToRole="Movements" />
+          <NavigationProperty Name="Workplace" Relationship="Self.FK_Workplace_Placements" FromRole="Placements" ToRole="Workplace" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_role" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UnitsMeasurement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_unit" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="last_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workplace">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_inventory" Type="Int32" />
+          <Property Name="name_workplace" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="id_placement" Type="Int32" />
+          <Property Name="mol" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="device" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="employer_id" Type="Int32" />
+          <NavigationProperty Name="Employer" Relationship="Self.FK_Workplace_Employer" FromRole="Workplace" ToRole="Employer" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_Workplace_Inventory" FromRole="Workplace" ToRole="Inventory" />
+          <NavigationProperty Name="Placements" Relationship="Self.FK_Workplace_Placements" FromRole="Workplace" ToRole="Placements" />
+        </EntityType>
+        <EntityType Name="WriteOff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_inventory" Type="Int32" Nullable="false" />
+          <Property Name="count_writeoff" Type="Int32" />
+          <Property Name="reason" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_WriteOff_Inventory" FromRole="WriteOff" ToRole="Inventory" />
+        </EntityType>
+        <Association Name="FK_Inventory_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workplace_Employer">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workplace">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Nomenclature">
+          <End Role="Nomenclature" Type="Self.Nomenclature" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nomenclature">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="nomenclature_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movements_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Movements">
+              <PropertyRef Name="id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workplace_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workplace">
+              <PropertyRef Name="id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WriteOff_Inventory">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WriteOff" Type="Self.WriteOff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="WriteOff">
+              <PropertyRef Name="id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movements_Placements">
+          <End Role="Placements" Type="Self.Placements" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Movements" Type="Self.Movements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Placements">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Movements">
+              <PropertyRef Name="id_placement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workplace_Placements">
+          <End Role="Placements" Type="Self.Placements" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Workplace" Type="Self.Workplace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Placements">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Workplace">
+              <PropertyRef Name="id_placement" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventarisationDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="Self.Companies" />
+          <EntitySet Name="Employer" EntityType="Self.Employer" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
+          <EntitySet Name="Movements" EntityType="Self.Movements" />
+          <EntitySet Name="Nomenclature" EntityType="Self.Nomenclature" />
+          <EntitySet Name="Placements" EntityType="Self.Placements" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="UnitsMeasurement" EntityType="Self.UnitsMeasurement" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Workplace" EntityType="Self.Workplace" />
+          <EntitySet Name="WriteOff" EntityType="Self.WriteOff" />
+          <AssociationSet Name="FK_Inventory_Companies" Association="Self.FK_Inventory_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workplace_Employer" Association="Self.FK_Workplace_Employer">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Workplace" EntitySet="Workplace" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Nomenclature" Association="Self.FK_Inventory_Nomenclature">
+            <End Role="Nomenclature" EntitySet="Nomenclature" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movements_Inventory" Association="Self.FK_Movements_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Movements" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workplace_Inventory" Association="Self.FK_Workplace_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Workplace" EntitySet="Workplace" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WriteOff_Inventory" Association="Self.FK_WriteOff_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="WriteOff" EntitySet="WriteOff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movements_Placements" Association="Self.FK_Movements_Placements">
+            <End Role="Placements" EntitySet="Placements" />
+            <End Role="Movements" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workplace_Placements" Association="Self.FK_Workplace_Placements">
+            <End Role="Placements" EntitySet="Placements" />
+            <End Role="Workplace" EntitySet="Workplace" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище InventarisationDBModelContainer" CdmEntityContainer="InventarisationDBEntities">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Companies">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employer">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Employer">
+              <MappingFragment StoreEntitySet="Employer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nomenclature_id" ColumnName="nomenclature_id" />
+                <ScalarProperty Name="move_id" ColumnName="move_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+                <ScalarProperty Name="payment_num" ColumnName="payment_num" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="inv_num" ColumnName="inv_num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movements">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Movements">
+              <MappingFragment StoreEntitySet="Movements">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_inventory" ColumnName="id_inventory" />
+                <ScalarProperty Name="date_move" ColumnName="date_move" />
+                <ScalarProperty Name="id_placement" ColumnName="id_placement" />
+                <ScalarProperty Name="planner" ColumnName="planner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nomenclature">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Nomenclature">
+              <MappingFragment StoreEntitySet="Nomenclature">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_device" ColumnName="name_device" />
+                <ScalarProperty Name="count_device" ColumnName="count_device" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Placements">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Placements">
+              <MappingFragment StoreEntitySet="Placements">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_placement" ColumnName="name_placement" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_role" ColumnName="name_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="InventarisationDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitsMeasurement">
+            <EntityTypeMapping TypeName="InventarisationDBModel.UnitsMeasurement">
+              <MappingFragment StoreEntitySet="UnitsMeasurement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_unit" ColumnName="name_unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workplace">
+            <EntityTypeMapping TypeName="InventarisationDBModel.Workplace">
+              <MappingFragment StoreEntitySet="Workplace">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_inventory" ColumnName="id_inventory" />
+                <ScalarProperty Name="name_workplace" ColumnName="name_workplace" />
+                <ScalarProperty Name="id_placement" ColumnName="id_placement" />
+                <ScalarProperty Name="mol" ColumnName="mol" />
+                <ScalarProperty Name="device" ColumnName="device" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WriteOff">
+            <EntityTypeMapping TypeName="InventarisationDBModel.WriteOff">
+              <MappingFragment StoreEntitySet="WriteOff">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_inventory" ColumnName="id_inventory" />
+                <ScalarProperty Name="count_writeoff" ColumnName="count_writeoff" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
