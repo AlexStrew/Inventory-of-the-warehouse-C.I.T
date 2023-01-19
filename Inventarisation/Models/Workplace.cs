@@ -19,11 +19,12 @@ namespace Inventarisation.Models
         public string name_workplace { get; set; }
         public Nullable<int> id_placement { get; set; }
         public string mol { get; set; }
-        public string device { get; set; }
+        public Nullable<int> device_id { get; set; }
         public Nullable<int> employer_id { get; set; }
     
         public virtual Employer Employer { get; set; }
         public virtual Inventory Inventory { get; set; }
+        public virtual Nomenclature Nomenclature { get; set; }
         public virtual Placements Placements { get; set; }
     }
 }

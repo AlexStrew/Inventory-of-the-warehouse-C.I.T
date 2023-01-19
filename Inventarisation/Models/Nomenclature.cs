@@ -18,6 +18,7 @@ namespace Inventarisation.Models
         public Nomenclature()
         {
             this.Inventory = new HashSet<Inventory>();
+            this.Workplace = new HashSet<Workplace>();
         }
     
         public int id { get; set; }
@@ -26,5 +27,7 @@ namespace Inventarisation.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventory> Inventory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Workplace> Workplace { get; set; }
     }
 }

@@ -31,7 +31,6 @@ namespace Inventarisation.Models
         public virtual DbSet<Movements> Movements { get; set; }
         public virtual DbSet<Nomenclature> Nomenclature { get; set; }
         public virtual DbSet<Placements> Placements { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UnitsMeasurement> UnitsMeasurement { get; set; }
         public virtual DbSet<Users> Users { get; set; }

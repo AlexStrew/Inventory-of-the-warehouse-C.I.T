@@ -68,6 +68,7 @@
     <Compile Include="Models\Companies.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Core.cs" />
     <Compile Include="Models\Employer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -96,9 +97,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Placements.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Roles.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
