@@ -28,14 +28,19 @@ namespace Inventarisation.Pages
         public MainPage()
         {
             InitializeComponent();
-
             invList = db.context.Inventory.ToList();
-            InventoryListView.ItemsSource = invList;
+            
+            InventoryDataGrid.ItemsSource = invList;
+           
+
+
+            //InventoryListView.ItemsSource = invList;
+
         }
 
-        private void InventoryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void InventoryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-        }
+        //}
     }
 }
