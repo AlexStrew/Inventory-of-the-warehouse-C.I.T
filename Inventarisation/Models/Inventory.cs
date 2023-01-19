@@ -18,24 +18,24 @@ namespace Inventarisation.Models
         public Inventory()
         {
             this.Movements = new HashSet<Movements>();
-            this.Workplace = new HashSet<Workplace>();
             this.WriteOff = new HashSet<WriteOff>();
         }
     
         public int id { get; set; }
+        public string inv_num { get; set; }
         public Nullable<int> nomenclature_id { get; set; }
         public Nullable<int> move_id { get; set; }
         public Nullable<int> company_id { get; set; }
         public Nullable<int> payment_num { get; set; }
         public string comment { get; set; }
-        public string inv_num { get; set; }
+        public string invoice { get; set; }
+        public Nullable<int> workplace_id { get; set; }
     
         public virtual Companies Companies { get; set; }
         public virtual Nomenclature Nomenclature { get; set; }
+        public virtual Workplace Workplace { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movements> Movements { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Workplace> Workplace { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WriteOff> WriteOff { get; set; }
     }

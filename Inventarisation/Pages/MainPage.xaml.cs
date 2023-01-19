@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventarisation.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,19 @@ namespace Inventarisation.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+
+        Core db = new Core();
+        List<Inventory> invList;
+
         public MainPage()
         {
             InitializeComponent();
+
+            invList = db.context.Inventory.ToList();
+            InventoryListView.ItemsSource = invList;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private void InventoryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

@@ -14,7 +14,7 @@ namespace Inventarisation.Models
     
     public partial class Movements
     {
-        public int id { get; set; }
+        public int id_movement { get; set; }
         public int id_inventory { get; set; }
         public Nullable<System.DateTime> date_move { get; set; }
         public Nullable<int> id_placement { get; set; }

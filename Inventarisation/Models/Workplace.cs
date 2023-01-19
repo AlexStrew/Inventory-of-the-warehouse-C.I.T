@@ -14,7 +14,13 @@ namespace Inventarisation.Models
     
     public partial class Workplace
     {
-        public int id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Workplace()
+        {
+            this.Inventory = new HashSet<Inventory>();
+        }
+    
+        public int id_workplace { get; set; }
         public Nullable<int> id_inventory { get; set; }
         public string name_workplace { get; set; }
         public Nullable<int> id_placement { get; set; }
@@ -23,7 +29,8 @@ namespace Inventarisation.Models
         public Nullable<int> employer_id { get; set; }
     
         public virtual Employer Employer { get; set; }
-        public virtual Inventory Inventory { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Inventory> Inventory { get; set; }
         public virtual Nomenclature Nomenclature { get; set; }
         public virtual Placements Placements { get; set; }
     }

@@ -21,7 +21,7 @@ namespace Inventarisation.Models
             this.Workplace = new HashSet<Workplace>();
         }
     
-        public int id { get; set; }
+        public int id_placement { get; set; }
         public string name_placement { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

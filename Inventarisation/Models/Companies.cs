@@ -20,7 +20,7 @@ namespace Inventarisation.Models
             this.Inventory = new HashSet<Inventory>();
         }
     
-        public int id { get; set; }
+        public int id_company { get; set; }
         public string company_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

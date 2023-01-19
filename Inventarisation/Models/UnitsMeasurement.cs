@@ -14,7 +14,7 @@ namespace Inventarisation.Models
     
     public partial class UnitsMeasurement
     {
-        public int id { get; set; }
+        public int id_measure { get; set; }
         public string name_unit { get; set; }
     }
 }

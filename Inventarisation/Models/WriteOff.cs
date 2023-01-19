@@ -14,7 +14,7 @@ namespace Inventarisation.Models
     
     public partial class WriteOff
     {
-        public int id { get; set; }
+        public int id_writeoff { get; set; }
         public int id_inventory { get; set; }
         public Nullable<int> count_writeoff { get; set; }
         public string reason { get; set; }

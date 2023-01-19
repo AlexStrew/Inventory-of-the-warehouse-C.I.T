@@ -23,18 +23,38 @@
         <!--сверху основные кнопки-->
         <Grid Grid.Row="1">
             <ScrollViewer >
-                <DataGrid>
+                <ListView  x:Name="InventoryListView" 
+                  HorizontalAlignment="Stretch"
+                  SelectionMode="Single"
+                  SelectionChanged="InventoryListView_SelectionChanged">
+
+                    <ListView.View>
+                        <GridView >
+                            <GridViewColumn Width="100" Header="Инв. №" DisplayMemberBinding="{Binding inv_num}"/>
+                            <GridViewColumn Width="100" Header="Наименование" DisplayMemberBinding="{Binding nomenclature_id}"/>
+                            <GridViewColumn Width="80" Header="Привязка" DisplayMemberBinding="{Binding workplace_id}"/>
+                            <GridViewColumn Width="80" Header="Движение" DisplayMemberBinding="{Binding move_id}"/>
+                            <GridViewColumn Width="80" Header="Организация" DisplayMemberBinding="{Binding company_id}"/>
+                            <GridViewColumn Width="80" Header="Номер заявки" DisplayMemberBinding="{Binding payment_num}"/>
+                            <GridViewColumn Width="80" Header="Комментарии" DisplayMemberBinding="{Binding comment}"/>
+                            <GridViewColumn Width="80" Header="Накладная" DisplayMemberBinding="{Binding invoice}"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <!--<DataGrid x:Name="InventoryDataGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Инв. №" Width="*" Binding=""/>
-                        <DataGridTextColumn Header="Наименование" Width="*"/>
-                        <DataGridTextColumn Header="Привязка" Width="*"/>
+                        <DataGridTextColumn Header="Инв. №" Width="*"/>
+                        <DataGridTextColumn Header="Наименование" Width="*" />
+                        <DataGridTextColumn Header="Привязка" Width="*" />
                         <DataGridTextColumn Header="Движение" Width="*"/>
-                        <DataGridTextColumn Header="Организация" Width="*"/>
-                        <DataGridTextColumn Header="Номер заявки на оплату" Width="*"/>
-                        <DataGridTextColumn Header="Комментарии" Width="*"/>
-                        <DataGridTextColumn Header="Накладная" Width="*"/>
+                        <DataGridTextColumn Header="Организация" Width="*" />
+                        <DataGridTextColumn Header="Номер заявки на оплату" Width="*" />
+                        <DataGridTextColumn Header="Комментарии" Width="*" />
+                        <DataGridTextColumn Header="Накладная" Width="*" />
                     </DataGrid.Columns>
-                </DataGrid>
+                </DataGrid>-->
             </ScrollViewer>
         </Grid>
     </Grid>

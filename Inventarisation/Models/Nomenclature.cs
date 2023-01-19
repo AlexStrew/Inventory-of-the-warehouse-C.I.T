@@ -21,7 +21,7 @@ namespace Inventarisation.Models
             this.Workplace = new HashSet<Workplace>();
         }
     
-        public int id { get; set; }
+        public int id_nomenclature { get; set; }
         public string name_device { get; set; }
         public Nullable<int> count_device { get; set; }
     
