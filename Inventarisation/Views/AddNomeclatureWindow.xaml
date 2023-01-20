@@ -1,0 +1,22 @@
+﻿<Window x:Class="Inventarisation.Views.AddNomeclatureWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventarisation.Views"
+        mc:Ignorable="d"
+        Title="" Height="150" Width="400">
+    <Grid Background="#cafcca">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="16" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 30">Название устройства</TextBlock>
+        <TextBox VerticalAlignment="Bottom" Width="auto" Margin="10 0 10 0"></TextBox>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Right" Height="40" VerticalAlignment="Bottom">
+            <Button Width="100" Margin="0 0 5 5">Добавить</Button>
+        </Grid>
+
+    </Grid>
+</Window>
