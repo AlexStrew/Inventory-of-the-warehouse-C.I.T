@@ -30,12 +30,9 @@ namespace Inventarisation.Pages
             InitializeComponent();
 
             invList = db.context.Inventory.ToList();
-            InventoryListView.ItemsSource = invList;
+            InventoryDataGrid.ItemsSource = invList;
         }
 
-        private void InventoryListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
     }
 }
