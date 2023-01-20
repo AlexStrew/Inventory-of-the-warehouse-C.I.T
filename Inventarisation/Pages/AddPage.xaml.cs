@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Inventarisation.Views
+namespace Inventarisation.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddWindow.xaml
+    /// Логика взаимодействия для AddPage.xaml
     /// </summary>
-    public partial class AddWindow : Window
+    public partial class AddPage : Page
     {
-        public AddWindow()
-
+        public AddPage()
         {
-            
             InitializeComponent();
         }
     }
