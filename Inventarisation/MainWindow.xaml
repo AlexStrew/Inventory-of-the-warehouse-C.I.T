@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventarisation"
         xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:control="http://filterdatagrid.control.com/2021"
         mc:Ignorable="d"
         >
 

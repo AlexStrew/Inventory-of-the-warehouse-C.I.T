@@ -58,7 +58,10 @@ namespace Inventarisation.Pages
 
         private void SearchTBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource).Refresh();
+            //CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource).Refresh();
+
+            
+
         }
     }
 }
