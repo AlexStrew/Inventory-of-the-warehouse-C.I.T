@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventarisation"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         >
 
@@ -26,8 +27,7 @@
                 <TextBox x:Name="SearchTBox" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="1">
-                <TextBlock Text="Фильтр" VerticalAlignment="Center"></TextBlock>
-                <ComboBox Margin="5 0 0 0" MinWidth="250"></ComboBox>
+                
             </StackPanel>
             <Button x:Name="NomenclatureBtn" Grid.Column="4" Margin="5 0 5 0">Справочник</Button>
             <Button x:Name="WriteOffBtn" Grid.Column="5" Margin="5 0 5 0">Списание</Button>

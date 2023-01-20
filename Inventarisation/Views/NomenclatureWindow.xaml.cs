@@ -29,5 +29,10 @@ namespace Inventarisation.Views
             nomList = db.context.Nomenclature.ToList();
             NomenclatureDG.ItemsSource = nomList;
         }
+
+        public static implicit operator NomenclatureWindow(AddWindow v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

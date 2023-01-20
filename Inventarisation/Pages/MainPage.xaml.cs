@@ -1,4 +1,5 @@
 ﻿using Inventarisation.Models;
+using Inventarisation.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,15 @@ namespace Inventarisation.Pages
             InventoryDataGrid.ItemsSource = invList;
         }
 
-
+        private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
+        {
+            AddWindow win = new AddWindow();
+            if (win.ShowDialog() == true)
+            {
+                //TestText.Text = Properties.Settings.Default.MKBCode;
+                //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
+                Console.WriteLine("sdsd");
+            }
+        }
     }
 }
