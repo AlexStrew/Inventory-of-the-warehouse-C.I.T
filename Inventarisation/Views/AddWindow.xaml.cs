@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Inventarisation.Views
         public AddWindow()
         {
             InitializeComponent();
+            ConfigHelper.Instance.SetLang("ru-ru");
         }
 
         private void SelectNumButton_Click(object sender, RoutedEventArgs e)

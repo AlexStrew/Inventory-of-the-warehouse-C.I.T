@@ -16,12 +16,12 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30">
-
-            <ComboBox ItemsSource="{Binding Companies.company_name}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="Фильтр" Style="{StaticResource ComboBoxExtend}"/>
+            <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
+            <TextBox x:Name="SearchTBox" TextChanged="SearchTBox_TextChanged" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Companies}" Margin="5 0 0 0" Width="380" hc:InfoElement.TitleWidth="50" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="Фильтр"  Style="{StaticResource ComboBoxExtend}"/>
             <Button x:Name="AddButtonWindows" Click="AddButtonWindows_Click"  HorizontalAlignment="Right" Content="Добавить" Padding="10 0 10 0" Margin="0 0 10 0" ></Button>
             <Button HorizontalAlignment="Right" Content="Удалить" Padding="10 0 10 0" Margin="10 0 15 0"></Button>
         </StackPanel>
-        
 
         <!--сверху основные кнопки-->
         <Grid Grid.Row="1">
@@ -29,7 +29,6 @@
                 <DataGrid x:Name="InventoryDataGrid" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" SelectionMode="Single">
 
                     <DataGrid.Columns>
-
                         <DataGridTextColumn Header="Инв. №" Width="*" x:Name="InvNumDGTBox" Binding="{Binding inv_num}"/>
                         <DataGridTextColumn Header="Наименование" Width="*" x:Name="NameInvDGTBox" Binding="{Binding Nomenclature.name_device}"/>
                         <DataGridTextColumn Header="Привязка" Width="*" x:Name="WorkPlaceDGTBox" Binding="{Binding Workplace.name_workplace}"/>
@@ -40,8 +39,6 @@
                         <DataGridTextColumn Header="Накладная" Width="*" Binding="{Binding invoice}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-
-               
             </ScrollViewer>
         </Grid>
     </Grid>

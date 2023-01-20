@@ -32,6 +32,17 @@ namespace Inventarisation.Pages
 
             invList = db.context.Inventory.ToList();
             InventoryDataGrid.ItemsSource = invList;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource);
+            view.Filter = UserFilter;
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchTBox.Text))
+                return true;
+            else
+                return ((item as Inventory).inv_num.IndexOf(SearchTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
@@ -43,6 +54,11 @@ namespace Inventarisation.Pages
                 //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
                 Console.WriteLine("sdsd");
             }
+        }
+
+        private void SearchTBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource).Refresh();
         }
     }
 }

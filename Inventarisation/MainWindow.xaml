@@ -15,22 +15,14 @@
         </Grid.RowDefinitions>
         <Grid x:Name="Header" Height="30" Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="7  *"/>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
-                <TextBox x:Name="SearchTBox" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
-            </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="1">
-                
+                <Button x:Name="NomenclatureBtn" Grid.Column="1" Margin="0 0 5 0">Справочник</Button>
+                <Button x:Name="WriteOffBtn" Grid.Column="1" Margin="5 0 0 0">Списание</Button>
             </StackPanel>
-            <Button x:Name="NomenclatureBtn" Grid.Column="4" Margin="5 0 5 0">Справочник</Button>
-            <Button x:Name="WriteOffBtn" Grid.Column="5" Margin="5 0 5 0">Списание</Button>
+            
         </Grid>
         <Frame x:Name="MainFrame" Grid.Row="1"></Frame>
     </Grid>
