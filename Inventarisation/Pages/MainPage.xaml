@@ -45,9 +45,9 @@
 
                 <!--<DataGrid x:Name="InventoryDataGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Инв. №" Width="*" />
-                        <DataGridTextColumn Header="Наименование" Width="*"/>
-                        <DataGridTextColumn Header="Привязка" Width="*"/>
+                        <DataGridTextColumn Header="Инв. №" Width="*"/>
+                        <DataGridTextColumn Header="Наименование" Width="*" />
+                        <DataGridTextColumn Header="Привязка" Width="*" />
                         <DataGridTextColumn Header="Движение" Width="*"/>
                         <DataGridTextColumn Header="Организация" Width="*" />
                         <DataGridTextColumn Header="Номер заявки на оплату" Width="*" />
