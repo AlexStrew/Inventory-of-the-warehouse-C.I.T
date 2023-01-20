@@ -134,6 +134,9 @@
     <Compile Include="Views\AddInventoryModalWindow.xaml.cs">
       <DependentUpon>AddInventoryModalWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddWindow.xaml.cs">
+      <DependentUpon>AddWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MovementModalWindow.xaml.cs">
       <DependentUpon>MovementModalWindow.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddInventoryModalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
