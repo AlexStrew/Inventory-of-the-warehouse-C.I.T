@@ -140,6 +140,9 @@
     <Compile Include="Views\MovementModalWindow.xaml.cs">
       <DependentUpon>MovementModalWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NomenclatureWindow.xaml.cs">
+      <DependentUpon>NomenclatureWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MovementModalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NomenclatureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
