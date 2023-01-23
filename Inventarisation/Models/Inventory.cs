@@ -18,6 +18,7 @@ namespace Inventarisation.Models
         public Inventory()
         {
             this.Movements = new HashSet<Movements>();
+            this.Workplace = new HashSet<Workplace>();
             this.WriteOff = new HashSet<WriteOff>();
         }
     
@@ -35,6 +36,8 @@ namespace Inventarisation.Models
         public virtual Nomenclature Nomenclature { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movements> Movements { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Workplace> Workplace { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WriteOff> WriteOff { get; set; }
     }

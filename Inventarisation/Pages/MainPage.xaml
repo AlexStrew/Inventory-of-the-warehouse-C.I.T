@@ -43,15 +43,13 @@
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn HeaderText="Инв. №"  x:Name="InvNumDGTBox" MappingName="inv_num"/>
                 <syncfusion:GridTextColumn HeaderText="Наименование"  x:Name="NameInvDGTBox" MappingName="Nomenclature.name_device"/>
-                <syncfusion:GridTextColumn HeaderText="Привязка"  x:Name="WorkPlaceDGTBox" MappingName="Workplace.name_workplace"/>
+                <syncfusion:GridTextColumn HeaderText="Привязка" x:Name="WorkPlaceDGTBox" MappingName="Workplace.name_workplace"/>
                 <!--<syncfusion:GridDateTimeColumn HeaderText="Движение" MappingName="Movements.date_move"/>-->
                 <syncfusion:GridTextColumn HeaderText="Организация"  x:Name="CompanyDGTBox" MappingName="Companies.company_name"/>
                 <syncfusion:GridTextColumn HeaderText="Номер заявки на оплату"  MappingName="payment_num"/>
                 <syncfusion:GridTextColumn  HeaderText="Комментарии" MappingName="comment" Width="110" />
                 <syncfusion:GridTextColumn HeaderText="Накладная"  MappingName="invoice"/>
             </syncfusion:SfDataGrid.Columns>
-
-
 
             <syncfusion:SfDataGrid.TableSummaryRows>
                 <syncfusion:GridTableSummaryRow ShowSummaryInRow="False">
@@ -64,14 +62,15 @@
                 </syncfusion:GridTableSummaryRow>
             </syncfusion:SfDataGrid.TableSummaryRows>
         </syncfusion:SfDataGrid>
-        
-        
-        
-        <syncfusion:SfDataPager x:Name="dataPager"
-                Grid.Row="2"
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <syncfusion:SfDataPager x:Name="dataPager"             
                 PageSize="30"
                 Source="{Binding Inventory}"/>
-        <Button x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Export" Grid.Row="2" Width="50" Margin="5"/>
+            <Button x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Экспорт в Excel" Grid.Row="2" Width="Auto" Padding="5" Margin="5"/>
+            <Button x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
+        </StackPanel>
+        
 
 
     </Grid>

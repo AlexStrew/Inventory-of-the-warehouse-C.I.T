@@ -2,6 +2,7 @@
 
 using Inventarisation.Views;
 using Microsoft.Win32;
+using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.XlsIO;
 using System;
@@ -112,6 +113,13 @@ namespace Inventarisation.Pages
                     System.Diagnostics.Process.Start(sfd.FileName);
                 }
             }
+        }
+
+        private void GoPrint_Click(object sender, RoutedEventArgs e)
+        {
+
+            sfDataGrid.PrintSettings.AllowRepeatHeaders = false;
+            sfDataGrid.ShowPrintPreview();
         }
     }
 }

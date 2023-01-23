@@ -23,6 +23,7 @@ namespace Inventarisation.Models
         public Nullable<int> employer_id { get; set; }
     
         public virtual Employer Employer { get; set; }
+        public virtual Inventory Inventory { get; set; }
         public virtual Nomenclature Nomenclature { get; set; }
         public virtual Placements Placements { get; set; }
     }
