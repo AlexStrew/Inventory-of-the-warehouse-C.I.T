@@ -25,7 +25,7 @@ namespace Inventarisation.Views
         public NomenclatureWindow()
         {
             InitializeComponent();
-
+            
             nomList = db.context.Nomenclature.ToList();
             NomenclatureDG.ItemsSource = nomList;
         }
@@ -33,6 +33,30 @@ namespace Inventarisation.Views
         public static implicit operator NomenclatureWindow(AddWindow v)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Открытие окна добавления устройства в справочник
+        /// </summary>
+        private void AddNomWinBtnClick(object sender, RoutedEventArgs e)
+        {
+            //Close();
+            AddNomeclatureWindow addWinNom = new AddNomeclatureWindow();
+            if (addWinNom.ShowDialog() == true)
+            {
+                Console.WriteLine("hehe");
+                
+            }
+           
+            
+           
+            
+        }
+
+        private void RefreshWinBtnClick(object sender, RoutedEventArgs e)
+        {
+            nomList = db.context.Nomenclature.ToList();
+            NomenclatureDG.ItemsSource = nomList;
         }
     }
 }

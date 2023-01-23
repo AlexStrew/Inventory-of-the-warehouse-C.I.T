@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Inventarisation.Models;
+using Inventarisation.Pages;
+using Inventarisation.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,43 @@ namespace Inventarisation.Views
     /// </summary>
     public partial class AddNomeclatureWindow : Window
     {
+        Core db = new Core();
+        List<Nomenclature> listNomenclature;
         public AddNomeclatureWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Добавление устройства в справочник
+        /// </summary>
+        private void AddNomenBtnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string nameDevice = NameDeviceTBox.Text;
+                NomenclatureVM newObject = new NomenclatureVM();
+                bool result = newObject.CheckAddNomenclature(nameDevice);
+                if (result)
+                {
+                    newObject.AddNomenclature(nameDevice);
+                    MessageBox.Show("Вы успешно добавили устройство в справочник.\nНе забудьте обновить страницу.");
+                    Close();
+                    //NomenclatureWindow winNom = new NomenclatureWindow();
+                    //if (winNom.ShowDialog() == true)
+                    //{
+                    //    Console.WriteLine("hehe");
+                       
+                    //}
+                    
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

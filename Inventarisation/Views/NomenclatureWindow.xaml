@@ -12,15 +12,19 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <Grid Height="40">
-            <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0">Добавить</Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="AddNomWinBtn" Click="AddNomWinBtnClick">Добавить</Button>
+                <Button Background="Transparent" BorderBrush="Transparent" Width="35" VerticalAlignment="Center" Height="35" Margin="5" x:Name="RefreshWinBtn" FontSize="24" Click="RefreshWinBtnClick">🔄</Button>
+            </StackPanel>
+            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
                 <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
                 <TextBox x:Name="SearchTBox" Height="30" MinWidth="250" Margin="5 0 0 0" BorderThickness="0.3" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Grid>
-        <DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" SelectionMode="Single">
+        <DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="NameNomenclatureTC" Binding="{Binding NameDevice}"></DataGridTextColumn>
+                <DataGridTextColumn MinWidth="800" x:Name="NameNomenclatureTC" Binding="{Binding name_device}" Header="Название"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

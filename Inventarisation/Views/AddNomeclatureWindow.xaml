@@ -12,10 +12,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="16" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 30">Название устройства</TextBlock>
-        <TextBox VerticalAlignment="Bottom" Width="auto" Margin="10 0 10 0"></TextBox>
+        <TextBox x:Name="NameDeviceTBox" VerticalAlignment="Bottom" Width="auto" Margin="10 0 10 0"></TextBox>
 
         <Grid Grid.Row="1" HorizontalAlignment="Right" Height="40" VerticalAlignment="Bottom">
-            <Button Width="100" Margin="0 0 5 5">Добавить</Button>
+            <Button Width="100" Margin="0 0 5 5" x:Name="AddNomenBtn" Click="AddNomenBtnClick">Добавить</Button>
         </Grid>
 
     </Grid>

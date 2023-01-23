@@ -142,6 +142,7 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\NomenclatureVM.cs" />
     <Compile Include="Views\AddNomeclatureWindow.xaml.cs">
       <DependentUpon>AddNomeclatureWindow.xaml</DependentUpon>
     </Compile>
@@ -225,9 +226,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
