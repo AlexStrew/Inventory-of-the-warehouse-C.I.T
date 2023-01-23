@@ -1,4 +1,5 @@
 ﻿using Inventarisation.Models;
+using Syncfusion.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,19 @@ namespace Inventarisation.Views
         {
             InitializeComponent();
             
-            nomList = db.context.Nomenclature.ToList();
+            nomList = db.context.Nomenclature.OrderBy(x=>x.name_device).ToList();
             NomenclatureDG.ItemsSource = nomList;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource);
+            view.Filter = UserFilter;
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchNomenclatureTBox.Text))
+                return true;
+            else
+                return ((item as Nomenclature).name_device.IndexOf(SearchNomenclatureTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         public static implicit operator NomenclatureWindow(AddWindow v)
@@ -57,6 +69,13 @@ namespace Inventarisation.Views
         {
             nomList = db.context.Nomenclature.ToList();
             NomenclatureDG.ItemsSource = nomList;
+        }
+
+
+        private void SearchNomenclatureTBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource).Refresh();
         }
     }
 }

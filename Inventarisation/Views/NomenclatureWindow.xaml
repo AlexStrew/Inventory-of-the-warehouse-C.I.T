@@ -19,7 +19,7 @@
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
                 <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
-                <TextBox x:Name="SearchTBox" Height="30" MinWidth="250" Margin="5 0 0 0" BorderThickness="0.3" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="SearchNomenclatureTBox" TextChanged="SearchNomenclatureTBoxTextChanged" Height="30" MinWidth="250" Margin="5 0 0 0" BorderThickness="0.3" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Grid>
         <DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionMode="Single">
