@@ -4,13 +4,20 @@
              xmlns:local="clr-namespace:Inventarisation"
              StartupUri="MainWindow.xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:control="http://filterdatagrid.control.com/2021">
+          
+            >
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
+            <!--<ResourceDictionary.MergedDictionaries>
+                --><!--<ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>--><!--
+                
+            </ResourceDictionary.MergedDictionaries>-->
+
+
+            
+
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

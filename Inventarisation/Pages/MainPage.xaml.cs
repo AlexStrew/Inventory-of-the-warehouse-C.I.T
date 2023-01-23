@@ -1,8 +1,11 @@
 ﻿using Inventarisation.Models;
+
 using Inventarisation.Views;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Inventarisation.Pages
 {
     /// <summary>
@@ -30,20 +32,22 @@ namespace Inventarisation.Pages
         {
             InitializeComponent();
 
+
+
             invList = db.context.Inventory.ToList();
-            InventoryDataGrid.ItemsSource = invList;
+            sfDataGrid.ItemsSource = invList;
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource);
-            view.Filter = UserFilter;
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource);
+            //view.Filter = UserFilter;
         }
 
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(SearchTBox.Text))
-                return true;
-            else
-                return ((item as Inventory).inv_num.IndexOf(SearchTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
+        //private bool UserFilter(object item)
+        //{
+        //    //if (String.IsNullOrEmpty(SearchTBox.Text))
+        //    //    return true;
+        //    //else
+        //    //    return ((item as Inventory).inv_num.IndexOf(SearchTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        //}
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
         {
