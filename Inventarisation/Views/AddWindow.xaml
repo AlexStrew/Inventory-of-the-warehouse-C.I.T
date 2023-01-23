@@ -30,7 +30,7 @@
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Width="auto" Margin="0 35 5 0">
-                    <ComboBox Width="auto"></ComboBox>
+                    <ComboBox x:Name="CompanyNameCB" Width="auto"></ComboBox>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Width="auto" Margin="0 65 5 0">
                     <TextBox Width="auto" ></TextBox>

@@ -1,4 +1,5 @@
 ﻿using HandyControl.Tools;
+using Inventarisation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,20 @@ namespace Inventarisation.Views
     /// </summary>
     public partial class AddWindow : Window
     {
+        Core db = new Core();
+        List<Companies> listCompanies;
         public AddWindow()
         {
             InitializeComponent();
             ConfigHelper.Instance.SetLang("ru-ru");
+            
+
+            listCompanies = db.context.Companies.ToList();
+            CompanyNameCB.ItemsSource = listCompanies;
+            CompanyNameCB.DisplayMemberPath = "company_name";
+            CompanyNameCB.SelectedValuePath = "id_company";
+
+
         }
 
         private void SelectNumButton_Click(object sender, RoutedEventArgs e)
