@@ -10,17 +10,10 @@
 namespace Inventarisation.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Movements
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int id_movement { get; set; }
-        public int id_inventory { get; set; }
-        public Nullable<System.DateTime> date_move { get; set; }
-        public Nullable<int> placement_id { get; set; }
-        public string planner { get; set; }
-    
-        public virtual Inventory Inventory { get; set; }
-        public virtual Placements Placements { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

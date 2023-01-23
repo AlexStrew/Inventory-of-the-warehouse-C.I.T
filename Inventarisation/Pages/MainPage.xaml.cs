@@ -1,7 +1,7 @@
 ﻿using Inventarisation.Models;
 
 using Inventarisation.Views;
-
+using Syncfusion.UI.Xaml.Grid.Converter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace Inventarisation.Pages
         public MainPage()
         {
             InitializeComponent();
-
+            
 
 
             invList = db.context.Inventory.ToList();
@@ -64,8 +64,20 @@ namespace Inventarisation.Pages
         {
             //CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource).Refresh();
 
-            
+            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+            this.sfDataGrid.SearchHelper.AllowFiltering = true;
+            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
 
+        }
+
+        private void SaveToExcel_Click(object sender, RoutedEventArgs e)
+        {
+            var options = new ExcelExportingOptions();
+            options.ExportAllPages = true;
+            options.ExportPageOptions = ExportPageOptions.ExportToDifferentSheets;
+            var excelEngine = sfDataGrid.ExportToExcel(sfDataGrid.View, options);
+            var workBook = excelEngine.Excel.Workbooks[0];
+            workBook.SaveAs("Sample.xlsx");
         }
     }
 }

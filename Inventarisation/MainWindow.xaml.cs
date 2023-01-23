@@ -13,8 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignColors;
+using MaterialDesignThemes.Wpf;
+using System.Text.RegularExpressions;
+using Syncfusion.Windows.Shared;
 
 namespace Inventarisation
+
+
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -24,6 +30,8 @@ namespace Inventarisation
         public MainWindow()
         {
             InitializeComponent();
+
+           
             MainFrame.Navigate(new MainPage());
 
         }
@@ -37,5 +45,16 @@ namespace Inventarisation
         {
 
         }
+
+        private void NomenclatureBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private  void WriteOffBtn_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+      
     }
 }

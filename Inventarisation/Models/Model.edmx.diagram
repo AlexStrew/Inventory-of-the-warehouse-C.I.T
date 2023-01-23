@@ -4,27 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eb8cb351d4e74e53ba014f556402ba61" Name="Diagram1">
-        <EntityTypeShape EntityType="InventarisationDBModel.Companies" Width="1.5" PointX="6" PointY="8.5" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Employer" Width="1.5" PointX="3.75" PointY="1.25" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Inventory" Width="1.5" PointX="8.25" PointY="3.375" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Movements" Width="1.5" PointX="3" PointY="4.125" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Nomenclature" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Placements" Width="1.5" PointX="0.75" PointY="4.375" />
-        <EntityTypeShape EntityType="InventarisationDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.5" />
-        <EntityTypeShape EntityType="InventarisationDBModel.UnitsMeasurement" Width="1.5" PointX="0.75" PointY="1.5" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Users" Width="1.5" PointX="2.75" PointY="7.5" />
-        <EntityTypeShape EntityType="InventarisationDBModel.Workplace" Width="1.5" PointX="6" PointY="3.75" />
-        <EntityTypeShape EntityType="InventarisationDBModel.WriteOff" Width="1.5" PointX="10.5" PointY="4.25" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Companies" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Employer" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Nomenclature" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Workplace" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Movements_Inventory" />
-        <AssociationConnector Association="InventarisationDBModel.FK_WriteOff_Inventory" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Movements_Placements" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Nomenclature" />
-        <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Placements" />
+      <Diagram DiagramId="7ef50d06c4f64762934451483f316a34" Name="Diagram1">
+        <EntityTypeShape EntityType="InventarisationDBModel.Companies" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Employer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Inventory" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Movements" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Nomenclature" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Placements" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.UnitsMeasurement" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Users" Width="1.5" PointX="8.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.Workplace" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarisationDBModel.WriteOff" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Employer" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Inventory_Nomenclature" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Movements_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_WriteOff_Inventory" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Movements_Placements1" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Nomenclature" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarisationDBModel.FK_Workplace_Placements" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

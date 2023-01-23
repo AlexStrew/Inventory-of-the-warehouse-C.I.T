@@ -33,7 +33,6 @@ namespace Inventarisation.Models
     
         public virtual Companies Companies { get; set; }
         public virtual Nomenclature Nomenclature { get; set; }
-        public virtual Workplace Workplace { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movements> Movements { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
