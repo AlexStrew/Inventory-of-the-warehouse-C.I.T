@@ -71,7 +71,7 @@
                 Grid.Row="2"
                 PageSize="30"
                 Source="{Binding Inventory}"/>
-        <Button x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Export"/>
+        <Button x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Export" Grid.Row="2" Width="50" Margin="5"/>
 
 
     </Grid>
