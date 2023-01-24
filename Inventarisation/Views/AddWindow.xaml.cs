@@ -37,7 +37,10 @@ namespace Inventarisation.Views
 
         }
 
-        private void SelectNumButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Открытие окна с нуменклатурой
+        /// </summary>
+        private void SelectNumButtonClick(object sender, RoutedEventArgs e)
         {
             NomenclatureWindow win = new NomenclatureWindow();
             if (win.ShowDialog() == true)

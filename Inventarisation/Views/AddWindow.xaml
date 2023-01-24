@@ -5,88 +5,100 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventarisation.Views"
         mc:Ignorable="d"
-        Title="AddWindow" Height="600" Width="1000">
+        Title="AddWindow" Height="300" Width="1000">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="24"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Left" Margin="5 5 0 0">Наименование</TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="5 35 0 0">Организация</TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="5 65 0 0">Номер заявки на оплату</TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="5 95 0 0">Комментарии</TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="5 125 0 0">Накладная</TextBlock>
-            <Grid Grid.Column="1">
-                
-                <StackPanel Grid.Column="1" Width="auto" Margin="0  5 5 0">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Width="280" Margin="0 0 5 0" ></TextBox>
-                        <Button x:Name="SelectNumButton" Click="SelectNumButton_Click" Width="50">...</Button>
+        <Border Height="185" Margin="5 5 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Padding="0.5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="5 7 0 0">Наименование</TextBlock>
+                <TextBlock Margin="5 40 0 0">Организация</TextBlock>
+                <TextBlock Margin="5 73 0 0">Номер заявки на оплату</TextBlock>
+                <TextBlock Margin="5 106 0 0">Комментарии</TextBlock>
+                <TextBlock Margin="5 140 0 0">Накладная</TextBlock>
+                <StackPanel Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" Width="auto" Margin="0 5 0 0">
+                        <TextBox x:Name="NameDeviceTB" MinWidth="285" Width="auto"></TextBox>
+                        <Button x:Name="SelectNumButton" Click="SelectNumButtonClick" Width="30">...</Button>
                     </StackPanel>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Width="auto" Margin="0 35 5 0">
-                    <ComboBox x:Name="CompanyNameCB" Width="auto"></ComboBox>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Width="auto" Margin="0 65 5 0">
-                    <TextBox Width="auto" ></TextBox>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Width="auto" Margin="0 95 5 0">
-                    <TextBox Width="auto" ></TextBox>
-                </StackPanel>
-                <StackPanel Grid.Column="1" Width="auto" Margin="0 125 5 0">
-                    <TextBox Width="auto" ></TextBox>
+                    <ComboBox x:Name="CompanyNameCB" Width="auto" Margin="0 10 0 0"></ComboBox>
+                    <TextBox x:Name="PaymentNumTB" Width="auto" Margin="0 10 0 0"></TextBox>
+                    <TextBox x:Name="CommentTB" Width="auto" Margin="0 10 0 0"></TextBox>
+                    <TextBox x:Name="InvoiceTB" Width="auto" Margin="0 10 0 0"></TextBox>
                 </StackPanel>
             </Grid>
-        </Grid>
-        <StackPanel Grid.Column="1" Orientation="Vertical">
-            <Grid Margin="5 0 5 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" HorizontalAlignment="Center">Дата</TextBlock>
-                <TextBlock Grid.Column="1" HorizontalAlignment="Center">Размещение</TextBlock>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Center">План</TextBlock>
-                <DatePicker   Grid.Row="1"></DatePicker>
-                <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
-                <TextBox Grid.Column="2" Grid.Row="1"></TextBox>
-            </Grid>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0 173 0 0 ">
-            <Grid Margin="5 0 5 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" HorizontalAlignment="Center">Тип</TextBlock>
-                <TextBlock Grid.Column="1" HorizontalAlignment="Center">Наименование</TextBlock>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Center">Размещение</TextBlock>
-                <TextBox  Grid.Row="1"></TextBox>
-                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                    <TextBox Width="120"></TextBox>
-                    <Button Grid.Column="1" Grid.Row="1" Width="44">...</Button>
-                </StackPanel>
-                <TextBox Grid.Column="2" Grid.Row="1"></TextBox>
-            </Grid>
-        </StackPanel>
-        <Button Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="80" Margin="5 0 0 5">Назад</Button>
+        </Border>
+        <Border Grid.Column="1" VerticalAlignment="Top" Margin="5 5 5 0" Height="80" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Grid Margin="5 0 5 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontWeight="Medium">Движение</TextBlock>
+                    <StackPanel Margin="0 0 5 0" Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center">Дата</TextBlock>
+                        <DatePicker x:Name="DateMovementDP" Margin="0 5 0 0"></DatePicker>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="5 0 5 0" Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center">Размещение</TextBlock>
+                        <TextBox x:Name="PlacementMoveTB" Margin="0 5 0 0"></TextBox>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="5 0 0 0" Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center">План</TextBlock>
+                        <TextBox x:Name="PlanTB" Margin="0 5 0 0"></TextBox>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Height="100" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <Grid Margin="5 0 5 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontWeight="Medium">Привязка</TextBlock>
+                    <StackPanel Margin="0 0 5 0" Grid.Row="1">
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Center">Тип</TextBlock>
+                        <ComboBox x:Name="TypeCB" Margin="0 5 0 0"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="5 0 5 0" Grid.Column="1" Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center">Наименование</TextBlock>
+                        <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                            <TextBox x:Name="NameWorkpplaceTB" Width="120"></TextBox>
+                            <Button x:Name="WorkplaceBtn" Width="25">...</Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="5 0 0 0"  Grid.Column="2" Grid.Row="1">
+                        <TextBlock HorizontalAlignment="Center">Размещение</TextBlock>
+                        <TextBox x:Name="PlacementTB" Margin="0 5 0 0"></TextBox>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
         <Button Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="30" Width="100" Margin="0 0 5 5">Сохранить</Button>
     </Grid>
 </Window>
