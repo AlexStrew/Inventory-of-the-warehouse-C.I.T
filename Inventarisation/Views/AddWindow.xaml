@@ -4,10 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventarisation.Views"
-        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-        syncfusionskin:SfSkinManager.VisualStyle="MaterialDark"
         mc:Ignorable="d"
-        Title="AddWindow" Height="300" Width="700">
+        Title="AddWindow" Height="600" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -24,11 +22,11 @@
             <TextBlock HorizontalAlignment="Left" Margin="5 95 0 0">Комментарии</TextBlock>
             <TextBlock HorizontalAlignment="Left" Margin="5 125 0 0">Накладная</TextBlock>
             <Grid Grid.Column="1">
-
+                
                 <StackPanel Grid.Column="1" Width="auto" Margin="0  5 5 0">
                     <StackPanel Orientation="Horizontal">
-                        <TextBox Width="130" Margin="0 0 5 0" ></TextBox>
-                        <Button x:Name="SelectNumButton" Click="SelectNumButton_Click" HorizontalAlignment="Right" Width="50">...</Button>
+                        <TextBox Width="280" Margin="0 0 5 0" ></TextBox>
+                        <Button x:Name="SelectNumButton" Click="SelectNumButton_Click" Width="50">...</Button>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Width="auto" Margin="0 35 5 0">
@@ -60,12 +58,12 @@
                 <TextBlock Grid.Column="0" HorizontalAlignment="Center">Дата</TextBlock>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center">Размещение</TextBlock>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Center">План</TextBlock>
-                <DatePicker   Grid.Row="1" Margin="0 0 5 0"></DatePicker>
-                <TextBox Grid.Column="1" Grid.Row="1" Margin="5 0 5 0"></TextBox>
-                <TextBox Grid.Column="2" Grid.Row="1" Margin="5 0 0 0"></TextBox>
+                <DatePicker   Grid.Row="1"></DatePicker>
+                <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
+                <TextBox Grid.Column="2" Grid.Row="1"></TextBox>
             </Grid>
         </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0,60,0,0">
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="0 173 0 0 ">
             <Grid Margin="5 0 5 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -80,15 +78,15 @@
                 <TextBlock Grid.Column="0" HorizontalAlignment="Center">Тип</TextBlock>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center">Наименование</TextBlock>
                 <TextBlock Grid.Column="2" HorizontalAlignment="Center">Размещение</TextBlock>
-                <TextBox  Grid.Row="1" Margin="0 0 5 0"></TextBox>
+                <TextBox  Grid.Row="1"></TextBox>
                 <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                    <TextBox Width="60" Margin="5 0 5 0"></TextBox>
-                    <Button Grid.Column="1" Grid.Row="1" Width="50">...</Button>
+                    <TextBox Width="120"></TextBox>
+                    <Button Grid.Column="1" Grid.Row="1" Width="44">...</Button>
                 </StackPanel>
-                <TextBox Grid.Column="2" Grid.Row="1" Margin="5 0 0 0"></TextBox>
-                <Button Grid.Row="2"   HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="auto" Margin="5 17 0 0" Grid.ColumnSpan="3">Добавить организацию</Button>
+                <TextBox Grid.Column="2" Grid.Row="1"></TextBox>
             </Grid>
         </StackPanel>
+        <Button Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="30" Width="80" Margin="5 0 0 5">Назад</Button>
         <Button Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="30" Width="100" Margin="0 0 5 5">Сохранить</Button>
     </Grid>
 </Window>
