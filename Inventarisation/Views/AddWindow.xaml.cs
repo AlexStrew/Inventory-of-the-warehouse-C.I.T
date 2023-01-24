@@ -52,5 +52,20 @@ namespace Inventarisation.Views
 
 
         }
+
+        private void AddCompanyBtnOnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Страница в разработке");
+        }
+
+        private void WorkplaceBtnOnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Страница в разработке");
+        }
+
+        private void SaveInvBtnOnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Страница в разработке");
+        }
     }
 }
