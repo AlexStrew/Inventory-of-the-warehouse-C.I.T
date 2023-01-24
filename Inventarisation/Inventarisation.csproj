@@ -60,6 +60,9 @@
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="netstandard" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="ReachFramework" />
     <Reference Include="Syncfusion.Compression.Base, Version=20.4460.0.44, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Compression.Base.20.4.0.44\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
@@ -116,6 +119,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Api\ApiModel\InventoryModel.cs" />
+    <Compile Include="Api\ApiModel\ResponseApi.cs" />
+    <Compile Include="Api\Controllers\ApiInventory.cs" />
+    <Compile Include="Api\Controllers\Manager.cs" />
+    <Compile Include="Api\ApiModel\Models.cs" />
     <Compile Include="Models\Companies.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -177,6 +185,9 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\NomenclatureVM.cs" />
     <Compile Include="Views\AddNomeclatureWindow.xaml.cs">
       <DependentUpon>AddNomeclatureWindow.xaml</DependentUpon>
@@ -207,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

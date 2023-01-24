@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,6 +126,27 @@ namespace Inventarisation.Pages
 
             sfDataGrid.PrintSettings.AllowRepeatHeaders = false;
             sfDataGrid.ShowPrintPreview();
+        }
+
+        private async void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+
+
+                var response = await client.GetAsync("http://localhost:5099/api/Inventories");
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    string message = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(message);
+                }
+            }
+        }
+
+        private void TestButton2_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new TestPage());
         }
     }
 }
