@@ -2,6 +2,7 @@ using InvAPI.Controllers;
 using InvAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 //builder.Services.AddScoped<Inventory, InventoriesController>();
 //builder.Services.AddDbContext<InventarisationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=InventarisationDB;Data Source=SV-SQL-02\\SVSQL02;TrustServerCertificate=True")));
-
+//builder.Services.AddDbContext<InventarisationDbContext>(options =>
+//options.UseSqlServer(Configuration.GetConnectionString("InventarisationDB")));
+builder.Services.AddTransient<InventarisationDbContext>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
