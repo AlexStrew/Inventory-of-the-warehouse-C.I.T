@@ -32,9 +32,14 @@ namespace Inventarisation.Pages
         Core db = new Core();
         List<Inventory> invList;
 
+      
         public MainPage()
         {
-            InitializeComponent();
+            
+       
+            
+                InitializeComponent();
+              
             
 
 
