@@ -18,7 +18,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net;
 
 namespace Inventarisation.Pages
 {
@@ -42,16 +41,6 @@ namespace Inventarisation.Pages
 
         }
 
-
-        //private void GetEmployeeDetails()
-        //{
-        //    var employeeDetails = ApiInventory.GetInventory(RootURL);
-        //    if (employeeDetails.Result.StatusCode == System.Net.HttpStatusCode.OK)
-        //    {
-        //        Employees = employeeDetails.Result.Content.ReadAsAsync<List<Employee>>().Result;
-        //        IsLoadData = true;
-        //    }
-        //}
-
+        
     }
 }

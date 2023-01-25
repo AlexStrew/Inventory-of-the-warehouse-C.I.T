@@ -9,9 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
@@ -149,9 +147,6 @@ namespace Inventarisation.Pages
         private void TestButton2_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new TestPage());
-
-
-            
         }
     }
 }
