@@ -1,6 +1,5 @@
 ﻿using Inventarisation.Models;
 using Inventarisation.Pages;
-using Inventarisation.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,7 @@ namespace Inventarisation.Views
     public partial class AddNomeclatureWindow : Window
     {
         Core db = new Core();
-        List<Nomenclature> listNomenclature;
+       // List<Nomenclature> listNomenclature;
         public AddNomeclatureWindow()
         {
             InitializeComponent();
@@ -34,30 +33,30 @@ namespace Inventarisation.Views
         /// </summary>
         private void AddNomenBtnClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string nameDevice = NameDeviceTBox.Text;
-                NomenclatureVM newObject = new NomenclatureVM();
-                bool result = newObject.CheckAddNomenclature(nameDevice);
-                if (result)
-                {
-                    newObject.AddNomenclature(nameDevice);
-                    MessageBox.Show("Вы успешно добавили устройство в справочник.\nНе забудьте обновить страницу.");
-                    Close();
-                    //NomenclatureWindow winNom = new NomenclatureWindow();
-                    //if (winNom.ShowDialog() == true)
-                    //{
-                    //    Console.WriteLine("hehe");
+            //try
+            //{
+            //    string nameDevice = NameDeviceTBox.Text;
+            //    NomenclatureVM newObject = new NomenclatureVM();
+            //    bool result = newObject.CheckAddNomenclature(nameDevice);
+            //    if (result)
+            //    {
+            //        newObject.AddNomenclature(nameDevice);
+            //        MessageBox.Show("Вы успешно добавили устройство в справочник.\nНе забудьте обновить страницу.");
+            //        Close();
+            //        //NomenclatureWindow winNom = new NomenclatureWindow();
+            //        //if (winNom.ShowDialog() == true)
+            //        //{
+            //        //    Console.WriteLine("hehe");
                        
-                    //}
+            //        //}
                     
                    
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
            
         }
     }

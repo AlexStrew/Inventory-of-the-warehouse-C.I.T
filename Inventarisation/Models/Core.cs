@@ -8,6 +8,6 @@ namespace Inventarisation.Models
 {
     public class Core
     {
-        public InventarisationDBEntities context = new InventarisationDBEntities();
+        //public InventarisationDBEntities context = new InventarisationDBEntities();
     }
 }

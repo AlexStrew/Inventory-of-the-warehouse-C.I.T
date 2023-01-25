@@ -22,25 +22,25 @@ namespace Inventarisation.Views
     public partial class NomenclatureWindow : Window
     {
         Core db = new Core();
-        List<Nomenclature> nomList;
+        //List<Nomenclature> nomList;
         public NomenclatureWindow()
         {
             InitializeComponent();
             
-            nomList = db.context.Nomenclature.OrderBy(x=>x.name_device).ToList();
-            NomenclatureDG.ItemsSource = nomList;
+            //nomList = db.context.Nomenclature.OrderBy(x=>x.name_device).ToList();
+            //NomenclatureDG.ItemsSource = nomList;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource);
-            view.Filter = UserFilter;
+            //view.Filter = UserFilter;
         }
 
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(SearchNomenclatureTBox.Text))
-                return true;
-            else
-                return ((item as Nomenclature).name_device.IndexOf(SearchNomenclatureTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
+        //private bool UserFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(SearchNomenclatureTBox.Text))
+        //        return true;
+        //    //else
+        //    //    return ((item as Nomenclature).name_device.IndexOf(SearchNomenclatureTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        //}
 
         public static implicit operator NomenclatureWindow(AddWindow v)
         {
@@ -67,8 +67,8 @@ namespace Inventarisation.Views
 
         private void RefreshWinBtnClick(object sender, RoutedEventArgs e)
         {
-            nomList = db.context.Nomenclature.ToList();
-            NomenclatureDG.ItemsSource = nomList;
+            //nomList = db.context.Nomenclature.ToList();
+            //NomenclatureDG.ItemsSource = nomList;
         }
 
 

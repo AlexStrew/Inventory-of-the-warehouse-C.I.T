@@ -31,7 +31,7 @@ namespace Inventarisation.Pages
     {
 
         Core db = new Core();
-        List<Inventory> invList;
+        //List<Inventory> invList;
 
       
         public MainPage()
@@ -44,8 +44,8 @@ namespace Inventarisation.Pages
             
 
 
-            invList = db.context.Inventory.ToList();
-            sfDataGrid.ItemsSource = invList;
+            //invList = db.context.Inventory.ToList();
+            //sfDataGrid.ItemsSource = invList;
 
             //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource);
             //view.Filter = UserFilter;

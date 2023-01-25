@@ -22,17 +22,17 @@ namespace Inventarisation.Views
     public partial class AddWindow : Window
     {
         Core db = new Core();
-        List<Companies> listCompanies;
+       // List<Companies> listCompanies;
         public AddWindow()
         {
             InitializeComponent();
             ConfigHelper.Instance.SetLang("ru-ru");
             
 
-            listCompanies = db.context.Companies.ToList();
-            CompanyNameCB.ItemsSource = listCompanies;
-            CompanyNameCB.DisplayMemberPath = "company_name";
-            CompanyNameCB.SelectedValuePath = "id_company";
+            //listCompanies = db.context.Companies.ToList();
+            //CompanyNameCB.ItemsSource = listCompanies;
+            //CompanyNameCB.DisplayMemberPath = "company_name";
+            //CompanyNameCB.SelectedValuePath = "id_company";
 
 
         }
