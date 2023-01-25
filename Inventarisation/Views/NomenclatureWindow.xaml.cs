@@ -75,7 +75,7 @@ namespace Inventarisation.Views
         private void SearchNomenclatureTBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             
-            CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource).Refresh();
+            //CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource).Refresh();
         }
     }
 }

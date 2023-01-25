@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventarisation.Views"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        syncfusionskin:SfSkinManager.VisualStyle="MaterialDark"
         mc:Ignorable="d"
         Title="Номенклатура" Height="500" Width="900">
-    <Grid Background="#cafcca">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="9*"/>
@@ -22,10 +26,24 @@
                 <TextBox x:Name="SearchNomenclatureTBox" TextChanged="SearchNomenclatureTBoxTextChanged" Height="30" MinWidth="250" Margin="5 0 0 0" BorderThickness="0.3" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Grid>
-        <DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionMode="Single">
+        <Syncfusion:SfDataGrid 
+            Grid.Row="1"
+            Margin="5"
+            AllowFiltering="True"
+            AutoGenerateColumns="False"
+            AllowResizingColumns="True"
+            x:Name="NomenclatureDG"
+            ItemsSource="{Binding Nomenclature}"
+            ColumnSizer="Star"
+            NavigationMode="Row">
+            <Syncfusion:SfDataGrid.Columns>
+                <Syncfusion:GridTextColumn HeaderText="Наименование" MappingName="name_device"></Syncfusion:GridTextColumn>
+            </Syncfusion:SfDataGrid.Columns>
+        </Syncfusion:SfDataGrid>
+        <!--<DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn MinWidth="800" x:Name="NameNomenclatureTC" Binding="{Binding name_device}" Header="Название"></DataGridTextColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
     </Grid>
 </Window>
