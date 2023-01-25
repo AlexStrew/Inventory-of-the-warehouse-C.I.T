@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventarisation", "Inventarisation\Inventarisation.csproj", "{3C4FAA69-EB70-41D3-BC2D-9980F44C5BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvAPI", "InvAPI\InvAPI.csproj", "{D00C933C-89DE-4258-915F-0F764547157E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvAPI", "InvAPI\InvAPI.csproj", "{D00C933C-89DE-4258-915F-0F764547157E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{8B2B012A-2029-4F41-B0AB-30E63A5AA02A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D00C933C-89DE-4258-915F-0F764547157E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D00C933C-89DE-4258-915F-0F764547157E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D00C933C-89DE-4258-915F-0F764547157E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B2B012A-2029-4F41-B0AB-30E63A5AA02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B2B012A-2029-4F41-B0AB-30E63A5AA02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B2B012A-2029-4F41-B0AB-30E63A5AA02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B2B012A-2029-4F41-B0AB-30E63A5AA02A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
