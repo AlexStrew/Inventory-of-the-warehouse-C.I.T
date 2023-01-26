@@ -37,7 +37,7 @@ public partial class InventarisationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=InventarisationDB;Data Source=SV-SQL-02\\SVSQL02;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=SV-SQL-02\\SVSQL02;Database=InventarisationDB;Persist Security Info=False;user=api-user;Password=QFgQJkWi4t;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
