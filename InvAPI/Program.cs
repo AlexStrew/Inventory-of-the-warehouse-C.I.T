@@ -15,9 +15,20 @@ ConfigurationManager configuration = builder.Configuration;
 builder.Services.AddDbContext<InventarisationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("InventarisationDB")));
 
 // For Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(opts =>
+{
+    opts.User.RequireUniqueEmail = false;
+    //задаем требования для пароля
+    opts.Password.RequiredLength = 5;   // минимальная длина
+    opts.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
+    opts.Password.RequireLowercase = false; // требуются ли символы в нижнем регистре
+    opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
+    opts.Password.RequireDigit = false; // требуются ли цифры
+})
     .AddEntityFrameworkStores<InventarisationDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddMvc();
 
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
@@ -50,7 +61,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
