@@ -81,6 +81,24 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("workplaces")]
         public List<object> Workplaces { get; set; }
     }
+    public class Nomenclature
+    {
+        [JsonProperty("idNomenclature")]
+        public int IdNomenclature { get; set; }
+
+        [JsonProperty("nameDevice")]
+        public string NameDevice { get; set; }
+
+        [JsonProperty("countDevice")]
+        public int CountDevice { get; set; }
+
+        [JsonProperty("inventories")]
+        public List<object> Inventories { get; set; }
+
+        [JsonProperty("workplaces")]
+        public List<object> Workplaces { get; set; }
+    }
+
 
 
 

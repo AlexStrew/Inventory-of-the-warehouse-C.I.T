@@ -17,6 +17,7 @@ using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System.Text.RegularExpressions;
 using Syncfusion.Windows.Shared;
+using Inventarisation.Models;
 
 namespace Inventarisation
 
@@ -31,9 +32,10 @@ namespace Inventarisation
         {
             InitializeComponent();
 
-           
-            MainFrame.Navigate(new MainPage());
-
+            MainFrame.Navigate(new MainPage()
+            { 
+                DataContext = new MainPageViewModel()
+            });
         }
 
         private void MainFrame_Navigated(object sender, NavigationEventArgs e)
