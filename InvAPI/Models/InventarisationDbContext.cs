@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using InvAPI.Auth;
 
 namespace InvAPI.Models;
 
-public partial class InventarisationDbContext : DbContext
+public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
 {
     public InventarisationDbContext()
     {
@@ -259,7 +262,37 @@ public partial class InventarisationDbContext : DbContext
                 .HasConstraintName("FK_WriteOff_Inventory");
         });
 
-        OnModelCreatingPartial(modelBuilder);
+        modelBuilder.Entity<RegisterModel>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.ToTable("Register");
+
+       
+            entity.Property(e => e.Username).HasMaxLength(50)
+                .IsUnicode(false).HasColumnName("Username");
+            entity.Property(e => e.Password).HasMaxLength(50)
+                .IsUnicode(false).HasColumnName("Password");
+        });
+
+        modelBuilder.Entity<LoginModel>(entity =>
+        {
+            entity.HasNoKey();
+
+            entity.ToTable("Login");
+
+
+            entity.Property(e => e.Username)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("Username");
+            entity.Property(e => e.Password)
+               .HasMaxLength(50)
+               .IsUnicode(false)
+               .HasColumnName("Password");
+        });
+
+        base.OnModelCreating(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

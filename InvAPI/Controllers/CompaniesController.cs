@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using InvAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InvAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CompaniesController : ControllerBase
@@ -21,7 +23,7 @@ namespace InvAPI.Controllers
         }
 
         // GET: api/Companies
-        [HttpGet]
+        [HttpGet , Authorize]
         public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
         {
             return await _context.Companies.ToListAsync();

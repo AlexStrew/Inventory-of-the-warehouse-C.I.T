@@ -1,81 +1,53 @@
-using InvAPI.Controllers;
 using InvAPI.Models;
+using InvAPI.Auth;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.ResponseCompression;
-using System.IO.Compression;
-using Microsoft.OpenApi.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-
-
+ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-builder.Services.AddTransient<InventarisationDbContext>();
-builder.Services.AddEndpointsApiExplorer();
+// For Entity Framework
+builder.Services.AddDbContext<InventarisationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("InventarisationDB")));
 
-var securityScheme = new OpenApiSecurityScheme()
-{
-    Name = "Authorization",
-    Type = SecuritySchemeType.ApiKey,
-    Scheme = "Bearer",
-    BearerFormat = "JWT",
-    In = ParameterLocation.Header,
-    Description = "Super secret security",
-};
+// For Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<InventarisationDbContext>()
+    .AddDefaultTokenProviders();
 
-var securityReq = new OpenApiSecurityRequirement()
+// Adding Authentication
+builder.Services.AddAuthentication(options =>
 {
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+
+// Adding Jwt Bearer
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
     {
-        new OpenApiSecurityScheme
-        {
-            Reference = new OpenApiReference
-            {
-                Type = ReferenceType.SecurityScheme,
-                Id = "Bearer"
-            }
-        },
-        new string[] {}
-    }
-};
-
-var contact = new OpenApiContact()
-{
-    Name = "Wilastian",
-    Email = "sterhov@doker.ru"
-};
-
-
-var info = new OpenApiInfo()
-{
-    Version = "v1",
-    Title = "Minimal API - JWT & Swagger for Inventarisation Project",
-    Description = "Api for test",
-    TermsOfService = new Uri("https://cit-ekb.ru/contacts/"),
-    Contact = contact
-};
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(o =>
-{
-    o.SwaggerDoc("v1", info);
-    o.AddSecurityDefinition("Super secret security", securityScheme);
-    o.AddSecurityRequirement(securityReq);
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+    };
 });
 
-builder.Services.AddResponseCaching(x => x.MaximumBodySize = 1024);
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
-
-
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -85,24 +57,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors();
+
 app.MapControllers();
-app.UseResponseCaching();
-app.Use(async (context, next) =>
-{
-    context.Response.GetTypedHeaders().CacheControl =
-    new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
-    {
-        Public = true,
-        MaxAge = TimeSpan.FromSeconds(10)
-    };
-    context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] = new string[] { "Accept-Encoding" };
-    await next();
-});
-
-//app.UseSwagger();
-
-
 
 app.Run();
