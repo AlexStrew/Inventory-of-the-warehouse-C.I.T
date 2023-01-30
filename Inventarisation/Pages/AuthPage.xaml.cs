@@ -19,6 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Http.Headers;
+using WECPOFLogic;
+using System.Windows.Forms;
 
 namespace Inventarisation.Pages
 {
@@ -70,6 +72,12 @@ namespace Inventarisation.Pages
                 Properties.Settings.Default.Save();
                 this.NavigationService.Navigate(new MainPage());
             }
+            MessageBoxManager.OK = "Понял";
+            MessageBoxManager.No = "Точно понял";
+            MessageBoxManager.Cancel = "Ты кто?";
+            MessageBoxManager.Register();
+            System.Windows.Forms.MessageBox.Show("Неверный логи или пароль...", "Oh shit", MessageBoxButtons.YesNoCancel);
+            MessageBoxManager.Unregister();
         }
         
     
