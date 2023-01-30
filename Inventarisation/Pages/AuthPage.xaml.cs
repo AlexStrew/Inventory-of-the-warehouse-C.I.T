@@ -43,7 +43,7 @@ namespace Inventarisation.Pages
 
         public class Token
         {
-            public string AccessToken { get; set; }
+            public string token { get; set; }
         }
 
         private async void LoginBtnClick(object sender, RoutedEventArgs e)
@@ -66,17 +66,16 @@ namespace Inventarisation.Pages
             {
                 var json = await response.Content.ReadAsStringAsync();
                 var token = JsonConvert.DeserializeObject<Token>(json);
-                var protectedToken = token.AccessToken;
-                Console.WriteLine(protectedToken);
-                Properties.Settings.Default.JWTtoken = protectedToken;
-                Properties.Settings.Default.Save();
+
+                Properties.Settings.Default.JWTtoken = token.token;
+                Properties.Settings.Default.Save();;
                 this.NavigationService.Navigate(new MainPage());
             }
-            MessageBoxManager.OK = "Понял";
-            MessageBoxManager.No = "Точно понял";
-            MessageBoxManager.Cancel = "Ты кто?";
+            MessageBoxManager.OK = "نعم";
+            MessageBoxManager.No = "الله";
+            MessageBoxManager.Cancel = "شهيد?";
             MessageBoxManager.Register();
-            System.Windows.Forms.MessageBox.Show("Неверный логи или пароль...", "Oh shit", MessageBoxButtons.YesNoCancel);
+            System.Windows.Forms.MessageBox.Show("الحمار الانفجار...", "سوبرجود", MessageBoxButtons.YesNoCancel);
             MessageBoxManager.Unregister();
         }
         

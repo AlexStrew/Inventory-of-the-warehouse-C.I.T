@@ -36,7 +36,7 @@
             ShowGroupDropArea="True" 
                 ColumnSizer="Star"
             ShowSortNumbers="True"
-                ItemsSource="{Binding Inventorys}"
+                ItemsSource="{Binding Data}"
             ShowRowHeader="True"
                 NavigationMode="Row"
             Grid.Row="1">

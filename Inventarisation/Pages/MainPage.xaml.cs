@@ -2,15 +2,19 @@
 using Inventarisation.Models;
 
 using Inventarisation.Views;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.XlsIO;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +22,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -30,11 +35,10 @@ namespace Inventarisation.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        //private readonly HttpClient _client;
+        //private readonly IDataProtector _protector;
+        public ObservableCollection<Inventory> Data { get; set; }
 
-        Core db = new Core();
-        
-
-      
         public MainPage()
         {
            
@@ -43,7 +47,10 @@ namespace Inventarisation.Pages
 
                 InitializeComponent();
 
-      
+            DataContext = this;
+            
+            GetData();
+
             //this.DataContext = new MainPageViewModel();
 
 
@@ -54,13 +61,39 @@ namespace Inventarisation.Pages
             //view.Filter = UserFilter;
         }
 
-        //private bool UserFilter(object item)
-        //{
-        //    //if (String.IsNullOrEmpty(SearchTBox.Text))
-        //    //    return true;
-        //    //else
-        //    //    return ((item as Inventory).inv_num.IndexOf(SearchTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        //}
+        private async void GetData()
+        {
+            HttpClient _client;
+            IDataProtector _protector;
+            Data = new ObservableCollection<Inventory>();
+
+            _client = new HttpClient();
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _protector = DataProtectionProvider.Create("Contoso").CreateProtector("JWT");
+
+            var protectedToken = Properties.Settings.Default.JWTtoken;
+            await Console.Out.WriteLineAsync(protectedToken);
+            var token = protectedToken;
+
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var response = await _client.GetAsync("http://invent.doker.ru/api/Inventories");
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var data = JsonConvert.DeserializeObject<List<Inventory>>(json);
+                // Bind the data to the datagrid
+                //sfDataGrid.ItemsSource = data;
+                foreach (var item in data)
+                {
+                    Data.Add(item);
+                }
+            }
+            else
+            {
+                await Console.Out.WriteLineAsync("errororororororor");
+            }
+        }
+
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
         {

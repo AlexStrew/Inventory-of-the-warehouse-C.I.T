@@ -34,7 +34,7 @@ namespace Inventarisation
 
             MainFrame.Navigate(new AuthPage()
             { 
-                DataContext = new MainPageViewModel()
+                //DataContext = new MainPageViewModel()
             });
         }
 
