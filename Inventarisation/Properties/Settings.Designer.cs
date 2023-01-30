@@ -22,5 +22,17 @@ namespace Inventarisation.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string JWTtoken {
+            get {
+                return ((string)(this["JWTtoken"]));
+            }
+            set {
+                this["JWTtoken"] = value;
+            }
+        }
     }
 }

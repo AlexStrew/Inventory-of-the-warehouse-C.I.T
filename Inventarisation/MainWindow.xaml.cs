@@ -32,7 +32,7 @@ namespace Inventarisation
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new MainPage()
+            MainFrame.Navigate(new AuthPage()
             { 
                 DataContext = new MainPageViewModel()
             });

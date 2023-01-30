@@ -13,7 +13,7 @@
             <TextBlock>Логин</TextBlock>
             <TextBox x:Name="LoginTextBox" Height="25" VerticalContentAlignment="Center"></TextBox>
             <TextBlock>Пароль</TextBlock>
-            <PasswordBox x:Name="AuthPasswordBox" Height="25" VerticalContentAlignment="Center"></PasswordBox>
+            <TextBox x:Name="AuthPasswordBox" Height="25" VerticalContentAlignment="Center"></TextBox>
             <Button x:Name="LoginBtn" Margin="0 30 0 10" Height="30" FontSize="16" Click="LoginBtnClick">Войти</Button>
             <TextBlock x:Name="DontAuthTB" MouseLeftButtonDown="DontAuthTBMouseLeftButtonDown" FontSize="12" Cursor="Hand" HorizontalAlignment="Center" TextDecorations="Underline">Продолжить без авторизации</TextBlock>
         </StackPanel>
