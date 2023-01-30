@@ -72,7 +72,7 @@ namespace Inventarisation.Pages
             _protector = DataProtectionProvider.Create("Contoso").CreateProtector("JWT");
 
             var protectedToken = Properties.Settings.Default.JWTtoken;
-            await Console.Out.WriteLineAsync(protectedToken);
+            
             var token = protectedToken;
 
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -100,8 +100,7 @@ namespace Inventarisation.Pages
             AddWindow win = new AddWindow();
             if (win.ShowDialog() == true)
             {
-                //TestText.Text = Properties.Settings.Default.MKBCode;
-                //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
+                
                 Console.WriteLine("sdsd");
             }
         }
@@ -164,22 +163,8 @@ namespace Inventarisation.Pages
             //sfDataGrid.ShowPrintPreview();
         }
 
-        private async void TestButton_Click(object sender, RoutedEventArgs e)
-        {
-            using (HttpClient client = new HttpClient())
-            {
+        
 
 
-                var response = await client.GetAsync("http://localhost:5099/api/Inventories");
-                response.EnsureSuccessStatusCode();
-                if (response.IsSuccessStatusCode)
-                {
-                    string message = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(message);
-                }
-            }
-        }
-
-       
     }
 }

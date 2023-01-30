@@ -49,7 +49,7 @@ namespace Inventarisation.Views
                 //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
                 Console.WriteLine("sdsd");
             }
-
+            NameDeviceTB.Text =  Properties.Settings.Default.NomenSelectProp;
 
         }
 

@@ -1,8 +1,12 @@
-﻿using Inventarisation.Models;
+﻿using Inventarisation.Api.ApiModel;
+using Inventarisation.Models;
 using Inventarisation.Pages;
+using Microsoft.AspNetCore.DataProtection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,13 +30,38 @@ namespace Inventarisation.Views
         public AddNomeclatureWindow()
         {
             InitializeComponent();
+            
+
+
         }
 
         /// <summary>
         /// Добавление устройства в справочник
         /// </summary>
-        private void AddNomenBtnClick(object sender, RoutedEventArgs e)
+        private async void AddNomenBtnClick(object sender, RoutedEventArgs e)
         {
+            HttpClient _client;
+            _client = new HttpClient();
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            
+            var protectedToken = Properties.Settings.Default.JWTtoken;
+            await Console.Out.WriteLineAsync(protectedToken);
+            var token = protectedToken;
+
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var product = new Nomenclature { NameDevice = NameDeviceTBox.Text };
+            var response = await _client.PostAsJsonAsync("http://invent.doker.ru/api/Nomenclatures", product);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Nomenclature added successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add Nomenclature");
+                }
+            
+            DialogResult = true;
+            this.Close();
             //try
             //{
             //    string nameDevice = NameDeviceTBox.Text;
@@ -47,17 +76,17 @@ namespace Inventarisation.Views
             //        //if (winNom.ShowDialog() == true)
             //        //{
             //        //    Console.WriteLine("hehe");
-                       
+
             //        //}
-                    
-                   
+
+
             //    }
             //}
             //catch (Exception ex)
             //{
             //    MessageBox.Show(ex.Message);
             //}
-           
+
         }
     }
 }

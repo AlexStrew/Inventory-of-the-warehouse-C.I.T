@@ -19,6 +19,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="AddNomWinBtn" Click="AddNomWinBtnClick">Добавить</Button>
                 <Button Background="Transparent" BorderBrush="Transparent" Width="35" VerticalAlignment="Center" Height="35" Margin="5" x:Name="RefreshWinBtn" FontSize="24" Click="RefreshWinBtnClick">🔄</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="SelectNomenButton" Click="SelectNomenButton_Click">Выбрать</Button>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
@@ -27,17 +28,18 @@
             </StackPanel>
         </Grid>
         <Syncfusion:SfDataGrid 
+            SelectionChanged="NomenclatureDG_SelectionChanged"
             Grid.Row="1"
             Margin="5"
             AllowFiltering="True"
             AutoGenerateColumns="False"
             AllowResizingColumns="True"
             x:Name="NomenclatureDG"
-            ItemsSource="{Binding Nomenclature}"
+            ItemsSource="{Binding DataNomen}"
             ColumnSizer="Star"
             NavigationMode="Row">
             <Syncfusion:SfDataGrid.Columns>
-                <Syncfusion:GridTextColumn HeaderText="Наименование" MappingName="name_device"></Syncfusion:GridTextColumn>
+                <Syncfusion:GridTextColumn HeaderText="Наименование" MappingName="NameDevice"></Syncfusion:GridTextColumn>
             </Syncfusion:SfDataGrid.Columns>
         </Syncfusion:SfDataGrid>
         <!--<DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionMode="Single">

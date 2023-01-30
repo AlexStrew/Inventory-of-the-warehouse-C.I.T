@@ -90,7 +90,7 @@ namespace Inventarisation.Api.ApiModel
         public string NameDevice { get; set; }
 
         [JsonProperty("countDevice")]
-        public int CountDevice { get; set; }
+        public int? CountDevice { get; set; }
 
         [JsonProperty("inventories")]
         public List<object> Inventories { get; set; }

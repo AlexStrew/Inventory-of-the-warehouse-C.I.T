@@ -34,5 +34,17 @@ namespace Inventarisation.Properties {
                 this["JWTtoken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NomenSelectProp {
+            get {
+                return ((string)(this["NomenSelectProp"]));
+            }
+            set {
+                this["NomenSelectProp"] = value;
+            }
+        }
     }
 }
