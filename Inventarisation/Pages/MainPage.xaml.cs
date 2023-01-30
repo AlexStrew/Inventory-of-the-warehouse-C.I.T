@@ -147,9 +147,6 @@ namespace Inventarisation.Pages
             }
         }
 
-        private void TestButton2_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new TestPage());
-        }
+       
     }
 }

@@ -31,6 +31,6 @@
             </StackPanel>
 
         </Grid>
-        <Frame x:Name="MainFrame" Grid.Row="1" Grid.ColumnSpan="2"></Frame>
+        <Frame x:Name="MainFrame" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
