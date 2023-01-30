@@ -25,6 +25,9 @@
             <li><a href="#Misc-">🪀Misc</a></li>
         </ul>
     </li>
+    </ul>
+</details>
+<br>
   ## 🔮Add-ons [^](#table)
 
 -   Check list of Blender's built-in add-ons documentation [here](https://docs.blender.org/manual/en/dev/addons/index.html).
