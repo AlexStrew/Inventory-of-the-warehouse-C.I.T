@@ -73,7 +73,7 @@ namespace Inventarisation.Pages
             }
             MessageBoxManager.OK = "نعم";
             MessageBoxManager.No = "الله";
-            MessageBoxManager.Cancel = "شهيد?";
+            MessageBoxManager.Cancel = "شهيد";
             MessageBoxManager.Register();
             System.Windows.Forms.MessageBox.Show("الحمار الانفجار...", "سوبرجود", MessageBoxButtons.YesNoCancel);
             MessageBoxManager.Unregister();
