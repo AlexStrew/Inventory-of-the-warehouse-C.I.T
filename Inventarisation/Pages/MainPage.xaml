@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
       
-       xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF" xmlns:models="clr-namespace:Inventarisation.Models" d:DataContext="{d:DesignInstance Type=models:MainPageViewModel}"
+       xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF" xmlns:models="clr-namespace:Inventarisation.Models" xmlns:viewmodel="clr-namespace:Inventarisation.ViewModel" d:DataContext="{d:DesignInstance Type=models:MainPageViewModel}"
       syncfusionskin:SfSkinManager.VisualStyle="MaterialDark"
       d:DesignHeight="450" d:DesignWidth="1200"
       Title="MainPage">
@@ -36,7 +36,7 @@
             ShowGroupDropArea="True" 
                 ColumnSizer="Star"
             ShowSortNumbers="True"
-                ItemsSource="{Binding Data}"
+                ItemsSource="{Binding DataVM}"
             ShowRowHeader="True"
                 NavigationMode="Row"
             Grid.Row="1">

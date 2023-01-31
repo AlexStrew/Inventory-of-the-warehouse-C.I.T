@@ -1,6 +1,6 @@
 ﻿using Inventarisation.Api.ApiModel;
 using Inventarisation.Models;
-
+using Inventarisation.ViewModel;
 using Inventarisation.Views;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Win32;
@@ -35,64 +35,21 @@ namespace Inventarisation.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        //private readonly HttpClient _client;
-        //private readonly IDataProtector _protector;
         public ObservableCollection<Inventory> Data { get; set; }
-
+       
         public MainPage()
         {
            
+            InitializeComponent();
 
-
-
-                InitializeComponent();
-
-            DataContext = this;
             
-            GetData();
-
-            //this.DataContext = new MainPageViewModel();
-
-
-            //invList = db.context.Inventory.ToList();
-            //sfDataGrid.ItemsSource = invList;
-
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(InventoryDataGrid.ItemsSource);
-            //view.Filter = UserFilter;
+            var vm = new InventoriesViewModel();
+            vm.GetData();
+            this.DataContext = vm;
+            
         }
 
-        private async void GetData()
-        {
-            HttpClient _client;
-            IDataProtector _protector;
-            Data = new ObservableCollection<Inventory>();
-
-            _client = new HttpClient();
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _protector = DataProtectionProvider.Create("Contoso").CreateProtector("JWT");
-
-            var protectedToken = Properties.Settings.Default.JWTtoken;
-            
-            var token = protectedToken;
-
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _client.GetAsync("http://invent.doker.ru/api/Inventories");
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<List<Inventory>>(json);
-                // Bind the data to the datagrid
-                //sfDataGrid.ItemsSource = data;
-                foreach (var item in data)
-                {
-                    Data.Add(item);
-                }
-            }
-            else
-            {
-                await Console.Out.WriteLineAsync("errororororororor");
-            }
-        }
+       
 
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
