@@ -18,6 +18,7 @@ using MaterialDesignThemes.Wpf;
 using System.Text.RegularExpressions;
 using Syncfusion.Windows.Shared;
 using Inventarisation.Models;
+using HandyControl.Themes;
 
 namespace Inventarisation
 
@@ -31,6 +32,9 @@ namespace Inventarisation
         public MainWindow()
         {
             InitializeComponent();
+            
+         
+            
 
             MainFrame.Navigate(new AuthPage()
             { 
@@ -57,6 +61,49 @@ namespace Inventarisation
         {
            
         }
-      
+
+        //private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    this.DragMove();
+        //}
+
+        private void MinimizeWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack) { MainFrame.GoBack(); }
+        }
+
+        private void CloseWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите закрыть программу?", "AHTUNG", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Properties.Settings.Default.Reset();
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                MessageBox.Show("Тогда зачем нажимал?", "AHTUNG", MessageBoxButton.OK, MessageBoxImage.Question);
+            }
+        }
+
+        private void MaximizeWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)   
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+            }
+            
+        }
     }
 }
