@@ -13,7 +13,7 @@
     BorderThickness="0"
     WindowStartupLocation="CenterScreen"
     
-    Height="400" Width="900"  
+    Height="550" Width="900"  
         mc:Ignorable="d"
        
         >
@@ -48,23 +48,24 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
-        <Button x:Name="CloseWindowButton" Click="CloseWindowButton_Click"  Grid.Column="2" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Height="40" Width="45" Margin="44,0,0,0" >
-            <Image Source="/Resources/icons8-close-64.png" Width="20" Height="20" >
-                <Image.Style>
-                    <Style TargetType="{x:Type Image}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect ShadowDepth="0" Color="#535353" Opacity="2" BlurRadius="50"/>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Image.Style>
-            </Image>
-        </Button>
+            <Button x:Name="BackButton" Click="BackButton_Click"  HorizontalAlignment="Left"  Background="Transparent" BorderBrush="Transparent" Width="45" Height="40">
+                <Image x:Name="BackArrowImageButton" Source="/Resources/icons8-back-60.png" Width="20" Height="20" >
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="#535353" Opacity="2" BlurRadius="50"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+           
         <Button x:Name="MinimizeWindowButton" Click="MinimizeWindowButton_Click"  Grid.Column="1" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Height="35" Width="45" Grid.ColumnSpan="2"  >
             <Image Source="/Resources/icons8-mini.png" Width="20" Height="20" >
                 <Image.Style>
@@ -99,23 +100,23 @@
                     </Image.Style>
                 </Image>
             </Button>
-            <Button x:Name="BackButton" Click="BackButton_Click"  HorizontalAlignment="Left"  Background="Transparent" BorderBrush="Transparent" Width="45" Height="40">
-            <Image x:Name="BackArrowImageButton" Source="/Resources/icons8-back-60.png" Width="20" Height="20" >
-                <Image.Style>
-                    <Style TargetType="{x:Type Image}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Effect">
-                                    <Setter.Value>
-                                        <DropShadowEffect ShadowDepth="0" Color="#535353" Opacity="2" BlurRadius="50"/>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Image.Style>
-            </Image>
-        </Button>
+            <Button x:Name="CloseWindowButton" Click="CloseWindowButton_Click"  Grid.Column="2" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Height="40" Width="45" Margin="0" >
+                <Image Source="/Resources/icons8-close-64.png" Width="20" Height="20" >
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="#535353" Opacity="2" BlurRadius="50"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
         </StackPanel>
         <Grid x:Name="Header" Height="40" Grid.Column="0" >
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Left" Margin="5">

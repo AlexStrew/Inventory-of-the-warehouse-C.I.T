@@ -19,5 +19,6 @@
             <Button x:Name="LoginBtn" IsDefault="True" Margin="0 30 0 10" Height="35" FontSize="16" FontWeight="SemiBold" Click="LoginBtnClick">Войти</Button>
             <TextBlock x:Name="DontAuthTB" MouseLeftButtonDown="DontAuthTBMouseLeftButtonDown" FontSize="12" Cursor="Hand" HorizontalAlignment="Center" Opacity="0" TextDecorations="Underline">Взлом программы</TextBlock>
         </StackPanel>
+        <TextBlock x:Name="CallHelp" MouseLeftButtonDown="CallHelp_MouseLeftButtonDown"  FontSize="12" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextDecorations="Underline">Позвонить Алишеру</TextBlock>
     </Grid>
 </Page>

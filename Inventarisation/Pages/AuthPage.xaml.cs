@@ -85,5 +85,10 @@ namespace Inventarisation.Pages
         {
             this.NavigationService.Navigate(new MainPage());
         }
+
+        private void CallHelp_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.MessageBox.Show("Абонент недоступен, перезвоните позже","", MessageBoxButton.OK);
+        }
     }
 }
