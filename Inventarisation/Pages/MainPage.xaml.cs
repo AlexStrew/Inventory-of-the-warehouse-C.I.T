@@ -41,7 +41,8 @@ namespace Inventarisation.Pages
        
         public MainPage()
         {          
-            InitializeComponent();           
+            InitializeComponent();
+            UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
             var vm = new InventoriesViewModel();
             vm.GetData();
             this.DataContext = vm;            
