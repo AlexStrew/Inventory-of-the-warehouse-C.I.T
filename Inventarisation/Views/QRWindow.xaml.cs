@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
 using QRCoder;
 using System.Drawing;
+using System.IO;
 
 namespace Inventarisation.Views
 {
@@ -32,9 +33,9 @@ namespace Inventarisation.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
-            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("ТЕСТОВЫЙ ВАРИК", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("Тут надо придумать надпись а пока что тут будет 'пам париамчик пури румчик'", QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qRCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(40);
+            Bitmap qrCodeImage = qrCode.GetGraphic(100);
             qr.Source = BitmapToImageSource(qrCodeImage);
         }
         private ImageSource BitmapToImageSource(Bitmap bitmap)

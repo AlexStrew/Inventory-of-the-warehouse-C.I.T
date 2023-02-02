@@ -19,6 +19,7 @@ using System.Text.RegularExpressions;
 using Syncfusion.Windows.Shared;
 using Inventarisation.Models;
 using HandyControl.Themes;
+using Inventarisation.Views;
 
 namespace Inventarisation
 
@@ -107,6 +108,13 @@ namespace Inventarisation
             
         }
 
-      
+        private void QR_Click(object sender, RoutedEventArgs e)
+        {
+            QRWindow win = new QRWindow();
+            if (win.ShowDialog() == true)
+            {
+                Console.WriteLine("sdsd");
+            }
+        }
     }
 }
