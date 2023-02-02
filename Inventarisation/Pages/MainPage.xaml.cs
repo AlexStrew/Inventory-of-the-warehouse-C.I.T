@@ -16,6 +16,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,6 +46,7 @@ namespace Inventarisation.Pages
             vm.GetData();
             this.DataContext = vm;            
         }
+
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
         {
@@ -126,6 +128,26 @@ namespace Inventarisation.Pages
 
             sfDataGrid.PrintSettings.AllowRepeatHeaders = false;
             sfDataGrid.ShowPrintPreview();
+        }
+
+        private void CheckUserIdentity_Click(object sender, RoutedEventArgs e)
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            if (identity != null)
+            {
+                Console.WriteLine("Name: " + identity.Name);
+                Console.WriteLine("Authentication type: " + identity.AuthenticationType);
+                Console.WriteLine("Is authenticated: " + identity.IsAuthenticated);
+                Console.WriteLine("Token: " + identity.Token);
+                Console.WriteLine("Groups: " + identity.Groups);
+                Console.WriteLine("ImpersonationLevel: " + identity.ImpersonationLevel);
+                Console.WriteLine("AccessToken: " + identity.AccessToken);
+                Console.WriteLine("Actor: " + identity.Actor);
+                Console.WriteLine("DeviceClaims: " + identity.DeviceClaims);
+                Console.WriteLine("Owner: " + identity.Owner);
+
+                
+            }
         }
     }
 }

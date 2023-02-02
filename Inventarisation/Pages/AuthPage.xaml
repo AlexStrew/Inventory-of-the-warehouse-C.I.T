@@ -16,7 +16,10 @@
             <TextBox x:Name="LoginTextBox" FontWeight="SemiBold" Height="25" VerticalContentAlignment="Center" Margin=" 0 0 0 10 "></TextBox>
             <TextBlock FontWeight="SemiBold" FontSize="14">Пароль</TextBlock>
             <TextBox x:Name="AuthPasswordBox" Height="25" FontWeight="SemiBold" VerticalContentAlignment="Center"></TextBox>
+            
             <Button x:Name="LoginBtn" IsDefault="True" Margin="0 30 0 10" Height="35" FontSize="16" FontWeight="SemiBold" Click="LoginBtnClick">Войти</Button>
+            <Button x:Name="LoginWinBtn" Margin="0 0 0 10" Height="35" FontSize="16" FontWeight="SemiBold" Click="LoginWinBtn_Click">OSS</Button>
+            
             <TextBlock x:Name="DontAuthTB" MouseLeftButtonDown="DontAuthTBMouseLeftButtonDown" FontSize="12" Cursor="Hand" HorizontalAlignment="Center" Opacity="0" TextDecorations="Underline">Взлом программы</TextBlock>
         </StackPanel>
         <TextBlock x:Name="CallHelp" MouseLeftButtonDown="CallHelp_MouseLeftButtonDown"  FontSize="12" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextDecorations="Underline">Позвонить Алишеру</TextBlock>

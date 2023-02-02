@@ -21,6 +21,8 @@ using System.Net;
 using System.Net.Http.Headers;
 using WECPOFLogic;
 using System.Windows.Forms;
+using System.Security.Principal;
+using static Inventarisation.Pages.AuthPage;
 
 namespace Inventarisation.Pages
 {
@@ -68,7 +70,7 @@ namespace Inventarisation.Pages
                 var token = JsonConvert.DeserializeObject<Token>(json);
 
                 Properties.Settings.Default.JWTtoken = token.token;
-                Properties.Settings.Default.Save();;
+                Properties.Settings.Default.Save();
                 this.NavigationService.Navigate(new MainPage());
             }
             MessageBoxManager.OK = "نعم";
@@ -89,6 +91,60 @@ namespace Inventarisation.Pages
         private void CallHelp_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             System.Windows.MessageBox.Show("Абонент недоступен, перезвоните позже","", MessageBoxButton.OK);
+        }
+
+        private void LoginWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            if (principal.IsInRole(WindowsBuiltInRole.User))
+            {
+                Console.WriteLine("User Name: " + identity.Name);
+                Console.WriteLine("Is Authenticated: " + identity.IsAuthenticated);
+                Console.WriteLine("Authentication Type: " + identity.AuthenticationType);
+                Console.WriteLine("Is User in User role: " + principal.IsInRole(WindowsBuiltInRole.User));
+
+                Properties.Settings.Default.CurrentUser = identity.Name;
+                Console.WriteLine(Properties.Settings.Default.CurrentUser);
+                Properties.Settings.Default.Save();
+                GetTokenWin();
+                
+                this.NavigationService.Navigate(new MainPage());
+            }
+            else
+            {
+                
+                Console.WriteLine("User Name: " + identity.Name);
+                Console.WriteLine("Is Authenticated: " + identity.IsAuthenticated);
+                Console.WriteLine("Authentication Type: " + identity.AuthenticationType);
+                Console.WriteLine("Is User in User role: " + principal.IsInRole(WindowsBuiltInRole.User));
+                System.Windows.MessageBox.Show("Ошибка", "", MessageBoxButton.OK);
+            }
+        }
+
+        private async void GetTokenWin()
+        {
+            var values = new Dictionary<string, string>
+            {
+                { "username", "string" },
+                { "password", "string" }
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(values), Encoding.UTF8, "application/json");
+
+
+            var response = await _client.PostAsync("http://invent.doker.ru/api/Authenticate/login", content);
+
+            await Console.Out.WriteLineAsync(response.ToString());
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var token = JsonConvert.DeserializeObject<Token>(json);
+
+                Properties.Settings.Default.JWTtoken = token.token;
+                Properties.Settings.Default.Save(); ;
+                
+            }
         }
     }
 }

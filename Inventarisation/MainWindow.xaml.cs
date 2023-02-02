@@ -32,9 +32,10 @@ namespace Inventarisation
         public MainWindow()
         {
             InitializeComponent();
-            
-         
-            
+            UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
+
+
+
 
             MainFrame.Navigate(new AuthPage()
             { 
@@ -105,5 +106,7 @@ namespace Inventarisation
             }
             
         }
+
+      
     }
 }

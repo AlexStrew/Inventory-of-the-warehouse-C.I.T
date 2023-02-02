@@ -70,6 +70,7 @@
                 Source="{Binding DataVM}"/>
             <Button x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Экспорт в Excel" Grid.Row="2" Width="Auto" Padding="5" Margin="5"/>
             <Button x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
+            <Button x:Name="CheckUserIdentity" Click="CheckUserIdentity_Click"  Content="User" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
             
         </StackPanel>
         
