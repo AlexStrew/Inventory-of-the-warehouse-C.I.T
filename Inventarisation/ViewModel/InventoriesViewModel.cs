@@ -41,7 +41,6 @@ namespace Inventarisation.ViewModel
 
                 foreach (var item in data)
                 {
-                    await Console.Out.WriteLineAsync("Data");
                     DataVM.Add(item);
                 }
                

@@ -56,7 +56,13 @@ namespace Inventarisation
 
         private void NomenclatureBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            NomenclatureWindow win = new NomenclatureWindow();
+            if (win.ShowDialog() == true)
+            {
+                //TestText.Text = Properties.Settings.Default.MKBCode;
+                //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
+                Console.WriteLine("sdsd");
+            }
         }
 
         private  void WriteOffBtn_Click(object sender, RoutedEventArgs e)
