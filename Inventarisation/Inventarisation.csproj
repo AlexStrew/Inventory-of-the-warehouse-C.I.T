@@ -275,6 +275,9 @@
     <Compile Include="Views\BindingWindow.xaml.cs">
       <DependentUpon>BindingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\HistoryAndEditWriteOffPage.xaml.cs">
+      <DependentUpon>HistoryAndEditWriteOffPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NomenclatureWindow.xaml.cs">
       <DependentUpon>NomenclatureWindow.xaml</DependentUpon>
     </Compile>
@@ -318,6 +321,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BindingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistoryAndEditWriteOffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
