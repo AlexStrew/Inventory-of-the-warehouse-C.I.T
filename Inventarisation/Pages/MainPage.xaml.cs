@@ -54,16 +54,7 @@ namespace Inventarisation.Pages
         }
 
 
-        private static void OnCopyClicked(object obj)
-        {
-
-            if (obj is GridRecordContextMenuInfo)
-            {
-                var grid = (obj as GridRecordContextMenuInfo).DataGrid;
-                var record = (obj as GridRecordContextMenuInfo).Record;
-                grid.GridCopyPaste.Copy();
-            }
-        }
+   
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
         {
             AddWindow win = new AddWindow();
