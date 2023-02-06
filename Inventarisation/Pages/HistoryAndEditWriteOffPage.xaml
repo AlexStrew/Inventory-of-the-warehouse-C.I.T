@@ -1,0 +1,42 @@
+﻿<Page x:Class="Inventarisation.Pages.HistoryAndEditWriteOffPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Inventarisation.Pages" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HistoryAndEditWriteOffPage">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <syncfusion:SfDataGrid  x:Name="sfDataGrid"
+                Margin="5"
+                AllowFiltering="True"
+                AutoGenerateColumns="False"
+            AllowResizingColumns="True"
+            GroupDropAreaText="Перетащите сюда столбец для группировки"
+            ShowGroupDropArea="True" 
+                ColumnSizer="Star"
+            ShowSortNumbers="True"
+                ItemsSource="{Binding ElementName=dataPager,Path=PagedSource}"
+            ShowRowHeader="True"
+                NavigationMode="Row"
+            >
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:GridTextColumn HeaderText="Наименование" x:Name="Name" MappingName="Name"></syncfusion:GridTextColumn>
+                    <syncfusion:GridTextColumn HeaderText="Количество" x:Name="Col" MappingName="Col"></syncfusion:GridTextColumn>
+                    <syncfusion:GridTextColumn HeaderText="Дата" x:Name="EdIz" MappingName="EdIz"></syncfusion:GridTextColumn>
+                    <syncfusion:GridTextColumn HeaderText="Чел" x:Name="WrOff" MappingName="WrOff"></syncfusion:GridTextColumn>
+
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin=" 0 0 5 5">Редактировать</Button>
+        </Grid>
+
+    </Grid>
+</Page>

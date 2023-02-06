@@ -108,7 +108,7 @@ namespace Inventarisation.Pages
                 Console.WriteLine(Properties.Settings.Default.CurrentUser);
                 Properties.Settings.Default.Save();
                 GetTokenWin();
-                
+                Task.Delay(2000);
                 this.NavigationService.Navigate(new MainPage());
             }
             else
@@ -142,7 +142,7 @@ namespace Inventarisation.Pages
                 var token = JsonConvert.DeserializeObject<Token>(json);
 
                 Properties.Settings.Default.JWTtoken = token.token;
-                Properties.Settings.Default.Save(); ;
+                Properties.Settings.Default.Save();
                 
             }
         }

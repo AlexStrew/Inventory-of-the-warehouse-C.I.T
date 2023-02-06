@@ -11,12 +11,16 @@ using System.Threading.Tasks;
 using Inventarisation.Api.ApiModel;
 using Inventarisation.Models;
 using Inventarisation.Views;
+using System.Threading;
+
 
 namespace Inventarisation.ViewModel
 {
     public class InventoriesViewModel
     {
+      
         public ObservableCollection<InvMain> DataVM { get; set; }
+
 
         public async void GetData()
         {
@@ -41,7 +45,7 @@ namespace Inventarisation.ViewModel
 
                 foreach (var item in data)
                 {
-                    await Console.Out.WriteLineAsync("Data");
+                   
                     DataVM.Add(item);
                 }
                

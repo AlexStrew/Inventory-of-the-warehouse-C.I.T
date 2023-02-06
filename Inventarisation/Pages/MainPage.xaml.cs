@@ -30,6 +30,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ContextMenu = System.Windows.Controls.ContextMenu;
+using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace Inventarisation.Pages
 {
@@ -43,15 +45,25 @@ namespace Inventarisation.Pages
         public MainPage()
         {          
             InitializeComponent();
-
+     
             UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
             var vm = new InventoriesViewModel();
             vm.GetData();
-            this.DataContext = vm;            
+            this.DataContext = vm;
+           
         }
 
 
+        private static void OnCopyClicked(object obj)
+        {
 
+            if (obj is GridRecordContextMenuInfo)
+            {
+                var grid = (obj as GridRecordContextMenuInfo).DataGrid;
+                var record = (obj as GridRecordContextMenuInfo).Record;
+                grid.GridCopyPaste.Copy();
+            }
+        }
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
         {
             AddWindow win = new AddWindow();
@@ -158,9 +170,7 @@ namespace Inventarisation.Pages
 
         private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
         {
-            SearchTBox.Text = String.Empty;
-            //CollectionViewSource.GetDefaultView(sfDataGrid.ItemsSource).Refresh();
-            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+            this.sfDataGrid.SearchHelper.ClearSearch();
         }
 
  

@@ -15,6 +15,7 @@
     <!--syncfusionskin:SfSkinManager.VisualStyle="MaterialDark"
     xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"-->
     <Page.Resources>
+        
         <DataTemplate x:Key="ComputerInfo">
             <Grid HorizontalAlignment="Left">
                 <Grid.RowDefinitions>
@@ -35,9 +36,9 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
-                               FontWeight="DemiBold" Text="Name" />
+                               FontWeight="DemiBold" Text="Manufacturer" />
                     <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
-                               Text="{Binding DataVM.InvMain.Manufacturer}" />
+                               Text="{Binding Data.Manufacturer}" />
                 </Grid>
             </Grid>
         </DataTemplate>
@@ -51,8 +52,8 @@
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30">
-            <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
-            <TextBox x:Name="SearchTBox" TextChanged="SearchTBox_TextChanged" MinWidth="150" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+            <TextBlock FontWeight="SemiBold" Text="Поиск" VerticalAlignment="Center"></TextBlock>
+            <TextBox FontWeight="SemiBold" x:Name="SearchTBox" TextChanged="SearchTBox_TextChanged" MinWidth="150" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
             <Button x:Name="ClearSearchButton" Click="ClearSearchButton_Click"  Background="Transparent" BorderBrush="Transparent" Height="40" Width="45" Margin="-35 0 0 0" >
                 <Image Source="/Resources/icons8-close-64.png" Width="20" Height="20" >
                     <Image.Style>
@@ -87,13 +88,16 @@
                     </Image.Style>
                 </Image>
             </Button>
-            
-            <Button x:Name="AddButtonWindows" Click="AddButtonWindows_Click"  HorizontalAlignment="Right" Content="Добавить" Padding="10 0 10 0" Margin="10 0 10 0" ></Button>
-            <Button HorizontalAlignment="Right" Content="Удалить" Padding="10 0 10 0" Margin="0 0 10 0"></Button>
+
+            <Button FontWeight="SemiBold" x:Name="AddButtonWindows" Click="AddButtonWindows_Click"  HorizontalAlignment="Right" Content="Добавить" Padding="10 0 10 0" Margin="10 0 10 0" ></Button>
+            <Button  HorizontalAlignment="Right" Content="Удалить" Padding="10 0 10 0" Margin="0 0 10 0"></Button>
         </StackPanel>
 
         <syncfusion:SfDataGrid
-                     x:Name="sfDataGrid"
+            ScrollMode="Async"
+            
+            SummaryCalculationMode="OnDemandCaptionSummary"
+            x:Name="sfDataGrid"
                 Margin="5"
                 AllowFiltering="True"
                 AutoGenerateColumns="False"
@@ -134,17 +138,40 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <syncfusion:SfDataPager x:Name="dataPager"             
-                PageSize="30"
+                PageSize="50"
                 Source="{Binding DataVM}"/>
-            <Button x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Экспорт в Excel" Grid.Row="2" Width="Auto" Padding="5" Margin="5"/>
-            <Button x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
-            <Button x:Name="CheckUserIdentity" Click="CheckUserIdentity_Click"  Content="User" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
+            <Button FontWeight="SemiBold" x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Экспорт в Excel" Grid.Row="2" Width="Auto" Padding="5" Margin="5"/>
+            <Button FontWeight="SemiBold" x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
+            <Button FontWeight="SemiBold" x:Name="CheckUserIdentity" Click="CheckUserIdentity_Click"  Content="User" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
             <TextBlock  Text="User:"  VerticalAlignment="Center" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin=" 0 0 5 0"/>
             <TextBlock  x:Name="UserTextBlock"  VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Width="200" Foreground="Green" HorizontalAlignment="Left"/>
+            <Border HorizontalAlignment="Right" 
+                    x:Name="LoaderAnimData"
+            VerticalAlignment="Bottom"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="1"
+            Opacity="50"
+            >
+                <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <TextBlock Margin="5"
+                       VerticalAlignment="Center"
+                       FontSize="16"
+                       Foreground="Black"
+                               
+                       Text="Загрузка данных..." FontWeight="SemiBold" />
+                    <syncfusion:SfBusyIndicator Margin="5"
+                                        VerticalAlignment="Center"
+                                        Foreground="Gray"
+                                        AnimationType="Gear" />
+                </StackPanel>
+            </Border>
         </StackPanel>
 
-        
 
+       
     </Grid>
 
     
