@@ -8,21 +8,86 @@
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
       
       xmlns:hc="https://handyorg.github.io/handycontrol" 
-      xmlns:models="clr-namespace:Inventarisation.Models" xmlns:viewmodel="clr-namespace:Inventarisation.ViewModel" d:DataContext="{d:DesignInstance Type=models:MainPageViewModel}"
+     
       
       d:DesignHeight="450" d:DesignWidth="1200"
       Title="MainPage">
     <!--syncfusionskin:SfSkinManager.VisualStyle="MaterialDark"
     xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"-->
+    <Page.Resources>
+        <DataTemplate x:Key="ComputerInfo">
+            <Grid HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" HorizontalAlignment="Center" Content="Prodcut Info"
+                   FontWeight="Bold" />
+                <Grid Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
+                               FontWeight="DemiBold" Text="Name" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
+                               Text="{Binding DataVM.InvMain.Manufacturer}" />
+                </Grid>
+            </Grid>
+        </DataTemplate>
+
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30">
             <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
             <TextBox x:Name="SearchTBox" TextChanged="SearchTBox_TextChanged" MinWidth="150" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+            <Button x:Name="ClearSearchButton" Click="ClearSearchButton_Click"  Background="Transparent" BorderBrush="Transparent" Height="40" Width="45" Margin="-35 0 0 0" >
+                <Image Source="/Resources/icons8-close-64.png" Width="20" Height="20" >
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="#535353" Opacity="2" BlurRadius="50"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            <Button x:Name="SearchButton" Click="SearchButton_Click"  Background="Transparent" BorderBrush="Transparent" Height="40" Width="45" Margin="-15 0 0 0" >
+                <Image Source="/Resources/icons8-search-60.png" Width="20" Height="20" >
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect ShadowDepth="0" Color="#535353" Opacity="2" BlurRadius="50"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            
             <Button x:Name="AddButtonWindows" Click="AddButtonWindows_Click"  HorizontalAlignment="Right" Content="Добавить" Padding="10 0 10 0" Margin="10 0 10 0" ></Button>
             <Button HorizontalAlignment="Right" Content="Удалить" Padding="10 0 10 0" Margin="0 0 10 0"></Button>
         </StackPanel>
@@ -41,12 +106,15 @@
             ShowRowHeader="True"
                 NavigationMode="Row"
             Grid.Row="1">
+            <syncfusion:SfDataGrid.DetailsViewDefinition>
+                <syncfusion:TemplateViewDefinition  RowTemplate="{StaticResource ComputerInfo}"/>
+            </syncfusion:SfDataGrid.DetailsViewDefinition>
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn HeaderText="Инв. №"  x:Name="InvNumDGTBox" MappingName="InvNum"/>
-                <syncfusion:GridTextColumn HeaderText="Наименование"  x:Name="NameInvDGTBox" MappingName="NomenclatureId"/>
-                <syncfusion:GridTextColumn HeaderText="Привязка" x:Name="WorkPlaceDGTBox" MappingName="WorkplaceId"/>
-                <!--<syncfusion:GridDateTimeColumn HeaderText="Движение" MappingName="Movements.date_move"/>-->
-                <syncfusion:GridTextColumn HeaderText="Организация"  x:Name="CompanyDGTBox" MappingName="CompanyId"/>
+                <syncfusion:GridTextColumn HeaderText="Наименование"  x:Name="NameInvDGTBox" MappingName="NameDevice"/>
+                <syncfusion:GridTextColumn HeaderText="Привязка" x:Name="WorkPlaceDGTBox" MappingName="NameWorkplace"/>
+                <syncfusion:GridDateTimeColumn HeaderText="Движение" MappingName="DateMove"/>
+                <syncfusion:GridTextColumn HeaderText="Организация"  x:Name="CompanyDGTBox" MappingName="CompanyName"/>
                 <syncfusion:GridTextColumn HeaderText="Номер заявки на оплату"  MappingName="PaymentNum"/>
                 <syncfusion:GridTextColumn  HeaderText="Комментарии" MappingName="Comment" Width="110" />
                 <syncfusion:GridTextColumn HeaderText="Накладная"  MappingName="Invoice"/>
@@ -74,8 +142,10 @@
             <TextBlock  Text="User:"  VerticalAlignment="Center" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin=" 0 0 5 0"/>
             <TextBlock  x:Name="UserTextBlock"  VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Width="200" Foreground="Green" HorizontalAlignment="Left"/>
         </StackPanel>
+
         
 
-
     </Grid>
+
+    
 </Page>

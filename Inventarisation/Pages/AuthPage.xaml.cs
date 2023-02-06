@@ -61,7 +61,7 @@ namespace Inventarisation.Pages
             var content = new StringContent(JsonConvert.SerializeObject(values), Encoding.UTF8, "application/json");
 
 
-            var response = await _client.PostAsync("http://invent.doker.ru/api/Authenticate/login", content);
+            var response = await _client.PostAsync("https://invent.doker.ru/api/Authenticate/login", content);
             
             await Console.Out.WriteLineAsync(response.ToString());
             if (response.IsSuccessStatusCode)
@@ -126,14 +126,14 @@ namespace Inventarisation.Pages
         {
             var values = new Dictionary<string, string>
             {
-                { "username", "string" },
-                { "password", "string" }
+                { "username", "AdminApi" },
+                { "password", "QFgQJkWi4t" }
             };
 
             var content = new StringContent(JsonConvert.SerializeObject(values), Encoding.UTF8, "application/json");
 
 
-            var response = await _client.PostAsync("http://invent.doker.ru/api/Authenticate/login", content);
+            var response = await _client.PostAsync("https://invent.doker.ru/api/Authenticate/login", content);
 
             await Console.Out.WriteLineAsync(response.ToString());
             if (response.IsSuccessStatusCode)

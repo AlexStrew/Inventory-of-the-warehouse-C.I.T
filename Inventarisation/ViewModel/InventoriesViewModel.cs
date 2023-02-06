@@ -16,13 +16,13 @@ namespace Inventarisation.ViewModel
 {
     public class InventoriesViewModel
     {
-        public ObservableCollection<Inventory> DataVM { get; set; }
+        public ObservableCollection<InvMain> DataVM { get; set; }
 
         public async void GetData()
         {
             HttpClient _client;
             IDataProtector _protector;
-            DataVM = new ObservableCollection<Inventory>();
+            DataVM = new ObservableCollection<InvMain>();
 
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -33,14 +33,15 @@ namespace Inventarisation.ViewModel
             var token = protectedToken;
 
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _client.GetAsync("http://invent.doker.ru/api/Inventories");
+            var response = await _client.GetAsync("https://invent.doker.ru/api/Inventories/ConnectedTables");
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<List<Inventory>>(json);
+                var data = JsonConvert.DeserializeObject<List<InvMain>>(json);
 
                 foreach (var item in data)
                 {
+                    await Console.Out.WriteLineAsync("Data");
                     DataVM.Add(item);
                 }
                

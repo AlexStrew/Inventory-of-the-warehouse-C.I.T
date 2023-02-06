@@ -33,9 +33,9 @@ namespace Inventarisation.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
-            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("Тут надо придумать надпись а пока что тут будет 'пам париамчик пури румчик'", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("Требуется написать 500 уникальных текстов для безанкорных ссылок. Я даю ссылку на страницу, Вы для не", QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qRCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(100);
+            Bitmap qrCodeImage = qrCode.GetGraphic(15);
             qr.Source = BitmapToImageSource(qrCodeImage);
         }
         private ImageSource BitmapToImageSource(Bitmap bitmap)

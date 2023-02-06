@@ -10,16 +10,50 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace InvAPI.Controllers
 {
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class InventoriesController : ControllerBase
     {
-        private readonly InventarisationDbContext _context;
+        //private readonly InventarisationDbContext _context;
+        InventarisationDbContext _context = new InventarisationDbContext();
 
         public InventoriesController(InventarisationDbContext context)
         {
             _context = context;
+        }
+
+        [Route("ConnectedTables")]
+        [HttpGet]
+        public object JoinStatement()
+        {
+            using (_context)
+            {
+                var result = (from e in _context.Inventories
+                              join d in _context.Nomenclatures on e.NomenclatureId equals d.IdNomenclature
+                              join b in _context.Workplaces on e.WorkplaceId equals b.IdWorkplace
+                              join c in _context.Movements on e.MoveId equals c.IdMovement
+                              join f in _context.Companies on e.CompanyId equals f.IdCompany
+                              select new
+                              {
+                                  id = e.Id,
+                                  inv_num = e.InvNum,
+                                  payment_num = e.PaymentNum,
+                                  comment = e.Comment,
+                                  invoice = e.Invoice,
+                                  nomenclature_id = e.NomenclatureId,
+                                  name_device = d.NameDevice,
+                                  id_workplace = b.IdWorkplace,
+                                  name_workplace = b.NameWorkplace,
+                                  id_movement = c.IdMovement,
+                                  date_move = c.DateMove,
+                                  id_company = f.IdCompany,
+                                  company_name = f.CompanyName
+                              }).ToList();
+                // TODO utilize the above result
+
+                return result;
+            }
         }
 
         // GET: api/Inventories

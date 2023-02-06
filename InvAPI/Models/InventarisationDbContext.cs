@@ -39,7 +39,7 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
     public virtual DbSet<WriteOff> WriteOffs { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=SV-SQL-02\\SVSQL02;Database=InventarisationDB;Persist Security Info=False;user=api-user;Password=QFgQJkWi4t;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -151,6 +151,21 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("name_device");
+            entity.Property(e => e.Manufacturer)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("manufacturer");
+            entity.Property(e => e.Model)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("model");
+            entity.Property(e => e.DateCreation)
+                .HasColumnType("date")
+                .HasColumnName("date_creation");
+            entity.Property(e => e.DateChange)
+                .HasColumnType("date")
+                .HasColumnName("date_change");
+
         });
 
         modelBuilder.Entity<Placement>(entity =>

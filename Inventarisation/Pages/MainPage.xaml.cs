@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
@@ -37,16 +38,18 @@ namespace Inventarisation.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        public ObservableCollection<Inventory> Data { get; set; }
+        //public ObservableCollection<Inventory> Data { get; set; }
        
         public MainPage()
         {          
             InitializeComponent();
+
             UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
             var vm = new InventoriesViewModel();
             vm.GetData();
             this.DataContext = vm;            
         }
+
 
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
@@ -64,11 +67,13 @@ namespace Inventarisation.Pages
         /// <param name="e"></param>
         private void SearchTBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(sfDataGrid.ItemsSource).Refresh();
+            //CollectionViewSource.GetDefaultView(sfDataGrid.ItemsSource).Refresh();
 
-            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
-            this.sfDataGrid.SearchHelper.AllowFiltering = true;
-            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+            //this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+            //this.sfDataGrid.SearchHelper.AllowFiltering = true;
+            //this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+
+
 
         }
 
@@ -77,7 +82,7 @@ namespace Inventarisation.Pages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        #region Excel create
+     
         private void SaveToExcel_Click(object sender, RoutedEventArgs e)
         {
             var options = new ExcelExportingOptions();
@@ -118,7 +123,7 @@ namespace Inventarisation.Pages
                 }
             }
         }
-        #endregion
+   
         /// <summary>
         /// Отправка в печать с превью
         /// </summary>
@@ -149,6 +154,21 @@ namespace Inventarisation.Pages
 
                 
             }
+        }
+
+        private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTBox.Text = String.Empty;
+            //CollectionViewSource.GetDefaultView(sfDataGrid.ItemsSource).Refresh();
+            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+        }
+
+ 
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.sfDataGrid.SearchHelper.AllowFiltering = true;
+            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
         }
     }
 }

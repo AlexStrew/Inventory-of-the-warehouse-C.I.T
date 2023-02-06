@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace InvAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class NomenclaturesController : ControllerBase
