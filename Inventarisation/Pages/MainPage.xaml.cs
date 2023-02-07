@@ -50,6 +50,7 @@ namespace Inventarisation.Pages
             var vm = new InventoriesViewModel();
             vm.GetData();
             this.DataContext = vm;
+
            
         }
 
