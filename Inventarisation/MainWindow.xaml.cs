@@ -20,6 +20,8 @@ using Syncfusion.Windows.Shared;
 using Inventarisation.Models;
 using HandyControl.Themes;
 using Inventarisation.Views;
+using Syncfusion.SfSkinManager;
+using Syncfusion.Windows;
 
 namespace Inventarisation
 
@@ -122,5 +124,17 @@ namespace Inventarisation
                 Console.WriteLine("sdsd");
             }
         }
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ToggleButton.IsChecked.Value)
+            {
+                SfSkinManager.SetVisualStyle(this, VisualStyles.Windows11Dark);
+            }
+            else
+            {
+                SfSkinManager.SetVisualStyle(this, VisualStyles.Windows11Light);
+            }
+        }
+
     }
 }

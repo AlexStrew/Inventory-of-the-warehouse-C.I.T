@@ -40,7 +40,27 @@ namespace Inventarisation.Pages
 
 
         }
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("DarkTheme.xaml", UriKind.Relative)
+            });
+            MessageBox.Show("Тёмная тема");
+        }
 
-        
+        private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("LightTheme.xaml", UriKind.Relative)
+            });
+            MessageBox.Show("Светлая тема");
+        }
+
     }
 }

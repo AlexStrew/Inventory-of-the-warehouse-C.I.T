@@ -5,6 +5,7 @@ using Inventarisation.Views;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using Syncfusion.SfSkinManager;
 using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.XlsIO;
@@ -172,5 +173,6 @@ namespace Inventarisation.Pages
             this.sfDataGrid.SearchHelper.AllowFiltering = true;
             this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
         }
+        
     }
 }

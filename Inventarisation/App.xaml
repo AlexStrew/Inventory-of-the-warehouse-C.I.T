@@ -6,7 +6,7 @@
             xmlns:hc="https://handyorg.github.io/handycontrol"
              
              
-              xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+             
              >
     <!--xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"-->
     <Application.Resources>
