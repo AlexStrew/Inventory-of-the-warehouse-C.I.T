@@ -16,12 +16,13 @@ using System.Windows.Shapes;
 using MaterialDesignColors;
 using MaterialDesignThemes.Wpf;
 using System.Text.RegularExpressions;
-using Syncfusion.Windows.Shared;
 using Inventarisation.Models;
 using HandyControl.Themes;
 using Inventarisation.Views;
+using Syncfusion.Windows.Shared;
 using Syncfusion.SfSkinManager;
 using Syncfusion.Windows;
+using Inventarisation.Properties;
 
 namespace Inventarisation
 
@@ -32,6 +33,7 @@ namespace Inventarisation
     /// </summary>
     public partial class MainWindow : Window
     {
+        private VisualStyles currentTheme;
         public MainWindow()
         {
             InitializeComponent();
@@ -58,13 +60,16 @@ namespace Inventarisation
 
         private void NomenclatureBtn_Click(object sender, RoutedEventArgs e)
         {
-            NomenclatureWindow win = new NomenclatureWindow();
+            NomenclatureWindow win = new NomenclatureWindow(currentTheme);
+            
             if (win.ShowDialog() == true)
             {
+                
                 //TestText.Text = Properties.Settings.Default.MKBCode;
                 //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
                 Console.WriteLine("sdsd");
             }
+           
         }
 
         private  void WriteOffBtn_Click(object sender, RoutedEventArgs e)
@@ -119,22 +124,33 @@ namespace Inventarisation
         private void QR_Click(object sender, RoutedEventArgs e)
         {
             QRWindow win = new QRWindow();
+            
             if (win.ShowDialog() == true)
             {
                 Console.WriteLine("sdsd");
             }
         }
+        
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
             if (ToggleButton.IsChecked.Value)
             {
                 SfSkinManager.SetVisualStyle(this, VisualStyles.Windows11Dark);
+                //Environment.SetEnvironmentVariable("CurrentTheme", "Windows11Dark");
+                //SfSkinManager.SetVisualStyle(new OtherWindow(), VisualStyles.Windows11Dark);
+                currentTheme = VisualStyles.Windows11Dark;
+
             }
             else
             {
                 SfSkinManager.SetVisualStyle(this, VisualStyles.Windows11Light);
+                //SfSkinManager.DefaultVisualStyle = VisualStyles.Windows11Light;
+                //Environment.SetEnvironmentVariable("CurrentTheme", "Windows11Light");\
+                currentTheme = VisualStyles.Windows11Light;
+
             }
         }
 
+        
     }
 }

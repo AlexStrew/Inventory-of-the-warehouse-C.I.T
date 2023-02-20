@@ -22,6 +22,8 @@ using System.Windows.Shapes;
 using Syncfusion.Windows.Shared;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Syncfusion.SfSkinManager;
+using Inventarisation.Properties;
 
 namespace Inventarisation.Views
 {
@@ -33,9 +35,11 @@ namespace Inventarisation.Views
         public ObservableCollection<Nomenclature> DataNomen { get; set; }
        
         //List<Nomenclature> nomList;
-        public NomenclatureWindow()
+        public NomenclatureWindow(VisualStyles theme)
         {
             InitializeComponent();
+            //SfSkinManager.SetVisualStyle(this, Settings.VisualStyles.CurrentTheme);
+            SfSkinManager.SetVisualStyle(this, theme);
             DataContext = this;
             GetData();
             //nomList = db.context.Nomenclature.OrderBy(x=>x.name_device).ToList();

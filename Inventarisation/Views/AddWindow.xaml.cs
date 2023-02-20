@@ -42,14 +42,14 @@ namespace Inventarisation.Views
         /// </summary>
         private void SelectNumButtonClick(object sender, RoutedEventArgs e)
         {
-            NomenclatureWindow win = new NomenclatureWindow();
-            if (win.ShowDialog() == true)
-            {
-                //TestText.Text = Properties.Settings.Default.MKBCode;
-                //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
-                Console.WriteLine("sdsd");
-            }
-            NameDeviceTB.Text =  Properties.Settings.Default.NomenSelectProp;
+            //NomenclatureWindow win = new NomenclatureWindow();
+            //if (win.ShowDialog() == true)
+            //{
+            //    //TestText.Text = Properties.Settings.Default.MKBCode;
+            //    //Console.WriteLine("--" + Properties.Settings.Default.MKBCode + "--");
+            //    Console.WriteLine("sdsd");
+            //}
+            //NameDeviceTB.Text =  Properties.Settings.Default.NomenSelectProp;
 
         }
 

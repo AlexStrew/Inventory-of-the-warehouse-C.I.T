@@ -4,16 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Inventarisation.Views"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
 
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+ 
         mc:Ignorable="d"
         Title="AddWindow" Height="300" Width="1000">
+
+
+    
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="24"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
         </Style>
+        
     </Window.Resources>
+   
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
