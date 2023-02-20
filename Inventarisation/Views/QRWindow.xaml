@@ -11,6 +11,6 @@
     
     <Grid>
         <Image x:Name="qr" Margin="68,42,153,83"/>
-        <Button VerticalAlignment="Bottom" Click="Button_Click">Генерировать</Button>
+        <!--<Button VerticalAlignment="Bottom" Click="Button_Click">Генерировать</Button>-->
     </Grid>
 </Window>

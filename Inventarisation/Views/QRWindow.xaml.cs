@@ -27,17 +27,18 @@ namespace Inventarisation.Views
         public QRWindow()
         {
             InitializeComponent();
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
             QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
-            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("Требуется написать 500 уникальных текстов для безанкорных ссылок. Я даю ссылку на страницу, Вы для не", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode("AdminApi QFgQJkWi4t", QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qRCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(15);
+            Bitmap qrCodeImage = qrCode.GetGraphic(25);
             qr.Source = BitmapToImageSource(qrCodeImage);
+
         }
+
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+            
+        //}
         private ImageSource BitmapToImageSource(Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())
