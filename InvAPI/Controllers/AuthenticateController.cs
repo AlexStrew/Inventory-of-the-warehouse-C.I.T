@@ -28,6 +28,13 @@ namespace JWTAuthentication.NET6._0.Controllers
         }
 
         [HttpPost]
+        [Route("login1")]
+        public async Task<IActionResult> Login1(string userName, string password)
+        {
+            return await Login(new LoginModel { Username = userName, Password = password });
+        }
+
+        [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
