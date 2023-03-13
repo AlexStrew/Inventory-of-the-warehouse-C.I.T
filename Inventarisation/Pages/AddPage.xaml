@@ -1,0 +1,25 @@
+﻿<Page x:Class="Inventarisation.Pages.AddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Inventarisation.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddPage">
+
+    <Grid>
+        <DataGrid>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Инвентаризационный номер" Width="*"/>
+                <DataGridTextColumn Header="Наименование" Width="*"/>
+                <DataGridTextColumn Header="Привязка" Width="*"/>
+                <DataGridTextColumn Header="Движение" Width="*"/>
+                <DataGridTextColumn Header="Организация" Width="*"/>
+                <DataGridTextColumn Header="Номер заявки на оплату" Width="*"/>
+                <DataGridTextColumn Header="Комментарии" Width="*"/>
+                <DataGridTextColumn Header="Накладная" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

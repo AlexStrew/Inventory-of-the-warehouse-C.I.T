@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="20.3" version="20.3" PreviousModules="simple" Modules="professional" RootPath="." Language="en" Id="{144B2F65-D36C-4413-99F2-29A83E294A9F}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="ActSyncAppComponent;CPLAppletComponent;AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE" Value="2960685;4276545;6776679;16176031" MsiKey="AI_CONTROL_VISUAL_STYLE"/>
+    <ROW Property="AI_CONTROL_VISUAL_STYLE_EX" Value="1513239;3026478;3026478" MsiKey="AI_CONTROL_VISUAL_STYLE_EX"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2023" ValueLocId="-"/>
+    <ROW Property="AI_EXTERNALUIUNINSTALLERNAME" MultiBuildValue="DefaultBuild:aiui"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_FrameBtnsColor" Value="metroblack" MsiKey="AI_FrameBtnsColor"/>
+    <ROW Property="AI_FrameColor" Value="metroblack" MsiKey="AI_FrameColor"/>
+    <ROW Property="AI_PACKAGING_TOOL" Value="Advanced Installer 20.3 build f51955ff" ValueLocId="-"/>
+    <ROW Property="AI_PRODUCTNAME_ARP" Value="Inventarisation"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Eco.Handles.dll" Value="..\packages\EcoCore.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Eco.Interfaces.dll" Value="..\packages\EcoCore.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Eco.LinqExtender.dll" Value="..\packages\EcoCore.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Eco.WPF.dll" Value="..\packages\EcoWpf.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll" Value="..\packages\EntityFramework.6.2.0\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll" Value="..\packages\EntityFramework.6.2.0\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_FilterDataGrid.dll" Value="..\packages\FilterDataGrid.1.2.6\lib\net472"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_HandyControl.dll" Value="..\packages\HandyControls.3.4.4\lib\net48"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Inventarisation.exe" Value="..\Inventarisation\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Inventarisation.exe.config" Value="..\Inventarisation\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Inventarisation.pdb" Value="..\Inventarisation\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MDriven.Net.Http.dll" Value="..\packages\EcoCore.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MaterialDesignColors.dll" Value="..\packages\MaterialDesignColors.2.1.1\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MaterialDesignThemes.Wpf.dll" Value="..\packages\MaterialDesignThemes.4.7.1\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll" Value="..\packages\Microsoft.AspNetCore.Cryptography.Internal.7.0.2\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll" Value="..\packages\Microsoft.AspNetCore.DataProtection.Abstractions.7.0.2\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll" Value="..\packages\Microsoft.AspNetCore.DataProtection.Extensions.7.0.2\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.DataProtection.dll" Value="..\packages\Microsoft.AspNetCore.DataProtection.7.0.2\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll" Value="..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.Http.Features.dll" Value="..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Value="..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Value="..\packages\Microsoft.Extensions.Configuration.Abstractions.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="..\packages\Microsoft.Extensions.DependencyInjection.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll" Value="..\packages\Microsoft.Extensions.FileProviders.Abstractions.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll" Value="..\packages\Microsoft.Extensions.Hosting.Abstractions.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll" Value="..\packages\Microsoft.Extensions.Options.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="..\packages\Microsoft.Extensions.Primitives.7.0.0\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Owin.Security.dll" Value="..\packages\Microsoft.Owin.Security.4.2.2\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Owin.dll" Value="..\packages\Microsoft.Owin.4.2.2\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Win32.Registry.dll" Value="..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Xaml.Behaviors.dll" Value="..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Newtonsoft.Json.dll" Value="..\packages\Newtonsoft.Json.13.0.2\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Owin.dll" Value="..\packages\Owin.1.0\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Prism.dll" Value="..\packages\Prism.Core.8.1.97\lib\net47"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_QRCoder.dll" Value="..\packages\QRCoder.1.4.3\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Compression.Base.dll" Value="..\packages\Syncfusion.Compression.Base.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Data.WPF.dll" Value="..\packages\Syncfusion.Data.WPF.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Licensing.dll" Value="..\packages\Syncfusion.Licensing.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Pdf.Base.dll" Value="..\packages\Syncfusion.Pdf.Wpf.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.PropertyGrid.WPF.dll" Value="..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\20.3.0.56\Assemblies\4.6"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGrid.WPF.dll" Value="..\packages\Syncfusion.SfGrid.WPF.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGridConverter.WPF.dll" Value="..\packages\Syncfusion.DataGridExcelExport.Wpf.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfInput.Wpf.dll" Value="..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\20.3.0.56\Assemblies\4.6"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfSkinManager.WPF.dll" Value="..\packages\Syncfusion.SfSkinManager.WPF.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Shared.WPF.Classic.dll" Value="..\..\..\..\..\..\Program Files (x86)\Syncfusion\Essential Studio\WPF\20.3.0.56\Assemblies\4.6"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Shared.WPF.dll" Value="..\packages\Syncfusion.Shared.WPF.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll" Value="..\packages\Syncfusion.Themes.MaterialDark.WPF.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.XlsIO.Base.dll" Value="..\packages\Syncfusion.XlsIO.Wpf.20.4.0.44\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Buffers.dll" Value="..\packages\System.Buffers.4.5.1\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Memory.dll" Value="..\packages\System.Memory.4.5.5\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Net.Http.Formatting.dll" Value="..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Numerics.Vectors.dll" Value="..\packages\System.Numerics.Vectors.4.5.0\lib\net46"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll" Value="..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Security.AccessControl.dll" Value="..\packages\System.Security.AccessControl.5.0.0\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Security.Cryptography.Xml.dll" Value="..\packages\System.Security.Cryptography.Xml.7.0.1\lib\net462"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Security.Principal.Windows.dll" Value="..\packages\System.Security.Principal.Windows.5.0.0\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Text.Encodings.Web.dll" Value="..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Threading.Tasks.Extensions.dll" Value="..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.ValueTuple.dll" Value="..\packages\System.ValueTuple.4.5.0\lib\net47"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_WECPOFLogic.dll" Value="..\packages\EcoWpf.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_WPFViewModelExternalControls.dll" Value="..\packages\EcoWpf.7.0.0.14531\lib\net40"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Eco.Handles.dll" Value="Eco.Handles.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Eco.Interfaces.dll" Value="Eco.Interfaces.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Eco.LinqExtender.dll" Value="Eco.LinqExtender.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Eco.WPF.dll" Value="Eco.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll" Value="EntityFramework.SqlServer.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll" Value="EntityFramework.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_FilterDataGrid.dll" Value="FilterDataGrid.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_HandyControl.dll" Value="HandyControl.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.exe" Value="Inventarisation.exe"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.exe.config" Value="Inventarisation.exe.config"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.pdb" Value="Inventarisation.pdb"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MDriven.Net.Http.dll" Value="MDriven.Net.Http.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MaterialDesignColors.dll" Value="MaterialDesignColors.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MaterialDesignThemes.Wpf.dll" Value="MaterialDesignThemes.Wpf.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll" Value="Microsoft.AspNetCore.Cryptography.Internal.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll" Value="Microsoft.AspNetCore.DataProtection.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll" Value="Microsoft.AspNetCore.DataProtection.Extensions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.dll" Value="Microsoft.AspNetCore.DataProtection.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll" Value="Microsoft.AspNetCore.Http.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Http.Features.dll" Value="Microsoft.AspNetCore.Http.Features.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Value="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Value="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll" Value="Microsoft.Extensions.FileProviders.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll" Value="Microsoft.Extensions.Hosting.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll" Value="Microsoft.Extensions.Options.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Owin.Security.dll" Value="Microsoft.Owin.Security.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Owin.dll" Value="Microsoft.Owin.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Win32.Registry.dll" Value="Microsoft.Win32.Registry.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Xaml.Behaviors.dll" Value="Microsoft.Xaml.Behaviors.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll" Value="Newtonsoft.Json.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Owin.dll" Value="Owin.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Prism.dll" Value="Prism.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_QRCoder.dll" Value="QRCoder.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Compression.Base.dll" Value="Syncfusion.Compression.Base.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Data.WPF.dll" Value="Syncfusion.Data.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Licensing.dll" Value="Syncfusion.Licensing.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Pdf.Base.dll" Value="Syncfusion.Pdf.Base.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.PropertyGrid.WPF.dll" Value="Syncfusion.PropertyGrid.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGrid.WPF.dll" Value="Syncfusion.SfGrid.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGridConverter.WPF.dll" Value="Syncfusion.SfGridConverter.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfInput.Wpf.dll" Value="Syncfusion.SfInput.Wpf.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfSkinManager.WPF.dll" Value="Syncfusion.SfSkinManager.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.Classic.dll" Value="Syncfusion.Shared.WPF.Classic.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.dll" Value="Syncfusion.Shared.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll" Value="Syncfusion.Themes.MaterialDark.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.XlsIO.Base.dll" Value="Syncfusion.XlsIO.Base.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll" Value="System.Buffers.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll" Value="System.Memory.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Net.Http.Formatting.dll" Value="System.Net.Http.Formatting.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll" Value="System.Numerics.Vectors.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll" Value="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Security.AccessControl.dll" Value="System.Security.AccessControl.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Security.Cryptography.Xml.dll" Value="System.Security.Cryptography.Xml.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Security.Principal.Windows.dll" Value="System.Security.Principal.Windows.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Text.Encodings.Web.dll" Value="System.Text.Encodings.Web.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Threading.Tasks.Extensions.dll" Value="System.Threading.Tasks.Extensions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.ValueTuple.dll" Value="System.ValueTuple.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_WECPOFLogic.dll" Value="WECPOFLogic.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_WPFViewModelExternalControls.dll" Value="WPFViewModelExternalControls.dll"/>
+    <ROW Property="AI_SERVAL_TYPE" Value="0"/>
+    <ROW Property="AI_ThemeStyle" Value="default" MsiKey="AI_ThemeStyle"/>
+    <ROW Property="AI_UNINSTALLER" Value="msiexec.exe"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOMODIFY" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPNOREPAIR" Value="1" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="inventoryicon8.exe" Type="8"/>
+    <ROW Property="ARPSYSTEMCOMPONENT" Value="1"/>
+    <ROW Property="AiPreferFastOem" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="Manufacturer" Value="CIT"/>
+    <ROW Property="PIDTemplate" Value="&lt;????-????-????-????&gt;"/>
+    <ROW Property="ProductCode" Value="1033:{FFD320B9-5BE6-4597-A22B-B68C0247BF13} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Inventarisation"/>
+    <ROW Property="ProductVersion" Value="1.0.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{841B9273-D9FE-4B62-A08E-A3F7F64A4444}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="Inventarisation_Dir" Directory_Parent="APPDIR" DefaultDir="INVENT~1|Inventarisation"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_CustomARPName" ComponentId="{F0F9877C-F2D5-46F0-8F14-F26FB2FDFAA2}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+    <ROW Component="AI_ExePath" ComponentId="{244BAEC2-3DE2-4DB3-9CFE-87BF7306A064}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{04BFDAB0-D905-4D0D-9266-C7931727A903}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="Inventarisation_PrimaryOutput" ComponentId="{FF44B969-A226-4CAE-A604-930ECF5A66A2}" Directory_="Inventarisation_Dir" Attributes="0" KeyPath="Inventarisation.exe"/>
+    <ROW Component="Inventarisation_References" ComponentId="{10AED09E-5344-4B89-A46E-38A930BE1B0B}" Directory_="Inventarisation_Dir" Attributes="0" KeyPath="Syncfusion.Shared.WPF.Classic.dll"/>
+    <ROW Component="Inventarisation_SymbolsOutput" ComponentId="{CBF7901D-1456-4533-8B9F-ABFF86F5E949}" Directory_="Inventarisation_Dir" Attributes="0" KeyPath="Inventarisation.pdb"/>
+    <ROW Component="ProductInformation" ComponentId="{E856BC0E-0744-40D6-98D0-61DD95166709}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SHORTCUTDIR" ComponentId="{3DC794D0-6FF8-47EE-A365-04E0449F53DA}" Directory_="SHORTCUTDIR" Attributes="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Inventarisation.exe" Component_="Inventarisation_PrimaryOutput" FileName="INVENT~2.EXE|[|AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Inventarisation.exe&gt;" SelfReg="false" DigSign="true"/>
+    <ROW File="Inventarisation.exe.config" Component_="Inventarisation_PrimaryOutput" FileName="INVENT~2.CON|[|AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.exe.config]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Inventarisation.exe.config&gt;" SelfReg="false"/>
+    <ROW File="Eco.Handles.dll" Component_="Inventarisation_References" FileName="ECOHAN~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Eco.Handles.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Eco.Handles.dll&gt;" SelfReg="false"/>
+    <ROW File="Eco.Interfaces.dll" Component_="Inventarisation_References" FileName="ECOINT~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Eco.Interfaces.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Eco.Interfaces.dll&gt;" SelfReg="false"/>
+    <ROW File="Eco.LinqExtender.dll" Component_="Inventarisation_References" FileName="ECOLIN~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Eco.LinqExtender.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Eco.LinqExtender.dll&gt;" SelfReg="false"/>
+    <ROW File="Eco.WPF.dll" Component_="Inventarisation_References" FileName="ECOWPF~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Eco.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Eco.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="EntityFramework.dll" Component_="Inventarisation_References" FileName="ENTITY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.dll&gt;" SelfReg="false"/>
+    <ROW File="EntityFramework.SqlServer.dll" Component_="Inventarisation_References" FileName="ENTITY~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll&gt;" SelfReg="false"/>
+    <ROW File="FilterDataGrid.dll" Component_="Inventarisation_References" FileName="FILTER~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_FilterDataGrid.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_FilterDataGrid.dll&gt;" SelfReg="false"/>
+    <ROW File="HandyControl.dll" Component_="Inventarisation_References" FileName="HANDYC~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_HandyControl.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_HandyControl.dll&gt;" SelfReg="false"/>
+    <ROW File="MaterialDesignColors.dll" Component_="Inventarisation_References" FileName="MATERI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MaterialDesignColors.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MaterialDesignColors.dll&gt;" SelfReg="false"/>
+    <ROW File="MaterialDesignThemes.Wpf.dll" Component_="Inventarisation_References" FileName="MATERI~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MaterialDesignThemes.Wpf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MaterialDesignThemes.Wpf.dll&gt;" SelfReg="false"/>
+    <ROW File="MDriven.Net.Http.dll" Component_="Inventarisation_References" FileName="MDRIVE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MDriven.Net.Http.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MDriven.Net.Http.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.AspNetCore.Cryptography.Internal.dll" Component_="Inventarisation_References" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.AspNetCore.DataProtection.Abstractions.dll" Component_="Inventarisation_References" FileName="MICROS~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.AspNetCore.DataProtection.dll" Component_="Inventarisation_References" FileName="MICROS~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.AspNetCore.DataProtection.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.AspNetCore.DataProtection.Extensions.dll" Component_="Inventarisation_References" FileName="MICROS~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.AspNetCore.Http.Abstractions.dll" Component_="Inventarisation_References" FileName="MICROS~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.AspNetCore.Http.Features.dll" Component_="Inventarisation_References" FileName="MICROS~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Http.Features.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.AspNetCore.Http.Features.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Bcl.AsyncInterfaces.dll" Component_="Inventarisation_References" FileName="MICROS~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Configuration.Abstractions.dll" Component_="Inventarisation_References" FileName="MICROS~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="Inventarisation_References" FileName="MICRO~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="Inventarisation_References" FileName="MICRO~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.FileProviders.Abstractions.dll" Component_="Inventarisation_References" FileName="MICRO~12.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Hosting.Abstractions.dll" Component_="Inventarisation_References" FileName="MICRO~13.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="Inventarisation_References" FileName="MICRO~14.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Options.dll" Component_="Inventarisation_References" FileName="MICRO~15.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="Inventarisation_References" FileName="MICRO~16.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Owin.dll" Component_="Inventarisation_References" FileName="MICRO~17.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Owin.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Owin.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Owin.Security.dll" Component_="Inventarisation_References" FileName="MICRO~18.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Owin.Security.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Owin.Security.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Win32.Registry.dll" Component_="Inventarisation_References" FileName="MICRO~19.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Win32.Registry.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Win32.Registry.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Xaml.Behaviors.dll" Component_="Inventarisation_References" FileName="MICRO~20.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Xaml.Behaviors.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Xaml.Behaviors.dll&gt;" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="Inventarisation_References" FileName="NEWTON~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Newtonsoft.Json.dll&gt;" SelfReg="false"/>
+    <ROW File="Owin.dll" Component_="Inventarisation_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Owin.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Owin.dll&gt;" SelfReg="false"/>
+    <ROW File="Prism.dll" Component_="Inventarisation_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_Prism.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Prism.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Compression.Base.dll" Component_="Inventarisation_References" FileName="SYNCFU~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Compression.Base.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Compression.Base.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Data.WPF.dll" Component_="Inventarisation_References" FileName="SYNCFU~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Data.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Data.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Licensing.dll" Component_="Inventarisation_References" FileName="SYNCFU~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Licensing.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Licensing.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Pdf.Base.dll" Component_="Inventarisation_References" FileName="SYNCFU~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Pdf.Base.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Pdf.Base.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.PropertyGrid.WPF.dll" Component_="Inventarisation_References" FileName="SYNCFU~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.PropertyGrid.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.PropertyGrid.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfGrid.WPF.dll" Component_="Inventarisation_References" FileName="SYNCFU~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGrid.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfGrid.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfGridConverter.WPF.dll" Component_="Inventarisation_References" FileName="SYNCFU~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGridConverter.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfGridConverter.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfInput.Wpf.dll" Component_="Inventarisation_References" FileName="SYNCFU~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfInput.Wpf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfInput.Wpf.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfSkinManager.WPF.dll" Component_="Inventarisation_References" FileName="SYNCF~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfSkinManager.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfSkinManager.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Shared.WPF.dll" Component_="Inventarisation_References" FileName="SYNCF~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Shared.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Themes.MaterialDark.WPF.dll" Component_="Inventarisation_References" FileName="SYNCF~12.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.XlsIO.Base.dll" Component_="Inventarisation_References" FileName="SYNCF~13.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.XlsIO.Base.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.XlsIO.Base.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Buffers.dll" Component_="Inventarisation_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Buffers.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Memory.dll" Component_="Inventarisation_References" FileName="SYSTEM~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Memory.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Net.Http.Formatting.dll" Component_="Inventarisation_References" FileName="SYSTEM~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Net.Http.Formatting.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Net.Http.Formatting.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Numerics.Vectors.dll" Component_="Inventarisation_References" FileName="SYSTEM~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Numerics.Vectors.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Runtime.CompilerServices.Unsafe.dll" Component_="Inventarisation_References" FileName="SYSTEM~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Security.AccessControl.dll" Component_="Inventarisation_References" FileName="SYSTEM~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Security.AccessControl.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Security.AccessControl.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Security.Cryptography.Xml.dll" Component_="Inventarisation_References" FileName="SYSTEM~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Security.Cryptography.Xml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Security.Cryptography.Xml.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Security.Principal.Windows.dll" Component_="Inventarisation_References" FileName="SYSTEM~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Security.Principal.Windows.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Security.Principal.Windows.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Text.Encodings.Web.dll" Component_="Inventarisation_References" FileName="SYSTE~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Text.Encodings.Web.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Text.Encodings.Web.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Threading.Tasks.Extensions.dll" Component_="Inventarisation_References" FileName="SYSTE~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Threading.Tasks.Extensions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Threading.Tasks.Extensions.dll&gt;" SelfReg="false"/>
+    <ROW File="System.ValueTuple.dll" Component_="Inventarisation_References" FileName="SYSTE~12.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.ValueTuple.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.ValueTuple.dll&gt;" SelfReg="false"/>
+    <ROW File="WECPOFLogic.dll" Component_="Inventarisation_References" FileName="WECPOF~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_WECPOFLogic.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_WECPOFLogic.dll&gt;" SelfReg="false"/>
+    <ROW File="WPFViewModelExternalControls.dll" Component_="Inventarisation_References" FileName="WPFVIE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_WPFViewModelExternalControls.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_WPFViewModelExternalControls.dll&gt;" SelfReg="false"/>
+    <ROW File="Inventarisation.pdb" Component_="Inventarisation_SymbolsOutput" FileName="INVENT~2.PDB|[|AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Inventarisation.pdb&gt;" SelfReg="false"/>
+    <ROW File="QRCoder.dll" Component_="Inventarisation_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_QRCoder.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_QRCoder.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Shared.WPF.Classic.dll" Component_="Inventarisation_References" FileName="SYNCF~14.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.Classic.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Shared.WPF.Classic.dll&gt;" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
+    <ROW Name="AI_APPPATH_PERBUILD_Eco.Handles.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Eco.Handles.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Eco.Handles.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Eco.Interfaces.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Eco.Interfaces.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Eco.Interfaces.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Eco.LinqExtender.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Eco.LinqExtender.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Eco.LinqExtender.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Eco.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Eco.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Eco.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.SqlServer.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.SqlServer.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.SqlServer.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_EntityFramework.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_EntityFramework.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_EntityFramework.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_FilterDataGrid.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_FilterDataGrid.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_FilterDataGrid.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_HandyControl.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_HandyControl.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_HandyControl.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Inventarisation.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_Inventarisation.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.exe]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Inventarisation.exe.config" Path="[|AI_PROPPATH_DIR_PERBUILD_Inventarisation.exe.config]\[|AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.exe.config]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Inventarisation.pdb" Path="[|AI_PROPPATH_DIR_PERBUILD_Inventarisation.pdb]\[|AI_PROPPATH_FILENAME_PERBUILD_Inventarisation.pdb]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MDriven.Net.Http.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MDriven.Net.Http.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MDriven.Net.Http.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MaterialDesignColors.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MaterialDesignColors.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MaterialDesignColors.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MaterialDesignThemes.Wpf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MaterialDesignThemes.Wpf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MaterialDesignThemes.Wpf.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Cryptography.Internal.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.Extensions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.AspNetCore.DataProtection.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.DataProtection.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.DataProtection.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Http.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.AspNetCore.Http.Features.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.AspNetCore.Http.Features.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.AspNetCore.Http.Features.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Bcl.AsyncInterfaces.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.FileProviders.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Hosting.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Owin.Security.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Owin.Security.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Owin.Security.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Owin.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Owin.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Owin.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Win32.Registry.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Win32.Registry.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Win32.Registry.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Xaml.Behaviors.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Xaml.Behaviors.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Xaml.Behaviors.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Newtonsoft.Json.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Newtonsoft.Json.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Owin.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Owin.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Owin.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Prism.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Prism.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Prism.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_QRCoder.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_QRCoder.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_QRCoder.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Compression.Base.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Compression.Base.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Compression.Base.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Data.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Data.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Data.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Licensing.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Licensing.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Licensing.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Pdf.Base.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Pdf.Base.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Pdf.Base.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.PropertyGrid.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.PropertyGrid.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.PropertyGrid.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfGrid.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGrid.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGrid.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfGridConverter.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGridConverter.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGridConverter.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfInput.Wpf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfInput.Wpf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfInput.Wpf.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfSkinManager.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfSkinManager.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfSkinManager.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Shared.WPF.Classic.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Shared.WPF.Classic.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.Classic.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Shared.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Shared.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Themes.MaterialDark.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.XlsIO.Base.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.XlsIO.Base.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.XlsIO.Base.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Buffers.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Buffers.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Buffers.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Memory.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Memory.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Memory.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Net.Http.Formatting.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Net.Http.Formatting.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Net.Http.Formatting.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Numerics.Vectors.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Numerics.Vectors.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Numerics.Vectors.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Runtime.CompilerServices.Unsafe.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Security.AccessControl.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Security.AccessControl.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Security.AccessControl.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Security.Cryptography.Xml.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Security.Cryptography.Xml.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Security.Cryptography.Xml.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Security.Principal.Windows.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Security.Principal.Windows.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Security.Principal.Windows.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Text.Encodings.Web.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Text.Encodings.Web.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Text.Encodings.Web.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Threading.Tasks.Extensions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Threading.Tasks.Extensions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Threading.Tasks.Extensions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.ValueTuple.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.ValueTuple.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.ValueTuple.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_WECPOFLogic.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_WECPOFLogic.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_WECPOFLogic.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_WPFViewModelExternalControls.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_WPFViewModelExternalControls.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_WPFViewModelExternalControls.dll]" Type="2" Content="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="2" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" UACExecutionLevel="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="InstallDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\InstallDlg.aip"/>
+    <ROW Fragment="LicenseAgreementDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\LicenseAgreementDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;surface\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;surface\fragments\UI.aip"/>
+    <ROW Fragment="UserRegistrationDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\UserRegistrationDlg.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;surface\fragments\VerifyRepairDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="ExternalUICleaner.dll" SourcePath="&lt;AI_CUSTACTS&gt;ExternalUICleaner.dll"/>
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="serval.dll" SourcePath="&lt;AI_CUSTACTS&gt;serval.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="CustomizeDlg" Control="CustomizeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="MsiRMFilesInUse" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="MsiRMFilesInUse#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="PatchWelcomeDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="250" Height="80" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="600" TextLocId="Metro.Control.Text.ProductName" MsiKey="PatchWelcomeDlg#ProductNameTitle"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="700" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="PatchWelcomeDlg#CompanyText"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="800" MsiKey="PatchWelcomeDlg#ProductLogo"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="UserRegistrationDlgDialogInitializer" Type="DialogInitializer" X="0" Y="0" Width="0" Height="0" Attributes="0" Order="-1" TextLocId="-" HelpLocId="-" ExtDataLocId="-"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="SubTitle" Type="Text" X="17" Y="105" Width="304" Height="18" Attributes="65539" Text="Please enter your customer information" TextStyle="[SubTitleStyle]" Order="500" TextLocId="Azure.Control.Text.UserRegistrationDlg#Title" MsiKey="UserRegistrationDlg#SubTitle"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="NameLabel" Type="Text" X="17" Y="139" Width="100" Height="15" Attributes="65539" Text="&amp;User Name:" Order="600" TextLocId="Control.Text.UserRegistrationDlg#NameLabel" MsiKey="UserRegistrationDlg#NameLabel"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="NameEdit" Type="Edit" X="17" Y="156" Width="314" Height="18" Attributes="3" Property="USERNAME" Text="{80}" Order="700" TextLocId="Control.Text.UserRegistrationDlg#NameEdit" MsiKey="UserRegistrationDlg#NameEdit"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="250" Height="80" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="800" TextLocId="Metro.Control.Text.ProductName" MsiKey="UserRegistrationDlg#ProductNameTitle"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="OrganizationLabel" Type="Text" X="17" Y="184" Width="100" Height="15" Attributes="65539" Text="&amp;Organization:" Order="900" TextLocId="Control.Text.UserRegistrationDlg#OrganizationLabel" MsiKey="UserRegistrationDlg#OrganizationLabel"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="1000" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="UserRegistrationDlg#CompanyText"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="1100" MsiKey="UserRegistrationDlg#ProductLogo"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="CDKeyLabel" Type="Text" X="17" Y="229" Width="70" Height="15" Attributes="196611" Text="Serial Number:" Order="1200" TextLocId="Control.Text.UserRegistrationDlg#CDKeyLabel" MsiKey="UserRegistrationDlg#CDKeyLabel"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="CDKeyEdit" Type="MaskedEdit" X="17" Y="246" Width="314" Height="18" Attributes="3" Property="PIDKEY" Text="[PIDTemplate]" Order="1300" TextLocId="-" MsiKey="UserRegistrationDlg#CDKeyEdit"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="OrganizationEdit" Type="Edit" X="17" Y="201" Width="314" Height="18" Attributes="3" Property="COMPANYNAME" Text="{80}" Order="1400" TextLocId="Control.Text.UserRegistrationDlg#OrganizationEdit" MsiKey="UserRegistrationDlg#OrganizationEdit"/>
+    <ROW Dialog_="UserRegistrationDlg" Control="AdvInst" Type="Text" X="5" Y="388" Width="74" Height="11" Attributes="196611" Text="Advanced Installer" TextStyle="[BrandingStyle]" Order="1500" MsiKey="UserRegistrationDlg#AdvInst"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyReadyDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Back" Type="PushButton" X="5" Y="381" Width="11" Height="11" Attributes="2" Text="Control.Text.VerifyReadyDlg#Back" Help="Back|" Order="200" TextLocId="Control.Text.VerifyReadyDlg#Back" HelpLocId="Air.Control.Help#Back" MsiKey="VerifyReadyDlg#Back" Options="1" ExtType="PushButton" ExtData="[ButtonText_Back]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ReadyToInstall" Type="Text" X="17" Y="105" Width="312" Height="19" Attributes="196611" Text="Ready to Install" TextStyle="[SubTitleStyle]" Order="400" TextLocId="Control.Text.VerifyReadyDlg#Title" MsiKey="VerifyReadyDlg#ReadyToInstall"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="Text_2" Type="Text" X="17" Y="139" Width="312" Height="100" Attributes="65539" Text="The [Wizard] is ready to begin the [ProductName] installation" Order="500" TextLocId="Control.Text.VerifyReadyDlg#Description" MsiKey="VerifyReadyDlg#Text_2"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="InstallButton" Type="ImageButton" X="251" Y="359" Width="78" Height="28" Attributes="3" Text="[metrobuttonimage]" TextStyle="[MetroButtonText]" Order="600" MsiKey="VerifyReadyDlg#InstallButton" ExtType="ImageButton" ExtData="INSTALL" ExtDataLocId="Metro.Control.ExtData.VerifyReadyDlg#InstallButton"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ProductNameTitle" Type="Text" X="83" Y="21" Width="250" Height="80" Attributes="196611" Text="[ProductName]" TextStyle="[ProductNameForSplash]" Order="700" TextLocId="Metro.Control.Text.ProductName" MsiKey="VerifyReadyDlg#ProductNameTitle"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="CompanyText" Type="Text" X="83" Y="16" Width="191" Height="12" Attributes="196611" Text="[Manufacturer]" TextStyle="[ManufacturerFont]" Order="800" TextLocId="Metro.Control.Text.Manufacturer" MsiKey="VerifyReadyDlg#CompanyText"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="ProductLogo" Type="Bitmap" X="17" Y="5" Width="59" Height="63" Attributes="1" Text="[AppLogoIcon]" Order="900" MsiKey="VerifyReadyDlg#ProductLogo"/>
+    <ROW Dialog_="VerifyReadyDlg" Control="AdvInst" Type="Text" X="5" Y="388" Width="74" Height="11" Attributes="196611" Text="Advanced Installer" TextStyle="[BrandingStyle]" Order="1000" MsiKey="VerifyReadyDlg#AdvInst"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="100" MsiKey="VerifyRemoveDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Bitmap" Type="Bitmap" X="0" Y="0" Width="345" Height="400" Attributes="1" Text="[Background]" Order="100" MsiKey="VerifyRepairDlg#Bitmap"/>
+    <ROW Dialog_="VerifyRepairDlg" Control="Cancel" Type="ImageButton" X="163" Y="359" Width="78" Height="28" Attributes="2" Text="[NextCancelButtons]" TextStyle="[MetroButtonText]" Order="200" MsiKey="VerifyRepairDlg#Cancel" Options="1" ExtType="ImageButton" ExtData="[ButtonText_Cancel]" ExtDataLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="InstallDlg" Control_="Next" Event="NewDialog" Argument="UserRegistrationDlg" Condition="AI_INSTALL" Ordering="301"/>
+    <ROW Dialog_="InstallDlg" Control_="YouMustAgreeCtrl" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="301"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="1"/>
+    <ROW Dialog_="LicenseAgreementDlg" Control_="Next" Event="NewDialog" Argument="UserRegistrationDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="101"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_INSTALL AND SERIAL_VALIDATION=&quot;TRUE&quot;" Ordering="301"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Back" Event="NewDialog" Argument="InstallDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Back" Event="NewDialog" Argument="LicenseAgreementDlg" Condition="AI_INSTALL AND AiLicenseAgreement" Ordering="2"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="699"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="199" Options="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="699"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="99"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="302" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_INSTALL AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="303" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_INSTALL AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="304" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="UserRegistrationDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_INSTALL" Ordering="0" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="UserRegistrationDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_INSTALL" Ordering="1" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="UserRegistrationDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_INSTALL" Ordering="2" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="UserRegistrationDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_INSTALL" Ordering="3" Options="2"/>
+    <ROW Dialog_="UserRegistrationDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_INSTALL" Ordering="4" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="102" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="EnableRollback" Argument="False" Condition="AI_MAINT AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="103" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Modify" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_MAINT AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="104" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_MAINT" Ordering="0" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_MAINT" Ordering="1" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="CustomizeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_MAINT" Ordering="2" Options="2"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_MAINT" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfRbDiskDlg" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST=&quot;P&quot; OR NOT PROMPTROLLBACKCOST)" Ordering="202" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="EnableRollback" Argument="False" Condition="AI_PATCH AND OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST=&quot;D&quot;" Ordering="203" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="SpawnDialog" Argument="OutOfDiskDlg" Condition="AI_PATCH AND ( (OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST=&quot;F&quot;) )" Ordering="204" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_ButtonText_Next_Orig]" Argument="[ButtonText_Next]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[ButtonText_Next]" Argument="[[AI_CommitButton]]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[AI_Text_Next_Orig]" Argument="[Text_Next]" Condition="AI_PATCH" Ordering="2" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="PatchWelcomeDlgDialogInitializer" Event="[Text_Next]" Argument="[Text_Install]" Condition="AI_PATCH" Ordering="3" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[ButtonText_Next]" Argument="[AI_ButtonText_Next_Orig]" Condition="AI_PATCH" Ordering="0" Options="2"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Back" Event="[Text_Next]" Argument="[AI_Text_Next_Orig]" Condition="AI_PATCH" Ordering="1" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DoRemoveExternalUIStub" Type="3585" Source="ExternalUICleaner.dll" Target="DoRemoveExternalUIStub" WithoutSeq="true"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_GetArpIconPath" Type="1" Source="aicustact.dll" Target="GetArpIconPath"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_RemoveExternalUIStub" Type="1" Source="ExternalUICleaner.dll" Target="RemoveExternalUIStub"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_RunFinishActions" Type="1" Source="aicustact.dll" Target="RunFinishActions" WithoutSeq="true"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_VALID_SERIAL" Type="1" Source="serval.dll" Target="ValidateSerial"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="AI_CustomARPName"/>
+    <ROW Feature_="MainFeature" Component_="Inventarisation_PrimaryOutput"/>
+    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
+    <ROW Feature_="MainFeature" Component_="Inventarisation_References"/>
+    <ROW Feature_="MainFeature" Component_="Inventarisation_SymbolsOutput"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="inventoryicon8.exe" SourcePath="..\..\..\..\Downloads\inventory-icon-8.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1502"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_VALID_SERIAL" Condition="(NOT Installed) AND (ProductID) AND ((UILevel &lt;&gt; 5) OR AI_RESUME)" Sequence="701"/>
+    <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
+    <ROW Action="AI_RemoveExternalUIStub" Condition="(REMOVE=&quot;ALL&quot;) AND ((VersionNT &gt; 500) OR((VersionNT = 500) AND (ServicePackLevel &gt;= 4)))" Sequence="1501"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="InstallDlg" Condition="AI_INSTALL" Sequence="1230" SeqType="3" MsiKey="WelcomeDlg"/>
+    <ROW Action="MaintenanceTypeDlg" Condition="AI_MAINT" Sequence="1250" SeqType="3" MsiKey="MaintenanceTypeDlg"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="AdvancedInstaller" Root="-1" Key="Software\Caphyon\Advanced Installer" Name="\"/>
+    <ROW Registry="Caphyon" Root="-1" Key="Software\Caphyon" Name="\"/>
+    <ROW Registry="Comments" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Comments" Value="[ARPCOMMENTS]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Contact" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Contact" Value="[ARPCONTACT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="CurrentVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion" Name="\"/>
+    <ROW Registry="DisplayIcon" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayIcon" Value="[ARP_ICON_PATH]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayName" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayName" Value="[AI_PRODUCTNAME_ARP]" Component_="AI_CustomARPName"/>
+    <ROW Registry="DisplayVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="DisplayVersion" Value="[ProductVersion]" Component_="AI_CustomARPName"/>
+    <ROW Registry="EstimatedSize" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="EstimatedSize" Value="#[AI_ARP_SIZE]" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="HelpLink" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpLink" Value="[ARPHELPLINK]" Component_="AI_CustomARPName"/>
+    <ROW Registry="HelpTelephone" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="HelpTelephone" Value="[ARPHELPTELEPHONE]" Component_="AI_CustomARPName"/>
+    <ROW Registry="InstallLocation" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="InstallLocation" Value="[APPDIR]" Component_="AI_CustomARPName"/>
+    <ROW Registry="LZMA" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA" Name="\"/>
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Microsoft" Root="-1" Key="Software\Microsoft" Name="\"/>
+    <ROW Registry="ModifyPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="ModifyPath" Value="[AI_UNINSTALLER] /i [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="NoRepair" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="NoRepair" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductCode" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]" Name="\"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="ProductNameProductVersion" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="\"/>
+    <ROW Registry="ProductVersion" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="\"/>
+    <ROW Registry="Publisher" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Publisher" Value="[Manufacturer]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Readme" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="Readme" Value="[ARPREADME]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="URLInfoAbout" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLInfoAbout" Value="[ARPURLINFOABOUT]" Component_="AI_CustomARPName"/>
+    <ROW Registry="URLUpdateInfo" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="URLUpdateInfo" Value="[ARPURLUPDATEINFO]" Component_="AI_CustomARPName"/>
+    <ROW Registry="Uninstall" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall" Name="\"/>
+    <ROW Registry="UninstallPath" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallPath" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="UninstallString" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="UninstallString" Value="[AI_UNINSTALLER] /x [ProductCode] AI_UNINSTALLER_CTP=1" Component_="AI_CustomARPName"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+    <ROW Registry="VersionMajor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMajor" Value="#1" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="VersionMinor" Root="-1" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[ProductName] [ProductVersion]" Name="VersionMinor" Value="#0" Component_="AI_CustomARPName" VirtualValue="#"/>
+    <ROW Registry="Windows" Root="-1" Key="Software\Microsoft\Windows" Name="\"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Inventarisation" Directory_="SHORTCUTDIR" Name="INVENT~1|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_1" Directory_="SHORTCUTDIR" Name="INVENT~2|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_10" Directory_="SHORTCUTDIR" Name="INVEN~11|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_11" Directory_="SHORTCUTDIR" Name="INVEN~12|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_12" Directory_="SHORTCUTDIR" Name="INVEN~13|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_2" Directory_="SHORTCUTDIR" Name="INVENT~3|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_3" Directory_="SHORTCUTDIR" Name="INVENT~4|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_4" Directory_="SHORTCUTDIR" Name="INVENT~5|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_5" Directory_="SHORTCUTDIR" Name="INVENT~6|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_6" Directory_="SHORTCUTDIR" Name="INVENT~7|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_7" Directory_="SHORTCUTDIR" Name="INVENT~8|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_8" Directory_="SHORTCUTDIR" Name="INVENT~9|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="Inventarisation_9" Directory_="SHORTCUTDIR" Name="INVEN~10|Inventarisation" Component_="Inventarisation_PrimaryOutput" Target="[#Inventarisation.exe]" Hotkey="0" IconIndex="0" ShowCmd="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiTextStyleComponent">
+    <ROW TextStyle="BrandingStyle" FaceName="Segoe UI" Size="8" Color="2171376" MultiBuildColor="DefaultBuild:2565927" StyleBits="0" MsiKey="BrandingStyle"/>
+    <ROW TextStyle="DlgFont8" FaceName="Segoe UI" Size="11" Color="14079702" StyleBits="0" MsiKey="DlgFont8"/>
+    <ROW TextStyle="ImageButton" FaceName="Segoe UI" Size="11" Color="14079702" StyleBits="1" MsiKey="ImageButton"/>
+    <ROW TextStyle="InputCtrlFont" FaceName="Segoe UI" Size="8" Color="16777215" MultiBuildColor="DefaultBuild:14079702" StyleBits="0" MsiKey="InputCtrlFont"/>
+    <ROW TextStyle="MetroInstallButton" FaceName="Segoe UI" Size="22" Color="14079702" StyleBits="0" MsiKey="MetroInstallButton"/>
+    <ROW TextStyle="SubTitle" FaceName="Segoe UI" Size="14" Color="14079702" StyleBits="0" MsiKey="SubTitle"/>
+    <ROW TextStyle="SubnoteFont" FaceName="Segoe UI" Size="8" Color="9671571" StyleBits="0" MsiKey="SubnoteFont"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="surface"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SerValComponent">
+    <ROW SerialValidation="SerVal" Template="PIDTemplate" Type="AI_SERVAL_TYPE" ValidateCA="AI_VALID_SERIAL" Serial="Z567-M301-8ZD7-2567~1111-1111-1111-1111~2TYA-2410-5663-0755~5GSW-E744-18VI-2883~7597-75E1-JJ16-U02M~1053-4348-761F-0441~L507-760Z-9595-6K25~V7O3-4023-V449-818A~5824-868Q-S81R-31G5~82N7-4734-P721-8961~M2Y4-97T7-6332-0X02~757N-24O8-783S-5020~8388-6726-V1T1-G559~2B95-4YHK-1I92-50HT~0816-S379-0613-U15N~2723-3364-H9NY-92C9~N575-8K8K-4237-5324~1N7B-I6LG-3H24-1A9P~7E93-1636-3205-0D51~2AX2-38UO-4404-19UC~5028-290B-D0W1-1Q38~M3L8-0681-3D05-71A0~1722-5C56-3AC2-2254~3615-41V3-346M-0789~46Q0-42T2-3B06-6645~H669-028E-98LT-1455~3753-U699-ASS2-A871~36LL-54U1-8X9C-682N~0070-R88C-2T9F-8762~7936-1673-2260-3J26~YB57-Q837-399C-4893~V50K-9233-4W17-2306~86V4-Y0G2-J251-S327~52Y9-6126-4T46-O97T~N856-7C82-7816-A32J~5858-1190-1SW8-3325~778T-6B5H-85H3-0420~4550-V755-5716-S86H~1106-60Y3-7WE1-1702~8JR8-KL92-5155-7167~2361-1B3P-998I-Y10W~970A-120N-CNO7-1339~U413-8310-91V2-070H~8O69-2VC7-76K2-3084~0751-6592-98GO-6566~C442-001U-987F-3043~M277-9576-2435-56ZX~U2K3-0659-41L4-8128~B5V3-5Q8U-G7Y9-5E62~0O22-9I7L-R29F-0360~P591-F1S7-0U3K-2533~294Y-W641-63K8-7214~6064-3V48-519C-1P3J~2616-054V-4279-4M2V~93JD-M875-7R62-0648~7043-L50R-PJ73-878G~6968-1259-5543-V051~0026-3R65-09H3-9B82~Y509-9S45-2860-1Q5J~A637-4W39-7328-0SCV~5OR7-QN9K-3106-93L5~V8N9-188Y-3739-4687~0604-714D-6835-71T0~H632-5Y2M-G59H-1114~980H-AKZ6-4M07-9Z5L~C7Y4-P5LF-6Q45-278J~I6N5-9N32-TZO2-5713~7175-829V-X4D0-7T32~4S12-G998-44V4-7DQ6~9M41-PN6P-Y980-8E27~9932-4235-11U8-94X4~952U-2321-A276-745Z~4135-7489-NB6Z-D5A7~B8F2-648R-3T2V-DG93~47S2-3648-1681-5309~302G-S484-7313-5M67~5308-7Z97-9421-3338~J55J-B907-V702-6IZN~48H7-2GF5-0C70-S20T~8Y7Y-9445-ZB44-Q48B~Q35V-2908-7QFA-0B20~8K6V-1934-4571-S899~4C45-4760-785X-9213~1613-T31D-296H-4U80~0J6T-4172-0204-R439~T9U5-I007-D973-6232~2T50-30E2-185I-23LY~8051-8562-71S3-9522~F625-9N35-39GQ-4358~9687-774P-2705-18W3~7984-2139-3928-8431~8523-9Q30-5515-0646~5600-0817-82L5-4E50~O728-818V-3444-SG92~3887-7761-O28C-913J~F9N0-19J5-8F72-128K~W10L-617G-6690-T5E9~5015-F8L3-3897-0728~95U0-3L74-42M9-7V63~0346-07Q5-1809-1T99~Z183-1642-9203-74T8~" Condition="1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="PrimaryOutput" OutputFile="Inventarisation.exe" OutputFileShortcut="Inventarisation_12"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="PrimaryOutput" OutputFile="Inventarisation.exe.config"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Eco.Handles.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Eco.Interfaces.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Eco.LinqExtender.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Eco.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="EntityFramework.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="EntityFramework.SqlServer.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="FilterDataGrid.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="HandyControl.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="MaterialDesignColors.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="MaterialDesignThemes.Wpf.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="MDriven.Net.Http.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.AspNetCore.Cryptography.Internal.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.AspNetCore.DataProtection.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.AspNetCore.DataProtection.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.AspNetCore.DataProtection.Extensions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.AspNetCore.Http.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.AspNetCore.Http.Features.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Bcl.AsyncInterfaces.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.FileProviders.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.Hosting.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.Options.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Extensions.Primitives.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Owin.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Owin.Security.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Win32.Registry.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Microsoft.Xaml.Behaviors.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Newtonsoft.Json.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Owin.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Prism.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Compression.Base.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Data.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Licensing.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Pdf.Base.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.PropertyGrid.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.SfGrid.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.SfGridConverter.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.SfInput.Wpf.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.SfSkinManager.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Shared.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Themes.MaterialDark.WPF.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.XlsIO.Base.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Buffers.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Memory.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Net.Http.Formatting.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Numerics.Vectors.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Runtime.CompilerServices.Unsafe.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Security.AccessControl.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Security.Cryptography.Xml.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Security.Principal.Windows.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Text.Encodings.Web.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.Threading.Tasks.Extensions.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="System.ValueTuple.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="WECPOFLogic.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="WPFViewModelExternalControls.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="SymbolsOutput" OutputFile="Inventarisation.pdb"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="QRCoder.dll"/>
+    <ROW ProjectId="{3c4faa69-eb70-41d3-bc2d-9980f44c5bcd}" ProjectName="Inventarisation" OutputGroup="References" OutputFile="Syncfusion.Shared.WPF.Classic.dll"/>
+  </COMPONENT>
+</DOCUMENT>

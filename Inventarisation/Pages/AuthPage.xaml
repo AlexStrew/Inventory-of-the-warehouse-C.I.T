@@ -1,0 +1,26 @@
+﻿<Page x:Class="Inventarisation.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Inventarisation.Pages"
+      mc:Ignorable="d" 
+      
+      d:DesignHeight="450" d:DesignWidth="950"
+      Title="AuthPage">
+
+    <Grid >
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="250">
+            
+            <Image Source="/Resources/citlogo.jpg" Margin=" 0 0 0 5 " Width="100"/>
+            <TextBlock FontWeight="SemiBold" FontSize="14">Логин</TextBlock>
+            <TextBox x:Name="LoginTextBox" FontWeight="SemiBold" Height="25" VerticalContentAlignment="Center" Margin=" 0 0 0 10 "></TextBox>
+            <TextBlock FontWeight="SemiBold" FontSize="14">Пароль</TextBlock>
+            <TextBox x:Name="AuthPasswordBox" Height="25" FontWeight="SemiBold" VerticalContentAlignment="Center"></TextBox>
+            
+            <Button x:Name="LoginBtn" IsDefault="True" Margin="0 30 0 10" Height="35" FontSize="16" FontWeight="SemiBold" Click="LoginBtnClick">Войти</Button>
+            <Button x:Name="LoginWinBtn" Margin="0 0 0 10" Height="35" FontSize="16" FontWeight="SemiBold" Click="LoginWinBtn_Click">OSS</Button>
+        </StackPanel>
+        <TextBlock x:Name="CallHelp" MouseLeftButtonDown="CallHelp_MouseLeftButtonDown"  FontSize="12" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextDecorations="Underline">Позвонить Алишеру</TextBlock>
+    </Grid>
+</Page>
