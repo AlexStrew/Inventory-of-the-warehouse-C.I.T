@@ -1,27 +1,25 @@
-[![img](https://www.mysmartgroup.co.uk/wp-content/uploads/2017/04/header-bg-test.png)](#table)
-![Visitors](https://count.getloli.com/get/@AlexStrew?theme=rule34)
-
+<p align="center">
+<img src="https://wallpapercave.com/wp/wp8989970.jpg" width=50% height=50%>
+</p>
 <a name="table"></a>
 
 <div align="center">
     <h2>Contents:</h2>
-    <p>| <a href="#Wiki-">🔮Add-ons</a> | <a href="#Resources-">🪐Resources</a> | <a href="#Tutorials-">👩🏻‍🏫Tutorials</a> | <a
+    <p>| <a href="#Wiki-">🔮Wiki</a> | <a href="#Resources-">🪐Resources</a> | <a href="#Help-">👩🏻‍🏫Help</a> | <a
             href="#Development-">👩🏽‍💻Development</a> |</p>
 </div>
 
 
 
-  ## 🔮Wiki [^](#table)
+  ## 🔮Wiki [^](#Wiki)
 
 -   Check documentation [here](https://github.com/AlexStrew).
 ---
-### 🌊Test2 [^](#table)
 
--   [idk section](https://github.com/AlexStrew) : lorem ipsum 
 
 ---
 
-### Contributing [^](#table)
+### Contributing [^](#Help)
 
 Your contributions are always welcome! ^\_^ If you want to contribute to this list, send a _pull request_, open an _issue_ or _contact with us. Please read the _[contributing guidelines](https://github.com/AlexStrew)_ first, some sections have their own guidelines as a comment line.
 
