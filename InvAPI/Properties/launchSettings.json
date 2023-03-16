@@ -29,3 +29,22 @@
     }
   }
 }
+
+dotnet ef dbcontext scaffold "Server=DAMASK_S1;Database=damask;Persist Security Info=False;user=api-user;Password=QFgQJkWi4t;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models --table public.link_oss
+dotnet ef dbcontext scaffold "server=SV-SQL-02\\SVSQL02;database=damask;Persist Security Info=False;user=api-user;Password=QFgQJkWi4t;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o ggg -f
+
+
+
+while (!rdr.EndOfStream)
+                    {
+                        var str = rdr.ReadLine();
+                        Console.WriteLine(str);
+                    }while (!rdr.EndOfStream)
+                    {
+                        var str = rdr.ReadLine();
+                        Console.WriteLine(str);
+                    }vwhile (!rdr.EndOfStream)
+                    {
+                        var str = rdr.ReadLine();
+                        Console.WriteLine(str);
+                    }

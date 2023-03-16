@@ -64,7 +64,7 @@ namespace InvAPI.Controllers
         }
 
         // GET: api/Inventories/5
-        [HttpGet("{id}")]
+        [HttpGet("getid/{id}")]
         public async Task<ActionResult<Inventory>> GetInventory(int id)
         {
             var inventory = await _context.Inventories.FindAsync(id);
@@ -76,6 +76,22 @@ namespace InvAPI.Controllers
 
             return inventory;
         }
+
+
+        // GET: api/Inventories/E10371
+        [HttpGet("{inv_num}")]
+        public async Task<ActionResult<Inventory>> GetInventory(string inv_num) {
+            var inventory = await _context.Inventories.SingleOrDefaultAsync(x => x.InvNum == inv_num);
+
+            if (inventory == null) {
+                return NotFound();
+            }
+
+            return inventory;
+        }
+
+
+
 
         // PUT: api/Inventories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
