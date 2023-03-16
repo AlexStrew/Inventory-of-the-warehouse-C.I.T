@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Syncfusion.SfSkinManager;
+using Syncfusion.UI.Xaml.Controls.DataPager;
 using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.XlsIO;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -41,22 +43,93 @@ namespace Inventarisation.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-        //public ObservableCollection<Inventory> Data { get; set; }
-       
+        private int _pageNumber = 1;
+        private int _pageSize = 20;
+        public ObservableCollection<InvMain> DamaskCollection { get; set; }
         public MainPage()
         {          
+
             InitializeComponent();
      
             UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
-            var vm = new InventoriesViewModel();
-            vm.GetData();
-            this.DataContext = vm;
+            DataContext = this;
+            AwaitDataLoad();
 
-           
+
         }
 
 
-   
+
+        private async  Task AwaitDataLoad()
+        {
+            BusyBar.IsBusy = true;
+            await LoadData();
+            BusyBar.IsBusy = false;
+        }
+
+        //private async Task LoadData(int _pageNumber, int _pageSize)
+        //{
+        //    //var _client = new HttpClient();
+        //    //_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    //var protectedToken = Properties.Settings.Default.JWTtoken;
+        //    //var token = protectedToken;
+        //    //_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        //    //using (var response = await _client.GetAsync("https://localhost:7050/api/Inventories/test1?pageNumber=1&pageSize=10"))
+        //    //{
+        //    //    if (response.IsSuccessStatusCode)
+        //    //    {
+        //    //        string apiResponse = await response.Content.ReadAsStringAsync();
+        //    //        DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
+        //    //        sfDataGrid.ItemsSource = DamaskCollection;
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        string errorResponse = await response.Content.ReadAsStringAsync();
+        //    //        throw new Exception($"Error getting data from API. Status code: {response.StatusCode}. Error message: {errorResponse}");
+        //    //    }
+        //    //}
+
+        //    BusyBar.IsBusy = true;
+        //    var _client = new HttpClient();
+        //    _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    var protectedToken = Properties.Settings.Default.JWTtoken;
+        //    var token = protectedToken;
+        //    _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        //    using (_client)
+        //    {
+        //        using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Inventories/test1?pageNumber={_pageNumber}&pageSize={_pageSize}"))
+        //        {
+        //            string apiResponse = await response.Content.ReadAsStringAsync();
+        //            var result = JsonConvert.DeserializeObject<IEnumerable<InventoryModel>>(apiResponse);
+        //            sfDataGrid.ItemsSource = result;
+        //            sfDataPager.PageSize = _pageSize;
+        //            sfDataPager.PageCount = result.FirstOrDefault()?.Id ?? 0;
+        //        }
+        //    }
+        //    BusyBar.IsBusy = false;
+        //}
+
+        private async Task LoadData()
+        {
+            BusyBar.IsBusy = true;
+            var _client = new HttpClient();
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var protectedToken = Properties.Settings.Default.JWTtoken;
+            var token = protectedToken;
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            using (_client)
+            {
+                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Inventories/ConnectedTables"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
+                    sfDataGrid.ItemsSource =  DamaskCollection;
+                }
+            }
+            BusyBar.IsBusy = false;
+        }
+
+
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)
         {
             AddWindow win = new AddWindow();

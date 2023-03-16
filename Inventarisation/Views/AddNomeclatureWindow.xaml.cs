@@ -2,8 +2,11 @@
 using Inventarisation.Models;
 using Inventarisation.Pages;
 using Microsoft.AspNetCore.DataProtection;
+using Newtonsoft.Json;
+using Syncfusion.UI.Xaml.Grid;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -25,43 +28,68 @@ namespace Inventarisation.Views
     /// </summary>
     public partial class AddNomeclatureWindow : Window
     {
-        Core db = new Core();
-       // List<Nomenclature> listNomenclature;
+        public ObservableCollection<Nomenclature> NomenCollection { get; set; }
         public AddNomeclatureWindow()
         {
             InitializeComponent();
-            
 
+            DateDeviceNow.SelectedDate = DateTime.Now;
 
         }
 
         /// <summary>
         /// Добавление устройства в справочник
         /// </summary>
-        private async void AddNomenBtnClick(object sender, RoutedEventArgs e)
+        private async void  AddNomenBtnClick(object sender, RoutedEventArgs e )
         {
-            HttpClient _client;
-            _client = new HttpClient();
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            
-            var protectedToken = Properties.Settings.Default.JWTtoken;
-            await Console.Out.WriteLineAsync(protectedToken);
-            var token = protectedToken;
+            if (NameDeviceTBox.Text != "" && NameDeviceTBox.Text != " ")
+            {
+                var nomenclature = new Nomenclature
+                {
+                    NameDevice = NameDeviceTBox.Text,
+                    CountDevice = int.Parse(CountDeviceTBox.Text),
+                    Manufacturer = ManufacturerDeviceTBox.Text,
+                    Model = ModelDeviceTBox.Text,
+                    DateCreation = DateTime.UtcNow,
+                    DateChange = DateTime.UtcNow
+                };
 
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var product = new Nomenclature { NameDevice = NameDeviceTBox.Text };
-            var response = await _client.PostAsJsonAsync("http://invent.doker.ru/api/Nomenclatures", product);
-                if (response.IsSuccessStatusCode)
+                var _client = new HttpClient();
+                _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var protectedToken = Properties.Settings.Default.JWTtoken;
+                var token = protectedToken;
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                using (_client)
                 {
-                    MessageBox.Show("Nomenclature added successfully");
+                    using (var response = await _client.PostAsJsonAsync($"https://invent.doker.ru/api/Nomenclatures", nomenclature))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Удаление выбранной строки из sfDataGrid
+
+                            HandyControl.Controls.MessageBox.Show($"Добавлено");
+                            DialogResult = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            HandyControl.Controls.MessageBox.Show($"Произошла ошибка при добавлении: {response.ReasonPhrase}");
+                        }
+
+
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Failed to add Nomenclature");
-                }
+            }
+            else
+            {
+                HandyControl.Controls.MessageBox.Show($"Поле: Наименование не должно быть пустым"); 
+            }
             
-            DialogResult = true;
-            this.Close();
+
+            
+
+
+            
             //try
             //{
             //    string nameDevice = NameDeviceTBox.Text;

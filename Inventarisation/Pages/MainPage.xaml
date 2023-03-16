@@ -107,13 +107,11 @@
             ShowGroupDropArea="True" 
                 ColumnSizer="Star"
             ShowSortNumbers="True"
-                ItemsSource="{Binding ElementName=dataPager,Path=PagedSource}"
+                ShowToolTip="True"
             ShowRowHeader="True"
                 NavigationMode="Row"
             Grid.Row="1">
-            <syncfusion:SfDataGrid.DetailsViewDefinition>
-                <syncfusion:TemplateViewDefinition  RowTemplate="{StaticResource ComputerInfo}"/>
-            </syncfusion:SfDataGrid.DetailsViewDefinition>
+      
             <syncfusion:SfDataGrid.Columns>
                 <syncfusion:GridTextColumn HeaderText="Инв. №"  x:Name="InvNumDGTBox" MappingName="InvNum"/>
                 <syncfusion:GridTextColumn HeaderText="Наименование"  x:Name="NameInvDGTBox" MappingName="NameDevice"/>
@@ -138,9 +136,7 @@
         </syncfusion:SfDataGrid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <syncfusion:SfDataPager x:Name="dataPager"             
-                PageSize="50"
-                Source="{Binding DataVM}"/>
+       
             <Button FontWeight="SemiBold" x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Экспорт в Excel" Grid.Row="2" Width="Auto" Padding="5" Margin="5"/>
             <Button FontWeight="SemiBold" x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
             <Button FontWeight="SemiBold" x:Name="CheckUserIdentity" Click="CheckUserIdentity_Click"  Content="User" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
@@ -158,16 +154,9 @@
                     VerticalAlignment="Center"
                     Orientation="Horizontal"
                             Margin="0 5 10 0">
-                    <TextBlock Margin="5"
-                       VerticalAlignment="Center"
-                       FontSize="16"
-                       Foreground="Black"
-                               
-                       Text="Загрузка данных..." FontWeight="SemiBold" />
-                    <syncfusion:SfBusyIndicator Margin="5"
-                                        VerticalAlignment="Center"
-                                        Foreground="Gray"
-                                        AnimationType="Gear" />
+                  
+                      
+                    <hc:BusyIndicator x:Name="BusyBar" Height="60" BusyContent="Загрузка данных..."  IsBusy="True" Margin=" 5 "/>
                 </StackPanel>
             </Border>
         </StackPanel>

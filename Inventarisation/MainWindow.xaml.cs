@@ -60,7 +60,7 @@ namespace Inventarisation
 
         private void NomenclatureBtn_Click(object sender, RoutedEventArgs e)
         {
-            NomenclatureWindow win = new NomenclatureWindow(currentTheme);
+            NomenclatureWindow win = new NomenclatureWindow();
             
             if (win.ShowDialog() == true)
             {

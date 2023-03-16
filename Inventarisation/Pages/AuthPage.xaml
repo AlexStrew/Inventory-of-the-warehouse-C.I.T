@@ -10,6 +10,11 @@
       Title="AuthPage">
 
     <Grid >
+        <StackPanel Height="50" Width="190" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Background="AliceBlue">
+            <Ellipse x:Name="ellipse" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 0 0 0 "/>
+            <TextBlock Text="Статус сервера" VerticalAlignment="Center" FontWeight="Bold" Margin="10 0 0 0 "/>
+            <Button Content="🔃" Margin="5 0 0 0 " x:Name="CheckConUpd" Click="CheckConUpd_Click"/>
+        </StackPanel>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="250">
             
             <Image Source="/Resources/citlogo.jpg" Margin=" 0 0 0 5 " Width="100"/>

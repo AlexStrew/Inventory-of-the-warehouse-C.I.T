@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Inventarisation.Views"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
 
-        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+     
         
         mc:Ignorable="d"
         Title="Номенклатура" Height="500" Width="900">
@@ -21,34 +21,33 @@
         <Grid Height="40">
             <StackPanel Orientation="Horizontal">
                 <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="AddNomWinBtn" Click="AddNomWinBtnClick">Добавить</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="EditNomenBtn" Click="EditNomenBtn_Click">Изменить</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="DelNomenBtn" Click="DelNomenBtn_Click" >Удалить</Button>
                 <Button VerticalAlignment="Center" Margin="5 0 0 0" x:Name="RefreshWinBtn"  Click="RefreshWinBtnClick">Обновить</Button>
                 <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="SelectNomenButton" Click="SelectNomenButton_Click">Выбрать</Button>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
                 <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
-                <TextBox FontWeight="SemiBold" x:Name="SearchNomenclatureTBox" TextChanged="SearchNomenclatureTBoxTextChanged" Height="30" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+                <TextBox FontWeight="SemiBold" x:Name="SearchNomenclatureTBox"  Height="30" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+                <Button Content="Поиск" x:Name="SearchNomenBtn" Click="SearchNomenBtn_Click"/>
             </StackPanel>
         </Grid>
         <Syncfusion:SfDataGrid 
-            SelectionChanged="NomenclatureDG_SelectionChanged"
+           
             Grid.Row="1"
             Margin="5"
             AllowFiltering="True"
             AutoGenerateColumns="False"
             AllowResizingColumns="True"
             x:Name="NomenclatureDG"
-            ItemsSource="{Binding DataNomen}"
+            
             ColumnSizer="Star"
             NavigationMode="Row">
             <Syncfusion:SfDataGrid.Columns>
                 <Syncfusion:GridTextColumn HeaderText="Наименование" MappingName="NameDevice"></Syncfusion:GridTextColumn>
             </Syncfusion:SfDataGrid.Columns>
         </Syncfusion:SfDataGrid>
-        <!--<DataGrid Grid.Row="1" Background="#e2f7df" x:Name="NomenclatureDG" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SelectionMode="Single">
-            <DataGrid.Columns>
-                <DataGridTextColumn MinWidth="800" x:Name="NameNomenclatureTC" Binding="{Binding name_device}" Header="Название"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>-->
+       
     </Grid>
 </Window>

@@ -60,8 +60,7 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("companyName")]
         public string CompanyName { get; set; }
 
-        [JsonProperty("inventories")]
-        public List<object> Inventories { get; set; }
+    
     }
 
     public class Employers
@@ -90,13 +89,13 @@ namespace Inventarisation.Api.ApiModel
         public string NameDevice { get; set; }
 
         [JsonProperty("countDevice")]
-        public int CountDevice { get; set; }
+        public int? CountDevice { get; set; }
 
         [JsonProperty("manufacturer")]
-        public string Manufacturer { get; set; }
+        public string? Manufacturer { get; set; }
 
         [JsonProperty("model")]
-        public string Model { get; set; }
+        public string? Model { get; set; }
 
         [JsonProperty("date_creation")]
         public DateTime DateCreation { get; set; }
@@ -153,17 +152,6 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("company_name")]
         public string CompanyName { get; set; }
 
-        [JsonProperty("manufacturer")]
-        public string Manufacturer { get; set; }
-
-        [JsonProperty("model")]
-        public string Model { get; set; }
-
-        [JsonProperty("date_creation")]
-        public DateTime DateCreation { get; set; }
-
-        [JsonProperty("date_change")]
-        public DateTime DateChange { get; set; }
     }
 
 

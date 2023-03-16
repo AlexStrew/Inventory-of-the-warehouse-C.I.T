@@ -46,9 +46,9 @@ namespace InvAPI.Controllers
         // PUT: api/Nomenclatures/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutNomenclature(int id, Nomenclature nomenclature)
+        public async Task<IActionResult> PutNomenclature(string name_device, Nomenclature nomenclature)
         {
-            if (id != nomenclature.IdNomenclature)
+            if (name_device != nomenclature.NameDevice)
             {
                 return BadRequest();
             }
@@ -61,7 +61,7 @@ namespace InvAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NomenclatureExists(id))
+                if (!NomenclatureExists(name_device))
                 {
                     return NotFound();
                 }
@@ -101,9 +101,26 @@ namespace InvAPI.Controllers
             return NoContent();
         }
 
-        private bool NomenclatureExists(int id)
+
+        // DELETE: api/Nomenclatures/test
+        [HttpDelete("delDevice/{nameDevice}")]
+        public async Task<IActionResult> DeleteNomenclatureByName(string nameDevice)
         {
-            return _context.Nomenclatures.Any(e => e.IdNomenclature == id);
+            var nomenclature = await _context.Nomenclatures.FindAsync(nameDevice);
+            if (nomenclature == null)
+            {
+                return NotFound();
+            }
+
+            _context.Nomenclatures.Remove(nomenclature);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool NomenclatureExists(string name_device)
+        {
+            return _context.Nomenclatures.Any(e => e.NameDevice == name_device);
         }
     }
 }

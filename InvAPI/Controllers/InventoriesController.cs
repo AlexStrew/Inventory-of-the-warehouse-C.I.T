@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using InvAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.ObjectModel;
 
 namespace InvAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace InvAPI.Controllers
         {
             _context = context;
         }
+        public ObservableCollection<InvMainClass> InventServCollection { get; set; }
 
         [Route("ConnectedTables")]
         [HttpGet]
@@ -80,10 +82,12 @@ namespace InvAPI.Controllers
 
         // GET: api/Inventories/E10371
         [HttpGet("{inv_num}")]
-        public async Task<ActionResult<Inventory>> GetInventory(string inv_num) {
+        public async Task<ActionResult<Inventory>> GetInventory(string inv_num)
+        {
             var inventory = await _context.Inventories.SingleOrDefaultAsync(x => x.InvNum == inv_num);
 
-            if (inventory == null) {
+            if (inventory == null)
+            {
                 return NotFound();
             }
 
@@ -155,5 +159,84 @@ namespace InvAPI.Controllers
         {
             return _context.Inventories.Any(e => e.Id == id);
         }
+
+
+        [HttpGet("test/")]
+        public async Task<ActionResult<IEnumerable<InvMainClass>>> GetInv(int pageNumber = 1, int pageSize = 100)
+        {
+            if (_context.Inventories == null)
+            {
+                return NotFound();
+            }
+
+            using (_context)
+            {
+                var result = (from e in _context.Inventories
+                              join d in _context.Nomenclatures on e.NomenclatureId equals d.IdNomenclature
+                              join b in _context.Workplaces on e.WorkplaceId equals b.IdWorkplace
+                              join c in _context.Movements on e.MoveId equals c.IdMovement
+                              join f in _context.Companies on e.CompanyId equals f.IdCompany
+                              select new InvMainClass
+                              {
+                                  Id = e.Id,
+                                  invNum = e.InvNum,
+                                  PaymentNum = e.PaymentNum,
+                                  Comment = e.Comment,
+                                  Invoice = e.Invoice,
+                                  NomenclatureId = e.NomenclatureId,
+                                  NameDevice = d.NameDevice,
+                                  IdWorkplace = b.IdWorkplace,
+                                  NameWorkplace = b.NameWorkplace,
+                                  IdMovement = c.IdMovement,
+                                  DateMove = c.DateMove,
+                                  IdCompany = f.IdCompany,
+                                  CompanyName = f.CompanyName
+                              }).ToList();
+
+                int totalCount = result.Count();
+                int totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+                int skip = (pageNumber - 1) * pageSize;
+                var pagedData = result.Skip(skip).Take(pageSize);
+
+                return Ok(pagedData);
+
+            }
+        }
+        [HttpGet("test1/")]
+        public async Task<IActionResult> GetInventoriesAndNomenclatures(int pageNumber = 1, int pageSize = 10)
+        {
+            var query = from i in _context.Inventories
+                        join n in _context.Nomenclatures on i.NomenclatureId equals n.IdNomenclature
+                        join b in _context.Workplaces on i.WorkplaceId equals b.IdWorkplace
+                        join c in _context.Movements on i.MoveId equals c.IdMovement
+                        join f in _context.Companies on i.CompanyId equals f.IdCompany
+                        select new { i, n , b, c ,f };
+
+            var totalCount = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+            var skip = (pageNumber - 1) * pageSize;
+
+            var result = await query.Skip(skip).Take(pageSize).ToListAsync();
+
+            var data = result.Select(x => new
+            {
+                Id = x.i.Id,
+                invNum = x.i.InvNum,
+                PaymentNum = x.i.PaymentNum,
+                Comment = x.i.Comment,
+                Invoice = x.i.Invoice,
+                NomenclatureId = x.i.NomenclatureId,
+                NameDevice = x.n.NameDevice,
+                IdWorkplace = x.b.IdWorkplace,
+                NameWorkplace = x.b.NameWorkplace,
+                IdMovement = x.c.IdMovement,
+                DateMove = x.c.DateMove,
+                IdCompany = x.f.IdCompany,
+                CompanyName = x.f.CompanyName
+            });
+
+            return Ok(new { TotalCount = totalCount, TotalPages = totalPages, Data = data });
+        }
+
     }
 }

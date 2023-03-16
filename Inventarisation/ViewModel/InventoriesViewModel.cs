@@ -12,6 +12,7 @@ using Inventarisation.Api.ApiModel;
 using Inventarisation.Models;
 using Inventarisation.Views;
 using System.Threading;
+using Syncfusion.UI.Xaml.Grid;
 
 
 namespace Inventarisation.ViewModel
@@ -19,42 +20,31 @@ namespace Inventarisation.ViewModel
     public class InventoriesViewModel
     {
       
-        public ObservableCollection<InvMain> DataVM { get; set; }
+       // public ObservableCollection<InvMain> DataVM { get; set; }
+       //// public ObservableCollection<InvMain> DamaskCollection { get; set; }
 
-
-        public async void GetData()
-        {
-            HttpClient _client;
-            IDataProtector _protector;
-            DataVM = new ObservableCollection<InvMain>();
-
-            _client = new HttpClient();
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _protector = DataProtectionProvider.Create("Contoso").CreateProtector("JWT");
-
-            var protectedToken = Properties.Settings.Default.JWTtoken;
-
-            var token = protectedToken;
-
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _client.GetAsync("https://invent.doker.ru/api/Inventories/ConnectedTables");
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<List<InvMain>>(json);
-
-                foreach (var item in data)
-                {
-                   
-                    DataVM.Add(item);
-                }
-               
-            }
-            else
-            {
-                await Console.Out.WriteLineAsync("errororororororor");
-            }
-        }
+       // public async Task GetDataAsync(SfDataGrid sfDataGrid)
+       // {
+       //     var _client = new HttpClient();
+       //     _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+       //     var protectedToken = Properties.Settings.Default.JWTtoken;
+       //     var token = protectedToken;
+       //     _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+       //     using (var response = await _client.GetAsync("https://invent.doker.ru/api/Inventories/ConnectedTables"))
+       //     {
+       //         if (response.IsSuccessStatusCode)
+       //         {
+       //             string apiResponse = await response.Content.ReadAsStringAsync();
+       //             DataVM = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
+       //             sfDataGrid.ItemsSource = DataVM;
+       //         }
+       //         else
+       //         {
+       //             string errorResponse = await response.Content.ReadAsStringAsync();
+       //             throw new Exception($"Error getting data from API. Status code: {response.StatusCode}. Error message: {errorResponse}");
+       //         }
+       //     }
+       // }
 
     }
 }

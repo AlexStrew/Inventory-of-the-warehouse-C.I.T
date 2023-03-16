@@ -24,6 +24,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using Syncfusion.SfSkinManager;
 using Inventarisation.Properties;
+using Syncfusion.UI.Xaml.Grid;
+using Eco.Persistence;
 
 namespace Inventarisation.Views
 {
@@ -33,63 +35,38 @@ namespace Inventarisation.Views
     public partial class NomenclatureWindow : Window
     {
         public ObservableCollection<Nomenclature> DataNomen { get; set; }
+
        
         //List<Nomenclature> nomList;
-        public NomenclatureWindow(VisualStyles theme)
+        public NomenclatureWindow()
         {
             InitializeComponent();
-            //SfSkinManager.SetVisualStyle(this, Settings.VisualStyles.CurrentTheme);
-            SfSkinManager.SetVisualStyle(this, theme);
-            DataContext = this;
-            GetData();
-            //nomList = db.context.Nomenclature.OrderBy(x=>x.name_device).ToList();
-            //NomenclatureDG.ItemsSource = nomList;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource);
-            
-            //view.Filter = UserFilter;
+            LoadData();
+         
         }
 
 
-        private async void GetData()
+        private async Task LoadData()
         {
-            HttpClient _client;
-            IDataProtector _protector;
-            DataNomen = new ObservableCollection<Nomenclature>();
-
-            _client = new HttpClient();
+            
+            var _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _protector = DataProtectionProvider.Create("Contoso").CreateProtector("JWT");
-
             var protectedToken = Properties.Settings.Default.JWTtoken;
-            await Console.Out.WriteLineAsync(protectedToken);
             var token = protectedToken;
-
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var response = await _client.GetAsync("http://invent.doker.ru/api/Nomenclatures");
-            if (response.IsSuccessStatusCode)
+            using (_client)
             {
-                var json = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<List<Nomenclature>>(json);
-                // Bind the data to the datagrid
-                //sfDataGrid.ItemsSource = data;
-                foreach (var item in data)
+                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Nomenclatures"))
                 {
-                    DataNomen.Add(item);
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    DataNomen = JsonConvert.DeserializeObject<ObservableCollection<Nomenclature>>(apiResponse);
+                    NomenclatureDG.ItemsSource = DataNomen;
                 }
             }
-            else
-            {
-                await Console.Out.WriteLineAsync("errororororororor");
-            }
+            
         }
-        //private bool UserFilter(object item)
-        //{
-        //    if (String.IsNullOrEmpty(SearchNomenclatureTBox.Text))
-        //        return true;
-        //    //else
-        //    //    return ((item as Nomenclature).name_device.IndexOf(SearchNomenclatureTBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        //}
+
+     
 
         public static implicit operator NomenclatureWindow(AddWindow v)
         {
@@ -116,8 +93,7 @@ namespace Inventarisation.Views
 
         private void RefreshWinBtnClick(object sender, RoutedEventArgs e)
         {
-            //nomList = db.context.Nomenclature.ToList();
-            //NomenclatureDG.ItemsSource = nomList;
+           
             CollectionViewSource.GetDefaultView(NomenclatureDG.ItemsSource).Refresh();
         }
 
@@ -130,7 +106,15 @@ namespace Inventarisation.Views
 
         private void SelectNomenButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(Properties.Settings.Default.NomenSelectProp);
+            var selectedItem = NomenclatureDG.SelectedItem as Nomenclature;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.NomenSelectProp = selectedItem.NameDevice;
+                Properties.Settings.Default.Save();
+            }
+            
             DialogResult = true;
             this.Close();
         }
@@ -146,6 +130,49 @@ namespace Inventarisation.Views
             var selectedCell = NomenclatureDG.SelectedItem;
             Properties.Settings.Default.NomenSelectProp = selectedCell.ToString();
             Properties.Settings.Default.Save();
+        }
+
+        private void EditNomenBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void DelNomenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRow = NomenclatureDG.SelectedItem as Nomenclature;
+
+            // Если строка выбрана
+            if (selectedRow != null)
+            {
+                // Создание HttpClient
+                var client = new HttpClient();
+                var protectedToken = Properties.Settings.Default.JWTtoken;
+                var token = protectedToken;
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                // Отправка DELETE запроса на API
+                var response = await client.DeleteAsync($"https://invent.doker.ru/api/Nomenclatures/{selectedRow.IdNomenclature}");
+
+                // Если ответ успешный
+                if (response.IsSuccessStatusCode)
+                {
+                    // Удаление выбранной строки из sfDataGrid
+                    var nomenclatureList = NomenclatureDG.ItemsSource as ObservableCollection<Nomenclature>;
+                    nomenclatureList.Remove(selectedRow);
+                    NomenclatureDG.ItemsSource = nomenclatureList;
+                    HandyControl.Controls.MessageBox.Show($"Удалено");
+                }
+                else
+                {
+                    HandyControl.Controls.MessageBox.Show($"Произошла ошибка при удалении: {response.ReasonPhrase}");
+                }
+            }
+        }
+
+        private void SearchNomenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NomenclatureDG.SearchHelper.AllowFiltering = true;
+            this.NomenclatureDG.SearchHelper.Search(SearchNomenclatureTBox.Text);
         }
     }
 }

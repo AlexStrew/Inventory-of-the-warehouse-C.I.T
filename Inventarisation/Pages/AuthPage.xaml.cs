@@ -40,7 +40,7 @@ namespace Inventarisation.Pages
             _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _protector = DataProtectionProvider.Create("Contoso").CreateProtector("JWT");
-
+            CheckConnectionServer();
         }
 
         public class Token
@@ -145,6 +145,34 @@ namespace Inventarisation.Pages
                 Properties.Settings.Default.Save();
                 
             }
+        }
+
+        private async void CheckConnectionServer()
+        {
+            try
+            {
+                var _client = new HttpClient();
+                //_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Properties.Settings.Default.JWTtoken);
+                var response = await _client.GetAsync("https://invent.doker.ru/api/Status");
+                if (response.IsSuccessStatusCode)
+                {
+                    ellipse.Fill = Brushes.Green;
+                }
+                else
+                {
+                    ellipse.Fill = Brushes.Red;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        private async void CheckConUpd_Click(object sender, RoutedEventArgs e)
+        {
+            CheckConnectionServer();
         }
     }
 }
