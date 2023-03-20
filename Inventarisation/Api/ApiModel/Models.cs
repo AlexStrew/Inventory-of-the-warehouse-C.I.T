@@ -153,6 +153,78 @@ namespace Inventarisation.Api.ApiModel
         public string CompanyName { get; set; }
 
     }
+    public class QueueModel
+    {
+        [JsonProperty("id_list")]
+        public int IdList { get; set; }
+
+        [JsonProperty("id_parent")]
+        public int IdParent { get; set; }
+
+        [JsonProperty("is_active")]
+        public bool IsActive { get; set; }
+    }
+
+    public class Placements
+    {
+        [JsonProperty("idPlacement")]
+        public int IdPlacement { get; set; }
+
+        [JsonProperty("namePlacement")]
+        public string NamePlacement { get; set; }
+       
+    }
+
+    public class Workplace
+    {
+        [JsonProperty("idWorkplace")]
+        public int IdWorkplace { get; set; }
+
+        [JsonProperty("idInventory")]
+        public int IdInventory { get; set; }
+
+        [JsonProperty("nameWorkplace")]
+        public string NameWorkplace { get; set; }
+
+        [JsonProperty("placementIdWp")]
+        public int PlacementIdWp { get; set; }
+
+        [JsonProperty("mol")]
+        public string Mol { get; set; }
+
+        [JsonProperty("deviceId")]
+        public int DeviceId { get; set; }
+
+        [JsonProperty("employerId")]
+        public int EmployerId { get; set; }
+
+       
+    }
+
+
+    public class WorkplaceConnected
+    {
+        [JsonProperty("id_workplace")]
+        public int IdWorkplace { get; set; }
+
+        [JsonProperty("id_inventory")]
+        public int IdInventory { get; set; }
+
+        [JsonProperty("placement_id_wp")]
+        public int PlacementIdWp { get; set; }
+
+        [JsonProperty("name_workplace")]
+        public string NameWorkplace { get; set; }
+
+        [JsonProperty("name_placement")]
+        public string NamePlacement { get; set; }
+
+        [JsonProperty("id_empolyer")]
+        public int IdEmpolyer { get; set; }
+
+        [JsonProperty("full_name")]
+        public string FullName { get; set; }
+    }
 
 
 

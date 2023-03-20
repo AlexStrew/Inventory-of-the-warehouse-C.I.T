@@ -25,7 +25,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(opts =>
     opts.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
     opts.Password.RequireDigit = false; // требуются ли цифры
 })
-    .AddEntityFrameworkStores<InventarisationDbContext>()
+    .AddEntityFrameworkStores<InventarisationDbContext>()    
     .AddDefaultTokenProviders();
 
 builder.Services.AddMvc();

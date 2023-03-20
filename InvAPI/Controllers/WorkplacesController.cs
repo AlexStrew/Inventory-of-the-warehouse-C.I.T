@@ -101,6 +101,38 @@ namespace InvAPI.Controllers
             return NoContent();
         }
 
+
+        [Route("ConnectedTables")]
+        [HttpGet]
+        public object JoinStatement()
+        {
+            using (_context)
+            {
+                var result = (from e in _context.Workplaces
+                              join d in _context.Placements on e.PlacementIdWp equals d.IdPlacement
+                              join b in _context.Inventories on e.IdInventory equals b.Id
+                              join c in _context.Employers on e.EmployerId equals c.IdEmpolyer
+                              select new
+                              {
+                                  id_workplace = e.IdWorkplace,
+                                  id_inventory = e.IdInventory,                                 
+                                  placement_id_wp = d.IdPlacement,
+                                  name_workplace = e.NameWorkplace,
+                                  name_placement = d.NamePlacement,
+                                  id_empolyer = c.IdEmpolyer,
+                                  full_name = c.FullName
+
+
+
+
+                              }).ToList();
+                // TODO utilize the above result
+
+                return result;
+            }
+        }
+
+
         private bool WorkplaceExists(int id)
         {
             return _context.Workplaces.Any(e => e.IdWorkplace == id);

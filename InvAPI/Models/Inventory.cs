@@ -23,11 +23,15 @@ public partial class Inventory
 
     public int? WorkplaceId { get; set; }
 
+    public virtual ICollection<ActiveTask> ActiveTasks { get; } = new List<ActiveTask>();
+
     public virtual Company? Company { get; set; }
 
     public virtual ICollection<Movement> Movements { get; } = new List<Movement>();
 
     public virtual Nomenclature? Nomenclature { get; set; }
+
+    public virtual ICollection<RevisionItem> RevisionItems { get; } = new List<RevisionItem>();
 
     public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
 

@@ -246,6 +246,14 @@ namespace Inventarisation.Pages
             this.sfDataGrid.SearchHelper.AllowFiltering = true;
             this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
         }
-        
+
+        private void QueueButton_Click(object sender, RoutedEventArgs e)
+        {
+            QueueWindow win = new QueueWindow();
+            if (win.ShowDialog() == true)
+            {
+                Console.WriteLine("ok");
+            }
+        }
     }
 }

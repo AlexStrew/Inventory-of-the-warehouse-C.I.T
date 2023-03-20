@@ -50,6 +50,10 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="30">
+            <Button Content="Заявки" x:Name="QueueButton" Click="QueueButton_Click" Padding="10 0 10 0" Margin="10 0 0 0"/>
+        </StackPanel>
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="30">
            

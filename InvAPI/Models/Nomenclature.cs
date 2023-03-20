@@ -10,9 +10,13 @@ public partial class Nomenclature
     public string? NameDevice { get; set; }
 
     public int? CountDevice { get; set; }
+
     public string? Manufacturer { get; set; }
+
     public string? Model { get; set; }
+
     public DateTime? DateCreation { get; set; }
+
     public DateTime? DateChange { get; set; }
 
     public virtual ICollection<Inventory> Inventories { get; } = new List<Inventory>();

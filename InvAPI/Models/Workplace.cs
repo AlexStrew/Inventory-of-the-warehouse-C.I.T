@@ -13,10 +13,6 @@ public partial class Workplace
 
     public int? PlacementIdWp { get; set; }
 
-    public string? Mol { get; set; }
-
-    public int? DeviceId { get; set; }
-
     public int? EmployerId { get; set; }
 
     public virtual Nomenclature? Device { get; set; }
