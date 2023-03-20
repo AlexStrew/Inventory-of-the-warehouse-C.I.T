@@ -131,7 +131,7 @@
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Инвентарный номер" Grid.Row="0" HorizontalAlignment="Center" FontWeight="DemiBold"/>
-                <TextBox x:Name="InvNumTBox" Width="200" Grid.Row="1" IsEnabled="False" FontWeight="DemiBold"/>
+                <TextBox x:Name="InvNumTBox" Width="100" Grid.Row="1" IsEnabled="False" FontWeight="DemiBold"/>
                 <Button Grid.Row="2" Content="Напечатать этикетку" />
                 <Image x:Name="InvNumQR"  Width="150" Height="150" Grid.Column="1" Grid.RowSpan="3"/>
             </Grid>
