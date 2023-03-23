@@ -15,11 +15,11 @@ public partial class Workplace
 
     public int? EmployerId { get; set; }
 
-    public virtual Nomenclature? Device { get; set; }
+    //public virtual Nomenclature? Device { get; set; }
 
-    public virtual Employer? Employer { get; set; }
+    //public virtual Employer? Employer { get; set; }
 
-    public virtual Inventory? IdInventoryNavigation { get; set; }
+    //public virtual Inventory? IdInventoryNavigation { get; set; }
 
-    public virtual Placement? PlacementIdWpNavigation { get; set; }
+    //public virtual Placement? PlacementIdWpNavigation { get; set; }
 }

@@ -11,5 +11,5 @@ public partial class Placement
 
     public virtual ICollection<Movement> Movements { get; } = new List<Movement>();
 
-    public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
+    //public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
 }

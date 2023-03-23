@@ -125,6 +125,13 @@
                 <syncfusion:GridTextColumn HeaderText="Номер заявки на оплату"  MappingName="PaymentNum"/>
                 <syncfusion:GridTextColumn  HeaderText="Комментарии" MappingName="Comment" Width="110" />
                 <syncfusion:GridTextColumn  HeaderText="Накладная"  MappingName="Invoice" />
+                <syncfusion:GridTemplateColumn MappingName="" syncfusion:FocusManagerHelper.WantsKeyInput="True">
+                    <syncfusion:GridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Content="Печать QR" x:Name="PrintInvNumQR" Click="PrintInvNumQR_Click" syncfusion:FocusManagerHelper.FocusedElement="True" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </syncfusion:GridTemplateColumn.CellTemplate>
+                </syncfusion:GridTemplateColumn>
             </syncfusion:SfDataGrid.Columns>
 
             <syncfusion:SfDataGrid.TableSummaryRows>

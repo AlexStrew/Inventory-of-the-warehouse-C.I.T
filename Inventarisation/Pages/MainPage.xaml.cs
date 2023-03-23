@@ -1,40 +1,17 @@
 ﻿using Inventarisation.Api.ApiModel;
-using Inventarisation.Models;
-using Inventarisation.ViewModel;
 using Inventarisation.Views;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.Win32;
 using Newtonsoft.Json;
-using Syncfusion.SfSkinManager;
-using Syncfusion.UI.Xaml.Controls.DataPager;
-using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.XlsIO;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing.Printing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.NetworkInformation;
 using System.Security.Principal;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ContextMenu = System.Windows.Controls.ContextMenu;
-using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace Inventarisation.Pages
 {
@@ -47,67 +24,28 @@ namespace Inventarisation.Pages
         private int _pageSize = 20;
         public ObservableCollection<InvMain> DamaskCollection { get; set; }
         public MainPage()
-        {          
+        {
 
             InitializeComponent();
-     
-            UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
-            DataContext = this;
             AwaitDataLoad();
+            UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
+
+            
 
 
         }
 
 
 
-        private async  Task AwaitDataLoad()
+        private async Task AwaitDataLoad()
         {
             BusyBar.IsBusy = true;
+
             await LoadData();
+            await LoadData();
+            //DataContext = this;
             BusyBar.IsBusy = false;
         }
-
-        //private async Task LoadData(int _pageNumber, int _pageSize)
-        //{
-        //    //var _client = new HttpClient();
-        //    //_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        //    //var protectedToken = Properties.Settings.Default.JWTtoken;
-        //    //var token = protectedToken;
-        //    //_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        //    //using (var response = await _client.GetAsync("https://localhost:7050/api/Inventories/test1?pageNumber=1&pageSize=10"))
-        //    //{
-        //    //    if (response.IsSuccessStatusCode)
-        //    //    {
-        //    //        string apiResponse = await response.Content.ReadAsStringAsync();
-        //    //        DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
-        //    //        sfDataGrid.ItemsSource = DamaskCollection;
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        string errorResponse = await response.Content.ReadAsStringAsync();
-        //    //        throw new Exception($"Error getting data from API. Status code: {response.StatusCode}. Error message: {errorResponse}");
-        //    //    }
-        //    //}
-
-        //    BusyBar.IsBusy = true;
-        //    var _client = new HttpClient();
-        //    _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        //    var protectedToken = Properties.Settings.Default.JWTtoken;
-        //    var token = protectedToken;
-        //    _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        //    using (_client)
-        //    {
-        //        using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Inventories/test1?pageNumber={_pageNumber}&pageSize={_pageSize}"))
-        //        {
-        //            string apiResponse = await response.Content.ReadAsStringAsync();
-        //            var result = JsonConvert.DeserializeObject<IEnumerable<InventoryModel>>(apiResponse);
-        //            sfDataGrid.ItemsSource = result;
-        //            sfDataPager.PageSize = _pageSize;
-        //            sfDataPager.PageCount = result.FirstOrDefault()?.Id ?? 0;
-        //        }
-        //    }
-        //    BusyBar.IsBusy = false;
-        //}
 
         private async Task LoadData()
         {
@@ -123,7 +61,7 @@ namespace Inventarisation.Pages
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
-                    sfDataGrid.ItemsSource =  DamaskCollection;
+                    sfDataGrid.ItemsSource = DamaskCollection;
                 }
             }
             BusyBar.IsBusy = false;
@@ -134,7 +72,7 @@ namespace Inventarisation.Pages
         {
             AddWindow win = new AddWindow();
             if (win.ShowDialog() == true)
-            {            
+            {
                 Console.WriteLine("sdsd");
             }
         }
@@ -160,7 +98,7 @@ namespace Inventarisation.Pages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-     
+
         private void SaveToExcel_Click(object sender, RoutedEventArgs e)
         {
             var options = new ExcelExportingOptions();
@@ -201,7 +139,7 @@ namespace Inventarisation.Pages
                 }
             }
         }
-   
+
         /// <summary>
         /// Отправка в печать с превью
         /// </summary>
@@ -230,7 +168,7 @@ namespace Inventarisation.Pages
                 Console.WriteLine("DeviceClaims: " + identity.DeviceClaims);
                 Console.WriteLine("Owner: " + identity.Owner);
 
-                
+
             }
         }
 
@@ -239,7 +177,7 @@ namespace Inventarisation.Pages
             this.sfDataGrid.SearchHelper.ClearSearch();
         }
 
- 
+
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
@@ -250,6 +188,24 @@ namespace Inventarisation.Pages
         private void QueueButton_Click(object sender, RoutedEventArgs e)
         {
             QueueWindow win = new QueueWindow();
+            if (win.ShowDialog() == true)
+            {
+                Console.WriteLine("ok");
+            }
+        }
+
+
+
+
+
+        private void PrintInvNumQR_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Controls.Button selectedButton = (System.Windows.Controls.Button)sender;
+            InvMain item = selectedButton.DataContext as InvMain;
+            Properties.Settings.Default.InvNumForPrint = item.InvNum;
+            Properties.Settings.Default.Save();
+
+            InvNumQrPrintWindow win = new InvNumQrPrintWindow();
             if (win.ShowDialog() == true)
             {
                 Console.WriteLine("ok");

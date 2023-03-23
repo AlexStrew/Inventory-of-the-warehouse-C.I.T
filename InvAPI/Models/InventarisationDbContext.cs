@@ -169,35 +169,40 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
             entity.ToTable("Inventory");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.InvNum)
+                .HasMaxLength(6)
+                .IsUnicode(false)
+                .HasComputedColumnSql("([dbo].[inv_num]([id]))", stored: true)
+                .IsFixedLength()
+                .HasColumnName("inv_num");
+            entity.Property(e => e.NomenclatureId).HasColumnName("nomenclature_id");
+            entity.Property(e => e.MoveId).HasColumnName("move_id");
+            entity.Property(e => e.CompanyId).HasColumnName("company_id");
             entity.Property(e => e.Comment)
                 .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("comment");
-            entity.Property(e => e.CompanyId).HasColumnName("company_id");
-            entity.Property(e => e.InvNum)
-                .HasMaxLength(6)
-                .IsUnicode(false)
-                .HasComputedColumnSql("([dbo].[inv_num]([id]))", false)
-                .IsFixedLength()
-                .HasColumnName("inv_num");
+            entity.Property(e => e.PaymentNum).HasColumnName("payment_num");
+
             entity.Property(e => e.Invoice)
                 .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("invoice");
-            entity.Property(e => e.MoveId).HasColumnName("move_id");
-            entity.Property(e => e.NomenclatureId).HasColumnName("nomenclature_id");
-            entity.Property(e => e.PaymentNum).HasColumnName("payment_num");
             entity.Property(e => e.WorkplaceId).HasColumnName("workplace_id");
 
-            entity.HasOne(d => d.Company).WithMany(p => p.Inventories)
-                .HasForeignKey(d => d.CompanyId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Inventory_Companies");
+            entity.Property(e => e.DateInv)
+                .HasColumnType("datetime")
+                .HasColumnName("dateInvCreate");
 
-            entity.HasOne(d => d.Nomenclature).WithMany(p => p.Inventories)
-                .HasForeignKey(d => d.NomenclatureId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Inventory_Nomenclature");
+            //entity.HasOne(d => d.Company).WithMany(p => p.Inventories)
+            //    .HasForeignKey(d => d.CompanyId)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_Inventory_Companies");
+
+            //entity.HasOne(d => d.Nomenclature).WithMany(p => p.Inventories)
+            //    .HasForeignKey(d => d.NomenclatureId)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_Inventory_Nomenclature");
         });
 
         modelBuilder.Entity<Login>(entity =>
@@ -394,19 +399,19 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
 
        
 
-            entity.HasOne(d => d.Employer).WithMany(p => p.Workplaces)
-                .HasForeignKey(d => d.EmployerId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Workplace_Employer");
+            //entity.HasOne(d => d.Employer).WithMany(p => p.Workplaces)
+            //    .HasForeignKey(d => d.EmployerId)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_Workplace_Employer");
 
-            entity.HasOne(d => d.IdInventoryNavigation).WithMany(p => p.Workplaces)
-                .HasForeignKey(d => d.IdInventory)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Workplace_Inventory");
+            //entity.HasOne(d => d.IdInventoryNavigation).WithMany(p => p.Workplaces)
+            //    .HasForeignKey(d => d.IdInventory)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_Workplace_Inventory");
 
-            entity.HasOne(d => d.PlacementIdWpNavigation).WithMany(p => p.Workplaces)
-                .HasForeignKey(d => d.PlacementIdWp)
-                .HasConstraintName("FK_Workplace_Placements");
+            //entity.HasOne(d => d.PlacementIdWpNavigation).WithMany(p => p.Workplaces)
+            //    .HasForeignKey(d => d.PlacementIdWp)
+            //    .HasConstraintName("FK_Workplace_Placements");
         });
 
         modelBuilder.Entity<WriteOff>(entity =>

@@ -21,5 +21,5 @@ public partial class Nomenclature
 
     public virtual ICollection<Inventory> Inventories { get; } = new List<Inventory>();
 
-    public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
+    //public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
 }

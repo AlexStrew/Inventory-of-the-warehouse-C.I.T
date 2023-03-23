@@ -36,20 +36,9 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("workplaceId")]
         public int WorkplaceId { get; set; }
 
-        [JsonProperty("company")]
-        public object Company { get; set; }
+        [JsonProperty("dateInvCreate")]
+        public DateTime DateInv { get; set; }
 
-        [JsonProperty("movements")]
-        public List<object> Movements { get; set; }
-
-        [JsonProperty("nomenclature")]
-        public object Nomenclature { get; set; }
-
-        [JsonProperty("workplaces")]
-        public List<object> Workplaces { get; set; }
-
-        [JsonProperty("writeOffs")]
-        public List<object> WriteOffs { get; set; }
     }
 
     public class Company
@@ -151,6 +140,9 @@ namespace Inventarisation.Api.ApiModel
 
         [JsonProperty("company_name")]
         public string CompanyName { get; set; }
+
+        [JsonProperty("date_creation")]
+        public DateTime DateCreation { get; set; }
 
     }
     public class QueueModel

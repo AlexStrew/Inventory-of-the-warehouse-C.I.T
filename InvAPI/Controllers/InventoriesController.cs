@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using InvAPI.Models;
+﻿using InvAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 
 namespace InvAPI.Controllers
@@ -16,14 +12,32 @@ namespace InvAPI.Controllers
     [ApiController]
     public class InventoriesController : ControllerBase
     {
-        //private readonly InventarisationDbContext _context;
+        private readonly string _connectionString;
         InventarisationDbContext _context = new InventarisationDbContext();
 
-        public InventoriesController(InventarisationDbContext context)
+        public InventoriesController(InventarisationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _connectionString = "Data Source=SV-SQL-02\\SVSQL02;Initial Catalog=InventarisationDB;User ID=api-user;Password=QFgQJkWi4t;TrustServerCertificate=True";
+
         }
         public ObservableCollection<InvMainClass> InventServCollection { get; set; }
+
+        [HttpGet("getlast/")]
+        public async Task<ActionResult<string>> GetLastRecord()
+        {
+            var lastRecord = await _context.Inventories
+                .OrderByDescending(m => m.InvNum)
+                .Select(s => s.InvNum)
+                .FirstOrDefaultAsync();
+
+            if (lastRecord == null)
+            {
+                return NotFound();
+            }
+
+            return lastRecord;
+        }
 
         [Route("ConnectedTables")]
         [HttpGet]
@@ -133,11 +147,76 @@ namespace InvAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
         {
+            //_context.Inventories.Add(inventory);
+            //await _context.SaveChangesAsync();
+
+            //return CreatedAtAction("GetInventory", new { id = inventory.Id }, inventory);
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                inventory.DateInv = DateTime.UtcNow;
+                SqlCommand command = new SqlCommand("INSERT INTO Inventory (nomenclature_id, move_id, company_id, payment_num, comment, invoice, workplace_id, dateInvCreate) VALUES (@nomenclature_id, @move_id, @company_id, @payment_num, @comment, @invoice, @workplace_id, @dateInvCreate); SELECT CAST(SCOPE_IDENTITY() AS INT)", connection);
+
+                command.Parameters.AddWithValue("@nomenclature_id", inventory.NomenclatureId);
+                command.Parameters.AddWithValue("@move_id", inventory.MoveId);
+                command.Parameters.AddWithValue("@company_id", inventory.CompanyId);
+                command.Parameters.AddWithValue("@payment_num", inventory.PaymentNum);
+                command.Parameters.AddWithValue("@comment", inventory.Comment);
+                command.Parameters.AddWithValue("@invoice", inventory.Invoice);
+                command.Parameters.AddWithValue("@workplace_id", inventory.WorkplaceId);
+                command.Parameters.AddWithValue("@dateInvCreate", inventory.DateInv);
+                await Console.Out.WriteLineAsync(inventory.DateInv.ToString());
+                //string inv_num = (string)command.ExecuteScalar();
+                int insertedId = (int)command.ExecuteScalar();
+
+                
+
+                // Do something with the inserted id
+            }
+
+            return Ok();
+        }
+
+
+
+        //[HttpPost("posttest/")]
+        //public async Task<ActionResult<Inventory>> PostInventoryTest(Inventory inventory)
+        //{
+        //    inventory = new Inventory
+        //    {
+        //        NomenclatureId = inventory.NomenclatureId,
+        //        MoveId = inventory.MoveId,
+        //        CompanyId = inventory.CompanyId,
+        //        PaymentNum = inventory.PaymentNum,
+        //        Comment = inventory.Comment,
+        //        Invoice = inventory.Invoice,
+        //        WorkplaceId = inventory.WorkplaceId,
+        //        DateCreation = DateTime.Now,
+        //    };
+
+        //    // Call the static method to execute the stored procedure and set the computed column value
+        //    inventory.InvNum = Inventory.CalculateInvNumProcessed(inventory.InvNum);
+
+        //    _context.Inventories.Add(inventory);
+        //    await _context.SaveChangesAsync();
+        //    return Ok();
+        //}
+        [HttpPost("posttest/")]
+        public async Task<IActionResult> PostInventoryTest(Inventory inventory)
+        {
+            // Call the static method to execute the stored procedure and set the computed column value
+            inventory.InvNum = Inventory.CalculateInvNumProcessed(inventory.InvNum);
+
             _context.Inventories.Add(inventory);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInventory", new { id = inventory.Id }, inventory);
+            return Ok();
         }
+
+
+
+
 
         // DELETE: api/Inventories/5
         [HttpDelete("{id}")]
@@ -210,7 +289,7 @@ namespace InvAPI.Controllers
                         join b in _context.Workplaces on i.WorkplaceId equals b.IdWorkplace
                         join c in _context.Movements on i.MoveId equals c.IdMovement
                         join f in _context.Companies on i.CompanyId equals f.IdCompany
-                        select new { i, n , b, c ,f };
+                        select new { i, n, b, c, f };
 
             var totalCount = await query.CountAsync();
             var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);

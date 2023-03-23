@@ -6,56 +6,55 @@
         xmlns:local="clr-namespace:Inventarisation.Views"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
 
-        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
- 
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF" xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="AddWindow" Height="500" Width="1000">
+        Title="AddWindow" Height="550" Width="1000">
 
 
-    
+
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="24"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
         </Style>
-        
+
     </Window.Resources>
-   
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border Height="185" Margin="5 5 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Padding="5">
+        <Border Height="395" Margin="5 5 5 5" VerticalAlignment="Top"  BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Padding="5">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="160"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 7 0 0">Наименование</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 40 0 0">Организация</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 73 0 0" TextWrapping="Wrap">Номер заявки на оплату</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 106 0 0">Комментарии</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="5 140 0 0">Накладная</TextBlock>
-                <StackPanel Grid.Column="1">
-                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                        <TextBox x:Name="NameDeviceTB"  Width="220" IsEnabled="False" ></TextBox>
-                        <Button x:Name="SelectNumButton" Click="SelectNumButtonClick" Width="75" Margin="10 0 0 0 " >Выбрать</Button>
+
+
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <TextBlock Text="Основная информация" FontWeight="DemiBold" FontSize="16" Margin="10 0 0 0"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                        <hc:TextBox FontSize="14" x:Name="NameDeviceTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите предмет" hc:InfoElement.Title="Наименование" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <Button x:Name="SelectNumButton" Click="SelectNumButtonClick" Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                        <ComboBox x:Name="CompanyNameCB" Width="220"></ComboBox>
-                        <Button x:Name="AddCompanyBtn" Click="AddCompanyBtnOnClick" Width="75" Margin="10 0 0 0" >Добавить</Button>
+
+                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                        <hc:TextBox FontSize="14" x:Name="CompanyNameCB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите организацию" hc:InfoElement.Title="Название организации" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <Button x:Name="AddCompanyBtn" Click="AddCompanyBtnOnClick" Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
+
                     </StackPanel>
-                    <TextBox x:Name="PaymentNumTB" Width="auto" Margin="0 10 0 0"></TextBox>
-                    <TextBox x:Name="CommentTB" Width="auto" Margin="0 10 0 0"></TextBox>
-                    <TextBox x:Name="InvoiceTB" Width="auto" Margin="0 10 0 0"></TextBox>
+
+                    <StackPanel Orientation="Vertical" Margin="10 10 0 0" >
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="PaymentNumTB" Text="{Binding MyNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInputHandler"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Номер заявки на оплату" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="CommentTB"   hc:InfoElement.Placeholder="Введите текст" hc:InfoElement.Title="Комментарии" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="InvoiceTB" Text="{Binding MyNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInputHandler"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Накладная" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                    </StackPanel>
                 </StackPanel>
-                
+
             </Grid>
         </Border>
         <Border Grid.Column="1" VerticalAlignment="Top" Margin="5 5 5 0" Height="80" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Opacity="0.3">
@@ -81,62 +80,38 @@
                     </StackPanel>
                     <StackPanel Grid.Column="2" Margin="5 0 0 0" Grid.Row="1">
                         <TextBlock HorizontalAlignment="Center">План</TextBlock>
-                        <TextBox x:Name="PlanTB" Margin="0 5 0 0" IsEnabled="False"></TextBox>
+                        <TextBox x:Name="PlanTB" Margin="0 5 0 0" IsReadOnly="True"></TextBox>
                     </StackPanel>
                 </Grid>
             </StackPanel>
         </Border>
 
-        <Border Grid.Column="1" Height="100" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+        <Border Grid.Column="1" Height="250" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
+            <StackPanel Orientation="Vertical">
                 <Grid Margin="5 0 5 0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"  ></ColumnDefinition>
-                        <ColumnDefinition Width="150"></ColumnDefinition>
-                        <ColumnDefinition ></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontWeight="Medium">Привязка</TextBlock>
+                    <TextBlock FontWeight="DemiBold" FontSize="16" Margin="10 0 0 0">Привязка</TextBlock>
+
+
+                    <StackPanel Orientation="Vertical" Margin="10 10 0 0" Grid.Row="1">
+                        <!--<hc:ComboBox HorizontalAlignment="Left" x:Name="PlacementCBss" Width="250" Margin="0 10 0 0 " SelectionChanged="PlacementCB_SelectionChanged" hc:InfoElement.Placeholder="Выберите размещение" hc:TitleElement.Title="Размещение" hc:InfoElement.Necessary="True" />-->
+                    </StackPanel>
                     
-                    <StackPanel Margin="0 0 5 0" Grid.Row="1">
-                        <TextBlock HorizontalAlignment="Center">Размещение</TextBlock>
-                        <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
-                            <ComboBox x:Name="PlacementCB" Width="175"  IsEditable="True" SelectionChanged="PlacementCB_SelectionChanged"/>
-                        </StackPanel>
+                    <StackPanel Grid.Row="2" Margin="10 0 0 0" Orientation="Horizontal">
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left"  x:Name="PlacementTBox" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите размещение" hc:InfoElement.Title="Размещение" hc:InfoElement.Necessary="True" Margin="0 10 0 0 " />
+                        <Button  x:Name="SelectPlaceButton" Click="SelectPlaceButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
                     </StackPanel>
-                    <StackPanel Margin="0 0 0 0" Grid.Row="1" Grid.Column="1">
-                        <TextBlock HorizontalAlignment="Center">Сотрудник</TextBlock>
-                        <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                            <TextBox x:Name="OwnerNameTBox" Width="150" IsEnabled="False"/>
-                        </StackPanel>
-                    </StackPanel>
-                   
                 </Grid>
             </StackPanel>
         </Border>
-        
-        
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="100"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Инвентарный номер" Grid.Row="0" HorizontalAlignment="Center" FontWeight="DemiBold"/>
-                <TextBox x:Name="InvNumTBox" Width="100" Grid.Row="1" IsEnabled="False" FontWeight="DemiBold"/>
-                <Button Grid.Row="2" Content="Напечатать этикетку" />
-                <Image x:Name="InvNumQR"  Width="150" Height="150" Grid.Column="1" Grid.RowSpan="3"/>
-            </Grid>
-            
-        </StackPanel>
-        <Button x:Name="SaveInvBtn" Click="SaveInvBtnOnClick" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="30" Width="100" Margin="0 0 5 5" Grid.Row="1" >Сохранить</Button>
+
+
+
+        <Label VerticalAlignment="Bottom" Grid.Column="1" Content="Внимание. Все поля должны быть заполнены !" Foreground="Red"/>
+        <Button FontSize="14" x:Name="SaveInvBtn" Click="SaveInvBtnOnClick" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="35" Width="100" Margin="0 0 15 15" Grid.Row="1" >Сохранить</Button>
     </Grid>
 </Window>

@@ -21,11 +21,14 @@ using Syncfusion.SfSkinManager;
 using Aspose.BarCode.Generation;
 using QRCoder;
 using System.Net.NetworkInformation;
-
+using HandyControl.Tools;
 using System.Drawing.Imaging;
 using System.IO;
 using QRCoder;
 using System.Drawing;
+using System.Text.RegularExpressions;
+using Syncfusion.Windows.Controls;
+using System.Windows.Forms;
 
 namespace Inventarisation.Views
 {
@@ -39,15 +42,9 @@ namespace Inventarisation.Views
         {
             InitializeComponent();
             ConfigHelper.Instance.SetLang("ru-ru");
-            CompanyLoadData();
+            
 
-            string test = "G10488";
-            InvNumTBox.Text = test;
-            QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
-            QRCodeData qRCodeData = qRCodeGenerator.CreateQrCode(test, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qRCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(25);
-            InvNumQR.Source = BitmapToImageSource(qrCodeImage);
+           
 
         }
 
@@ -67,127 +64,134 @@ namespace Inventarisation.Views
         }
 
 
-        private ImageSource BitmapToImageSource(Bitmap bitmap)
-        {
-            using (MemoryStream memory = new MemoryStream())
-            {
-                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
-                memory.Position = 0;
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = memory;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-
-                return bitmapImage;
-            }
-        }
-
         private void AddCompanyBtnOnClick(object sender, RoutedEventArgs e)
         {
-            AddCompanyWindow addWinNom = new AddCompanyWindow();
+            CompanyWindow addWinNom = new CompanyWindow();
             if (addWinNom.ShowDialog() == true)
             {
                 Console.WriteLine("hehe");
 
             }
-            CompanyNameCB.Items.Clear();
-            PlacementCB.Items.Clear();
-            CompanyLoadData();
-        }
+           CompanyNameCB.Text = Properties.Settings.Default.CompanySelectProp;
+        }               
 
-        private void WorkplaceBtnOnClick(object sender, RoutedEventArgs e)
+        //private async void PlacementCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var _client = new HttpClient();
+        //    _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    var protectedToken = Properties.Settings.Default.JWTtoken;
+        //    var token = protectedToken;
+        //    _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        //    using (_client)
+        //    {
+        //        using (var response = await _client.GetAsync("https://invent.doker.ru/api/Workplaces/ConnectedTables"))
+        //        {
+        //            string apiResponse = await response.Content.ReadAsStringAsync();
+        //            var workplaces = JsonConvert.DeserializeObject<IEnumerable<WorkplaceConnected>>(apiResponse);
+        //            if (PlacementCB.SelectedItem != null)
+        //            {
+        //                string selectedPlacementName = PlacementCB.SelectedItem.ToString();
+
+        //                foreach (var workplace in workplaces)
+        //                {
+        //                    var selectedDataItem = workplaces.Where(item => item.NamePlacement == selectedPlacementName).FirstOrDefault();
+
+        //                    // Если элемент найден, выводим значение свойства FullName в TextBox
+        //                    if (selectedDataItem != null)
+        //                    {
+        //                        if (selectedDataItem.FullName == null || selectedDataItem.FullName == "")
+        //                        {
+        //                            OwnerNameTBox.Text = "";
+        //                        }
+        //                        OwnerNameTBox.Text = selectedDataItem.FullName;
+        //                    }
+        //                }
+
+        //            }
+                    
+        //        }
+
+        //    }
+        //}
+
+        private void PreviewTextInputHandler(object sender, TextCompositionEventArgs e)
         {
-            MessageBox.Show("Страница в разработке");
-        }
-
-        private void SaveInvBtnOnClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Страница в разработке");
-        }
-
-
-        private async Task CompanyLoadData()
-        {
-            //var _client = new HttpClient();
-            //_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            //var protectedToken = Properties.Settings.Default.JWTtoken;
-            //var token = protectedToken;
-            //_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            //using (_client)
-            //{
-            //    using (var response = await _client.GetAsync("https://invent.doker.ru/api/Companies"))
-            //    {
-            //        string apiResponse = await response.Content.ReadAsStringAsync();
-            //        var result = JsonConvert.DeserializeObject<IEnumerable<Company>>(apiResponse);
-            //        CompanyNameCB.ItemsSource = result;
-            //    }
-            //}
-
-            var _client = new HttpClient();
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var protectedToken = Properties.Settings.Default.JWTtoken;
-            var token = protectedToken;
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            using (_client)
+            // Проверяем, что вводимый символ - цифра
+            if (!IsNumeric(e.Text))
             {
-                using (var response = await _client.GetAsync("https://invent.doker.ru/api/Companies"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var companies = JsonConvert.DeserializeObject<IEnumerable<Company>>(apiResponse);
-                    foreach (var company in companies)
-                    {
-                        CompanyNameCB.Items.Add(company.CompanyName);
-                    }
-                }
-                using (var response = await _client.GetAsync("https://invent.doker.ru/api/Workplaces/ConnectedTables"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var companies = JsonConvert.DeserializeObject<IEnumerable<WorkplaceConnected>>(apiResponse);
-                    foreach (var company in companies)
-                    {
-                        PlacementCB.Items.Add(company.NamePlacement);
-                    }
-                }
+                e.Handled = true;
             }
         }
 
-        private async void PlacementCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private bool IsNumeric(string text)
         {
-            var _client = new HttpClient();
-            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var protectedToken = Properties.Settings.Default.JWTtoken;
-            var token = protectedToken;
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            using (_client)
+            Regex regex = new Regex("[^0-9]+"); // Определяем регулярное выражение для поиска всех символов, кроме цифр
+            return !regex.IsMatch(text); // Возвращаем true, если текст содержит только цифры
+        }
+
+        private void SelectPlaceButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlacementWindow win = new PlacementWindow();
+            if (win.ShowDialog() == true)
             {
-                using (var response = await _client.GetAsync("https://invent.doker.ru/api/Workplaces/ConnectedTables"))
+
+                Console.WriteLine("sdsd");
+            }
+            PlacementTBox.Text = Properties.Settings.Default.PlacementSelectProp;
+        }
+
+
+
+
+        private async void SaveInvBtnOnClick(object sender, RoutedEventArgs e)
+        {
+          
+            
+            //dateNew = DateTime.UtcNow;
+            if (NameDeviceTB.Text != "" && CompanyNameCB.Text != "" && PaymentNumTB.Text != "" && CommentTB.Text != "" && InvoiceTB.Text != "" && PlacementTBox.Text != "")
+            {
+                var invent = new Inventory
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    var workplaces = JsonConvert.DeserializeObject<IEnumerable<WorkplaceConnected>>(apiResponse);
-                    if (PlacementCB.SelectedItem != null)
+                    NomenclatureId = Properties.Settings.Default.IdNomenSelectProp,
+                    MoveId = 1,
+                    CompanyId = Properties.Settings.Default.IdCompanySelectProp,
+                    PaymentNum = PaymentNumTB.Text.ConvertToInt(),
+                    Comment = CommentTB.Text,
+                    Invoice = InvoiceTB.Text,
+                    WorkplaceId = 1,
+                    DateInv = DateTime.UtcNow
+
+                };
+
+                var _client = new HttpClient();
+                _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var protectedToken = Properties.Settings.Default.JWTtoken;
+                var token = protectedToken;
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                using (_client)
+                {
+                    using (var response = await _client.PostAsJsonAsync($"https://invent.doker.ru/api/Inventories", invent))
                     {
-                        string selectedPlacementName = PlacementCB.SelectedItem.ToString();
-
-                        foreach (var workplace in workplaces)
+                        if (response.IsSuccessStatusCode)
                         {
-                            var selectedDataItem = workplaces.Where(item => item.NamePlacement == selectedPlacementName).FirstOrDefault();
+                            // Удаление выбранной строки из sfDataGrid
 
-                            // Если элемент найден, выводим значение свойства FullName в TextBox
-                            if (selectedDataItem != null)
-                            {
-                                if (selectedDataItem.FullName == null || selectedDataItem.FullName == "")
-                                {
-                                    OwnerNameTBox.Text = "";
-                                }
-                                OwnerNameTBox.Text = selectedDataItem.FullName;
-                            }
+                            HandyControl.Controls.MessageBox.Show($"Добавлено");
+                            DialogResult = true;
+                            this.Close();
+                        }
+                        else
+                        {
+                            HandyControl.Controls.MessageBox.Show($"Произошла ошибка при добавлении: {response.ReasonPhrase}");
                         }
 
-                    }
-                    
-                }
 
+                    }
+                }
+            }
+            else
+            {
+                HandyControl.Controls.MessageBox.Show($"Поля не должны быть пустыми");
             }
         }
     }

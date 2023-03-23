@@ -1,0 +1,55 @@
+﻿<Window x:Class="Inventarisation.Views.ViewSelectRevisionItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventarisation.Views" xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+       Title="Список сканированных объектов" Height="500" Width="900">
+
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid Height="40" >
+            <StackPanel Orientation="Horizontal">
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="AddQueueWinBtn" Click="AddQueueWinBtn_Click">Добавить</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="EditQueueBtn" Click="EditQueueBtn_Click">Изменить</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="DelQueueBtn" Click="DelQueueBtn_Click" >Удалить</Button>
+                <Button VerticalAlignment="Center" Margin="5 0 0 0" x:Name="RefreshWinBtn"  Click="RefreshWinBtn_Click">Обновить</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="SelectQueueButton" Click="SelectQueueButton_Click">Выбрать</Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
+                <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
+                <TextBox  FontWeight="SemiBold" x:Name="SearchQueueTBox"  Height="30" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+                <Button Content="Поиск" x:Name="SearchQueueBtn" Click="SearchQueueBtn_Click"/>
+            </StackPanel>
+        </Grid>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Номер заявки №" FontSize="20" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Margin="5"/>
+        </StackPanel>
+        
+        <Syncfusion:SfDataGrid 
+           
+            Grid.Row="2"
+            Margin="5"
+            AllowFiltering="True"
+            AutoGenerateColumns="False"
+            AllowResizingColumns="True"
+            x:Name="QueueDG"
+            
+            ColumnSizer="Star"
+            NavigationMode="Row">
+            <Syncfusion:SfDataGrid.Columns>
+                <Syncfusion:GridTextColumn HeaderText="Наименование" MappingName="NameDevice"></Syncfusion:GridTextColumn>
+            </Syncfusion:SfDataGrid.Columns>
+        </Syncfusion:SfDataGrid>
+
+    </Grid>
+</Window>

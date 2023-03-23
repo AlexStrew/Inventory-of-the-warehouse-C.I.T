@@ -1,8 +1,5 @@
 ﻿using Inventarisation.Api.ApiModel;
-using Inventarisation.Models;
-using Microsoft.AspNetCore.DataProtection;
 using Newtonsoft.Json;
-using Syncfusion.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,36 +16,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Syncfusion.Windows.Shared;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Syncfusion.SfSkinManager;
-using Inventarisation.Properties;
-using Syncfusion.UI.Xaml.Grid;
-using Eco.Persistence;
 
 namespace Inventarisation.Views
 {
     /// <summary>
-    /// Логика взаимодействия для NomenclatureWindow.xaml
+    /// Логика взаимодействия для PlacementWindow.xaml
     /// </summary>
-    public partial class NomenclatureWindow : Window
+    public partial class PlacementWindow : Window
     {
-        public ObservableCollection<Nomenclature> DataNomen { get; set; }
-
-       
-        //List<Nomenclature> nomList;
-        public NomenclatureWindow()
+        public ObservableCollection<Placements> DataPlacement { get; set; }
+        public PlacementWindow()
         {
             InitializeComponent();
             LoadData();
-         
         }
-
 
         private async Task LoadData()
         {
-            
+
             var _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var protectedToken = Properties.Settings.Default.JWTtoken;
@@ -56,19 +41,17 @@ namespace Inventarisation.Views
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             using (_client)
             {
-                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Nomenclatures"))
+                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Placements"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    DataNomen = JsonConvert.DeserializeObject<ObservableCollection<Nomenclature>>(apiResponse);
-                    NomenclatureDG.ItemsSource = DataNomen;
+                    DataPlacement = JsonConvert.DeserializeObject<ObservableCollection<Placements>>(apiResponse);
+                    PlacementDG.ItemsSource = DataPlacement;
                 }
             }
-            
+
         }
 
-     
-
-        public static implicit operator NomenclatureWindow(AddWindow v)
+        public static implicit operator PlacementWindow(AddWindow v)
         {
             throw new NotImplementedException();
         }
@@ -76,49 +59,52 @@ namespace Inventarisation.Views
         /// <summary>
         /// Открытие окна добавления устройства в справочник
         /// </summary>
-        private void AddNomWinBtnClick(object sender, RoutedEventArgs e)
+        private void AddPlaceWinBtnClick(object sender, RoutedEventArgs e)
         {
-            AddNomeclatureWindow addWinNom = new AddNomeclatureWindow();
+            //Close();
+            AddPlacementWindow addWinNom = new AddPlacementWindow();
             if (addWinNom.ShowDialog() == true)
             {
-                Console.WriteLine("hehe");                
-            }          
+                Console.WriteLine("hehe");
+
+            }
+            LoadData();
         }
 
         private void RefreshWinBtnClick(object sender, RoutedEventArgs e)
         {
+
             LoadData();
         }
 
-        private void SelectNomenButton_Click(object sender, RoutedEventArgs e)
+
+        private void SelectPlaceButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = NomenclatureDG.SelectedItem as Nomenclature;
+            var selectedItem = PlacementDG.SelectedItem as Placements;
 
             // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
             if (selectedItem != null)
             {
-                Properties.Settings.Default.NomenSelectProp = selectedItem.NameDevice;
-                Properties.Settings.Default.IdNomenSelectProp = selectedItem.IdNomenclature;
+                Properties.Settings.Default.PlacementSelectProp = selectedItem.NamePlacement;
+                Properties.Settings.Default.IdPlacementSelectProp = selectedItem.IdPlacement;
                 Properties.Settings.Default.Save();
             }
-            
+
             DialogResult = true;
             this.Close();
         }
 
-      
-
-        private void EditNomenBtn_Click(object sender, RoutedEventArgs e)
+        private void EditPlaceBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private async void DelNomenBtn_Click(object sender, RoutedEventArgs e)
+        private async void DelPlaceBtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите удалить строку?", "Удаление", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                var selectedRow = NomenclatureDG.SelectedItem as Nomenclature;
+                var selectedRow = PlacementDG.SelectedItem as Placements;
 
                 // Если строка выбрана
                 if (selectedRow != null)
@@ -130,15 +116,15 @@ namespace Inventarisation.Views
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                     // Отправка DELETE запроса на API
-                    var response = await client.DeleteAsync($"https://invent.doker.ru/api/Nomenclatures/{selectedRow.IdNomenclature}");
+                    var response = await client.DeleteAsync($"https://invent.doker.ru/api/Placements/{selectedRow.IdPlacement}");
 
                     // Если ответ успешный
                     if (response.IsSuccessStatusCode)
                     {
                         // Удаление выбранной строки из sfDataGrid
-                        var nomenclatureList = NomenclatureDG.ItemsSource as ObservableCollection<Nomenclature>;
-                        nomenclatureList.Remove(selectedRow);
-                        NomenclatureDG.ItemsSource = nomenclatureList;
+                        var placeList = PlacementDG.ItemsSource as ObservableCollection<Placements>;
+                        placeList.Remove(selectedRow);
+                        PlacementDG.ItemsSource = placeList;
                         HandyControl.Controls.MessageBox.Show($"Удалено");
                     }
                     else
@@ -147,12 +133,13 @@ namespace Inventarisation.Views
                     }
                 }
             }
+            
         }
 
-        private void SearchNomenBtn_Click(object sender, RoutedEventArgs e)
+        private void SearchPlaceBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.NomenclatureDG.SearchHelper.AllowFiltering = true;
-            this.NomenclatureDG.SearchHelper.Search(SearchNomenclatureTBox.Text);
+            this.PlacementDG.SearchHelper.AllowFiltering = true;
+            this.PlacementDG.SearchHelper.Search(SearchPlacementTBox.Text);
         }
     }
 }
