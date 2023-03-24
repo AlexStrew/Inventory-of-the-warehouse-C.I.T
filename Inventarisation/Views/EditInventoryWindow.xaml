@@ -87,6 +87,6 @@
 
 
         <Label VerticalAlignment="Bottom" Grid.Column="1" Content="Внимание. Все поля должны быть заполнены !" Foreground="Red"/>
-        <Button FontSize="14" x:Name="SaveInvBtn" Click="SaveInvBtnOnClick" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="35" Width="150" Margin="0 0 15 15" Grid.Row="1" >Редактировать</Button>
+        <Button FontSize="14" x:Name="SaveInvBtn" Click="SaveInvBtnOnClick" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="35" Width="150" Margin="0 0 15 15" Grid.Row="1" >Отредатктировать</Button>
     </Grid>
 </Window>
