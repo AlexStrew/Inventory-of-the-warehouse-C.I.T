@@ -14,7 +14,7 @@
     BorderThickness="0"
     WindowStartupLocation="CenterScreen"
     
-    Height="550" Width="900"  
+    Height="600" Width="1100"  
         mc:Ignorable="d"
        
         >

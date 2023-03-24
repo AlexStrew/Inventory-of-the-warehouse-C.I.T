@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace InvAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class QueueListsController : ControllerBase
@@ -85,16 +85,12 @@ namespace InvAPI.Controllers
         // POST: api/QueueLists
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<QueueLists>> PostQueueLists(QueueLists QueueLists)
+        public async Task<ActionResult<QueueLists>> PostNomenclature(QueueLists queue)
         {
-          if (_context.QueueLists == null)
-          {
-              return Problem("Entity set 'InventarisationDbContext.QueueLists'  is null.");
-          }
-            _context.QueueLists.Add(QueueLists);
+            _context.QueueLists.Add(queue);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetQueueLists", new { id = QueueLists.id_list }, QueueLists);
+            return CreatedAtAction("GetQueueLists", new { id = queue.id_list }, queue);
         }
 
         // DELETE: api/QueueLists/5

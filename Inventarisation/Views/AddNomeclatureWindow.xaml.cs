@@ -42,7 +42,7 @@ namespace Inventarisation.Views
         /// </summary>
         private async void  AddNomenBtnClick(object sender, RoutedEventArgs e )
         {
-            if (NameDeviceTBox.Text != "" && NameDeviceTBox.Text != " ")
+            if (NameDeviceTBox.Text != "" && NameDeviceTBox.Text != " " && CountDeviceTBox.Text != "" && ManufacturerDeviceTBox.Text != "" && ModelDeviceTBox.Text != "" && ManufacturerDeviceTBox.Text != "" && ManufacturerDeviceTBox.Text != "")
             {
                 var nomenclature = new Nomenclature
                 {
@@ -82,7 +82,7 @@ namespace Inventarisation.Views
             }
             else
             {
-                HandyControl.Controls.MessageBox.Show($"Поле: Наименование не должно быть пустым"); 
+                HandyControl.Controls.MessageBox.Show($"Поля не должны быть пустыми"); 
             }
             
 

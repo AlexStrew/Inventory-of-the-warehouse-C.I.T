@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace InvAPI.Models;
@@ -6,8 +7,10 @@ namespace InvAPI.Models;
 public partial class RevisionItem
 {
     public int IdQueue { get; set; }
-
-    public int? ParentId { get; set; }
+    [JsonProperty("")]
+    public int? ListId { get; set; }
+    public string? InvNum { get; set; }
+    public string? NameDevice { get; set; }
 
     public int? InventoryId { get; set; }
 
@@ -15,5 +18,5 @@ public partial class RevisionItem
 
     public bool? IsDone { get; set; }
 
-    public virtual Inventory? Inventory { get; set; }
+
 }

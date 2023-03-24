@@ -43,12 +43,12 @@ namespace InvAPI.Controllers
             return nomenclature;
         }
 
-        // PUT: api/Nomenclatures/5
+        // PUT: api/Inventories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutNomenclature(string name_device, Nomenclature nomenclature)
+        public async Task<IActionResult> PutNomenclature(int id, Nomenclature nomenclature)
         {
-            if (name_device != nomenclature.NameDevice)
+            if (id != nomenclature.IdNomenclature)
             {
                 return BadRequest();
             }
@@ -61,7 +61,7 @@ namespace InvAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NomenclatureExists(name_device))
+                if (!NomenclatureExists(id))
                 {
                     return NotFound();
                 }
@@ -118,9 +118,10 @@ namespace InvAPI.Controllers
             return NoContent();
         }
 
-        private bool NomenclatureExists(string name_device)
+        private bool NomenclatureExists(int id)
         {
-            return _context.Nomenclatures.Any(e => e.NameDevice == name_device);
+            return _context.Nomenclatures.Any(e => e.IdNomenclature == id);
         }
+
     }
 }

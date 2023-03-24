@@ -10,5 +10,5 @@ public partial class Employer
     public string FullName { get; set; }
 
 
-    public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
+  
 }

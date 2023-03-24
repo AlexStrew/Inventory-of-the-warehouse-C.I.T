@@ -1,31 +1,11 @@
 ﻿using Inventarisation.Api.ApiModel;
-using Inventarisation.Models;
-using Microsoft.AspNetCore.DataProtection;
 using Newtonsoft.Json;
-using Syncfusion.Data.Extensions;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Http.Headers;
 using System.Net.Http;
-using System.Text;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Syncfusion.Windows.Shared;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Syncfusion.SfSkinManager;
-using Inventarisation.Properties;
-using Syncfusion.UI.Xaml.Grid;
-using Eco.Persistence;
 
 namespace Inventarisation.Views
 {
@@ -36,19 +16,19 @@ namespace Inventarisation.Views
     {
         public ObservableCollection<Nomenclature> DataNomen { get; set; }
 
-       
+
         //List<Nomenclature> nomList;
         public NomenclatureWindow()
         {
             InitializeComponent();
             LoadData();
-         
+
         }
 
 
         private async Task LoadData()
         {
-            
+
             var _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var protectedToken = Properties.Settings.Default.JWTtoken;
@@ -63,10 +43,10 @@ namespace Inventarisation.Views
                     NomenclatureDG.ItemsSource = DataNomen;
                 }
             }
-            
+
         }
 
-     
+
 
         public static implicit operator NomenclatureWindow(AddWindow v)
         {
@@ -81,8 +61,9 @@ namespace Inventarisation.Views
             AddNomeclatureWindow addWinNom = new AddNomeclatureWindow();
             if (addWinNom.ShowDialog() == true)
             {
-                Console.WriteLine("hehe");                
-            }          
+                Console.WriteLine("hehe");
+            }
+            LoadData();
         }
 
         private void RefreshWinBtnClick(object sender, RoutedEventArgs e)
@@ -101,16 +82,38 @@ namespace Inventarisation.Views
                 Properties.Settings.Default.IdNomenSelectProp = selectedItem.IdNomenclature;
                 Properties.Settings.Default.Save();
             }
-            
+
             DialogResult = true;
             this.Close();
         }
 
-      
+
 
         private void EditNomenBtn_Click(object sender, RoutedEventArgs e)
         {
+            var selectedItem = NomenclatureDG.SelectedItem as Nomenclature;
+            if (selectedItem != null)
+            {
+                MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите изменить данные?", "Редактирование", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Properties.Settings.Default.NomenSelectProp = selectedItem.NameDevice;
+                    Properties.Settings.Default.IdNomenSelectProp = selectedItem.IdNomenclature;
+                    Properties.Settings.Default.Save();
 
+                    EditNomenWindow addWinNom = new EditNomenWindow();
+                    if (addWinNom.ShowDialog() == true)
+                    {
+                        Console.WriteLine("hehe");
+
+                    }
+                    LoadData();
+                }
+                else
+                {
+                    HandyControl.Controls.MessageBox.Show("Строка не выбрана", "Редактирование", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
         }
 
         private async void DelNomenBtn_Click(object sender, RoutedEventArgs e)

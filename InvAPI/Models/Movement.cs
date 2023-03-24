@@ -15,6 +15,8 @@ public partial class Movement
 
     public string? Planner { get; set; }
 
+    public int? EmployerId { get; set; }
+
     public virtual Inventory IdInventoryNavigation { get; set; } = null!;
 
     public virtual Placement? Placement { get; set; }

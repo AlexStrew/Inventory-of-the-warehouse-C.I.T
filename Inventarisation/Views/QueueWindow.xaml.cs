@@ -19,7 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Inventarisation.Views
-{    
+{
 
     /// <summary>
     /// Логика взаимодействия для QueueWindow.xaml
@@ -31,14 +31,14 @@ namespace Inventarisation.Views
         public QueueWindow()
         {
             InitializeComponent();
-            
+
             LoadData();
         }
 
 
         private async Task LoadData()
         {
-            
+
             var _client = new HttpClient();
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var protectedToken = Properties.Settings.Default.JWTtoken;
@@ -54,7 +54,7 @@ namespace Inventarisation.Views
                     ClosedQueues.ItemsSource = QueueCollection.Where(x => x.IsActive == false);
                 }
             }
-            
+
         }
 
         private void DelQueueBtn_Click(object sender, RoutedEventArgs e)
@@ -69,8 +69,28 @@ namespace Inventarisation.Views
 
         private void SelectQueueButton_Click(object sender, RoutedEventArgs e)
         {
+            var selectedItem = OpenQueues.SelectedItem as QueueModel;
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.IdQueueSelectProp = selectedItem.IdList;                
+                Properties.Settings.Default.Save();
+
+                ViewSelectRevisionItemWindow addWinNom = new ViewSelectRevisionItemWindow();
+                if (addWinNom.ShowDialog() == true)
+                {
+                    Console.WriteLine("hehe");
+
+                }
+
+                LoadData();
+            }
+            else
+            {
+                HandyControl.Controls.MessageBox.Show("Строка не выбрана", "Просмотр", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            }
 
         }
+    
 
         private void SearchQueueBtn_Click(object sender, RoutedEventArgs e)
         {

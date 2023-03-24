@@ -46,9 +46,10 @@ namespace InvAPI.Controllers
             using (_context)
             {
                 var result = (from e in _context.Inventories
-                              join d in _context.Nomenclatures on e.NomenclatureId equals d.IdNomenclature
-                              join b in _context.Workplaces on e.WorkplaceId equals b.IdWorkplace
+                              join d in _context.Nomenclatures on e.NomenclatureId equals d.IdNomenclature                                                            
                               join c in _context.Movements on e.MoveId equals c.IdMovement
+                              join g in _context.Placements on c.PlacementId equals g.IdPlacement
+                              join h in _context.Employers on c.EmployerId equals h.IdEmpolyer
                               join f in _context.Companies on e.CompanyId equals f.IdCompany
                               select new
                               {
@@ -59,12 +60,13 @@ namespace InvAPI.Controllers
                                   invoice = e.Invoice,
                                   nomenclature_id = e.NomenclatureId,
                                   name_device = d.NameDevice,
-                                  id_workplace = b.IdWorkplace,
-                                  name_workplace = b.NameWorkplace,
+                                  id_placement = g.IdPlacement,
+                                  name_placement = g.NamePlacement,
                                   id_movement = c.IdMovement,
                                   date_move = c.DateMove,
                                   id_company = f.IdCompany,
-                                  company_name = f.CompanyName
+                                  company_name = f.CompanyName,
+                                  full_name = h.FullName,
                               }).ToList();
                 // TODO utilize the above result
 
@@ -156,15 +158,15 @@ namespace InvAPI.Controllers
             {
                 connection.Open();
                 inventory.DateInv = DateTime.UtcNow;
-                SqlCommand command = new SqlCommand("INSERT INTO Inventory (nomenclature_id, move_id, company_id, payment_num, comment, invoice, workplace_id, dateInvCreate) VALUES (@nomenclature_id, @move_id, @company_id, @payment_num, @comment, @invoice, @workplace_id, @dateInvCreate); SELECT CAST(SCOPE_IDENTITY() AS INT)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Inventory (nomenclature_id, company_id, payment_num, comment, invoice, dateInvCreate) VALUES (@nomenclature_id, @company_id, @payment_num, @comment, @invoice, @dateInvCreate); SELECT CAST(SCOPE_IDENTITY() AS INT)", connection);
 
                 command.Parameters.AddWithValue("@nomenclature_id", inventory.NomenclatureId);
-                command.Parameters.AddWithValue("@move_id", inventory.MoveId);
+                //command.Parameters.AddWithValue("@move_id", inventory.MoveId);
                 command.Parameters.AddWithValue("@company_id", inventory.CompanyId);
                 command.Parameters.AddWithValue("@payment_num", inventory.PaymentNum);
                 command.Parameters.AddWithValue("@comment", inventory.Comment);
                 command.Parameters.AddWithValue("@invoice", inventory.Invoice);
-                command.Parameters.AddWithValue("@workplace_id", inventory.WorkplaceId);
+           
                 command.Parameters.AddWithValue("@dateInvCreate", inventory.DateInv);
                 await Console.Out.WriteLineAsync(inventory.DateInv.ToString());
                 //string inv_num = (string)command.ExecuteScalar();
@@ -177,43 +179,6 @@ namespace InvAPI.Controllers
 
             return Ok();
         }
-
-
-
-        //[HttpPost("posttest/")]
-        //public async Task<ActionResult<Inventory>> PostInventoryTest(Inventory inventory)
-        //{
-        //    inventory = new Inventory
-        //    {
-        //        NomenclatureId = inventory.NomenclatureId,
-        //        MoveId = inventory.MoveId,
-        //        CompanyId = inventory.CompanyId,
-        //        PaymentNum = inventory.PaymentNum,
-        //        Comment = inventory.Comment,
-        //        Invoice = inventory.Invoice,
-        //        WorkplaceId = inventory.WorkplaceId,
-        //        DateCreation = DateTime.Now,
-        //    };
-
-        //    // Call the static method to execute the stored procedure and set the computed column value
-        //    inventory.InvNum = Inventory.CalculateInvNumProcessed(inventory.InvNum);
-
-        //    _context.Inventories.Add(inventory);
-        //    await _context.SaveChangesAsync();
-        //    return Ok();
-        //}
-        [HttpPost("posttest/")]
-        public async Task<IActionResult> PostInventoryTest(Inventory inventory)
-        {
-            // Call the static method to execute the stored procedure and set the computed column value
-            inventory.InvNum = Inventory.CalculateInvNumProcessed(inventory.InvNum);
-
-            _context.Inventories.Add(inventory);
-            await _context.SaveChangesAsync();
-
-            return Ok();
-        }
-
 
 
 
@@ -252,7 +217,7 @@ namespace InvAPI.Controllers
             {
                 var result = (from e in _context.Inventories
                               join d in _context.Nomenclatures on e.NomenclatureId equals d.IdNomenclature
-                              join b in _context.Workplaces on e.WorkplaceId equals b.IdWorkplace
+                            
                               join c in _context.Movements on e.MoveId equals c.IdMovement
                               join f in _context.Companies on e.CompanyId equals f.IdCompany
                               select new InvMainClass
@@ -264,8 +229,7 @@ namespace InvAPI.Controllers
                                   Invoice = e.Invoice,
                                   NomenclatureId = e.NomenclatureId,
                                   NameDevice = d.NameDevice,
-                                  IdWorkplace = b.IdWorkplace,
-                                  NameWorkplace = b.NameWorkplace,
+                          
                                   IdMovement = c.IdMovement,
                                   DateMove = c.DateMove,
                                   IdCompany = f.IdCompany,
@@ -281,41 +245,7 @@ namespace InvAPI.Controllers
 
             }
         }
-        [HttpGet("test1/")]
-        public async Task<IActionResult> GetInventoriesAndNomenclatures(int pageNumber = 1, int pageSize = 10)
-        {
-            var query = from i in _context.Inventories
-                        join n in _context.Nomenclatures on i.NomenclatureId equals n.IdNomenclature
-                        join b in _context.Workplaces on i.WorkplaceId equals b.IdWorkplace
-                        join c in _context.Movements on i.MoveId equals c.IdMovement
-                        join f in _context.Companies on i.CompanyId equals f.IdCompany
-                        select new { i, n, b, c, f };
 
-            var totalCount = await query.CountAsync();
-            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
-            var skip = (pageNumber - 1) * pageSize;
-
-            var result = await query.Skip(skip).Take(pageSize).ToListAsync();
-
-            var data = result.Select(x => new
-            {
-                Id = x.i.Id,
-                invNum = x.i.InvNum,
-                PaymentNum = x.i.PaymentNum,
-                Comment = x.i.Comment,
-                Invoice = x.i.Invoice,
-                NomenclatureId = x.i.NomenclatureId,
-                NameDevice = x.n.NameDevice,
-                IdWorkplace = x.b.IdWorkplace,
-                NameWorkplace = x.b.NameWorkplace,
-                IdMovement = x.c.IdMovement,
-                DateMove = x.c.DateMove,
-                IdCompany = x.f.IdCompany,
-                CompanyName = x.f.CompanyName
-            });
-
-            return Ok(new { TotalCount = totalCount, TotalPages = totalPages, Data = data });
-        }
 
     }
 }

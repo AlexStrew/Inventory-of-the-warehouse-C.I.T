@@ -72,7 +72,9 @@ namespace Inventarisation.Views
                 Console.WriteLine("hehe");
 
             }
-           CompanyNameCB.Text = Properties.Settings.Default.CompanySelectProp;
+          
+            CompanyNameCB.Text = Properties.Settings.Default.CompanySelectProp;
+            
         }               
 
         //private async void PlacementCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -150,15 +152,13 @@ namespace Inventarisation.Views
             //dateNew = DateTime.UtcNow;
             if (NameDeviceTB.Text != "" && CompanyNameCB.Text != "" && PaymentNumTB.Text != "" && CommentTB.Text != "" && InvoiceTB.Text != "" && PlacementTBox.Text != "")
             {
-                var invent = new Inventory
+                var invent = new invAdding
                 {
                     NomenclatureId = Properties.Settings.Default.IdNomenSelectProp,
-                    MoveId = 1,
                     CompanyId = Properties.Settings.Default.IdCompanySelectProp,
                     PaymentNum = PaymentNumTB.Text.ConvertToInt(),
                     Comment = CommentTB.Text,
                     Invoice = InvoiceTB.Text,
-                    WorkplaceId = 1,
                     DateInv = DateTime.UtcNow
 
                 };
@@ -177,6 +177,13 @@ namespace Inventarisation.Views
                             // Удаление выбранной строки из sfDataGrid
 
                             HandyControl.Controls.MessageBox.Show($"Добавлено");
+                            Properties.Settings.Default.IdNomenSelectProp = 0;
+                            Properties.Settings.Default.IdCompanySelectProp = 0;
+                            Properties.Settings.Default.IdPlacementSelectProp = 0;
+                            Properties.Settings.Default.CompanySelectProp = "";
+                            Properties.Settings.Default.NomenSelectProp = "";
+                            Properties.Settings.Default.PlacementSelectProp = "";
+                            Properties.Settings.Default.Save();
                             DialogResult = true;
                             this.Close();
                         }

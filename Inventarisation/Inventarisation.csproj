@@ -30,7 +30,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -347,6 +347,9 @@
     <Compile Include="Views\AddCompanyWindow.xaml.cs">
       <DependentUpon>AddCompanyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEmployerWindow.xaml.cs">
+      <DependentUpon>AddEmployerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddNomeclatureWindow.xaml.cs">
       <DependentUpon>AddNomeclatureWindow.xaml</DependentUpon>
     </Compile>
@@ -364,6 +367,21 @@
     </Compile>
     <Compile Include="Views\EditCompanyWindow.xaml.cs">
       <DependentUpon>EditCompanyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditEmployerWindow.xaml.cs">
+      <DependentUpon>EditEmployerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditInventoryWindow.xaml.cs">
+      <DependentUpon>EditInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditNomenWindow.xaml.cs">
+      <DependentUpon>EditNomenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditPlacementWindow.xaml.cs">
+      <DependentUpon>EditPlacementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployerWindow.xaml.cs">
+      <DependentUpon>EmployerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InvNumQrPrintWindow.xaml.cs">
       <DependentUpon>InvNumQrPrintWindow.xaml</DependentUpon>
@@ -423,6 +441,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddEmployerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddNomeclatureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -444,6 +466,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditCompanyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditEmployerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditNomenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditPlacementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

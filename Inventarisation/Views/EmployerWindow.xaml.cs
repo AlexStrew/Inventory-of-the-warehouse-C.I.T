@@ -20,15 +20,20 @@ using System.Windows.Shapes;
 namespace Inventarisation.Views
 {
     /// <summary>
-    /// Логика взаимодействия для PlacementWindow.xaml
+    /// Логика взаимодействия для EmployerWindow.xaml
     /// </summary>
-    public partial class PlacementWindow : Window
+    public partial class EmployerWindow : Window
     {
-        public ObservableCollection<Placements> DataPlacement { get; set; }
-        public PlacementWindow()
+        public ObservableCollection<Employers> DataEmployer { get; set; }
+        public EmployerWindow()
         {
             InitializeComponent();
             LoadData();
+        }
+
+        public static implicit operator EmployerWindow(AddWindow v)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task LoadData()
@@ -41,72 +46,39 @@ namespace Inventarisation.Views
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             using (_client)
             {
-                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Placements"))
+                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Employers"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    DataPlacement = JsonConvert.DeserializeObject<ObservableCollection<Placements>>(apiResponse);
-                    PlacementDG.ItemsSource = DataPlacement;
+                    DataEmployer = JsonConvert.DeserializeObject<ObservableCollection<Employers>>(apiResponse);
+                    EmployerDG.ItemsSource = DataEmployer;
                 }
             }
 
         }
 
-        public static implicit operator PlacementWindow(AddWindow v)
+        private void AddEmployerWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Открытие окна добавления устройства в справочник
-        /// </summary>
-        private void AddPlaceWinBtnClick(object sender, RoutedEventArgs e)
-        {
-            //Close();
-            AddPlacementWindow addWinNom = new AddPlacementWindow();
+            AddEmployerWindow addWinNom = new AddEmployerWindow();
             if (addWinNom.ShowDialog() == true)
             {
                 Console.WriteLine("hehe");
-
             }
             LoadData();
         }
 
-        private void RefreshWinBtnClick(object sender, RoutedEventArgs e)
+        private void EditEmployerBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            LoadData();
-        }
-
-
-        private void SelectPlaceButton_Click(object sender, RoutedEventArgs e)
-        {
-            var selectedItem = PlacementDG.SelectedItem as Placements;
-
-            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
-            if (selectedItem != null)
-            {
-                Properties.Settings.Default.PlacementSelectProp = selectedItem.NamePlacement;
-                Properties.Settings.Default.IdPlacementSelectProp = selectedItem.IdPlacement;
-                Properties.Settings.Default.Save();
-            }
-
-            DialogResult = true;
-            this.Close();
-        }
-
-        private void EditPlaceBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var selectedItem = PlacementDG.SelectedItem as Placements;
+            var selectedItem = EmployerDG.SelectedItem as Employers;
             if (selectedItem != null)
             {
                 MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите изменить данные?", "Редактирование", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    Properties.Settings.Default.PlacementSelectProp = selectedItem.NamePlacement;
-                    Properties.Settings.Default.IdPlacementSelectProp = selectedItem.IdPlacement;
+                    Properties.Settings.Default.EmployerSelectProp = selectedItem.FullName;
+                    Properties.Settings.Default.IdEmployerSelectProp = selectedItem.IdEmpolyer;
                     Properties.Settings.Default.Save();
 
-                    EditPlacementWindow addWinNom = new EditPlacementWindow();
+                    EditEmployerWindow addWinNom = new EditEmployerWindow();
                     if (addWinNom.ShowDialog() == true)
                     {
                         Console.WriteLine("hehe");
@@ -121,15 +93,15 @@ namespace Inventarisation.Views
             }
         }
 
-        private async void DelPlaceBtn_Click(object sender, RoutedEventArgs e)
+        private async void DelEmployerBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите удалить строку?", "Удаление", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                var selectedRow = PlacementDG.SelectedItem as Placements;
+            var selectedRow = EmployerDG.SelectedItem as Employers;
 
-                // Если строка выбрана
-                if (selectedRow != null)
+            // Если строка выбрана
+            if (selectedRow != null)
+            {
+                MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите удалить строку?", "Удаление", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
                     // Создание HttpClient
                     var client = new HttpClient();
@@ -138,15 +110,15 @@ namespace Inventarisation.Views
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                     // Отправка DELETE запроса на API
-                    var response = await client.DeleteAsync($"https://invent.doker.ru/api/Placements/{selectedRow.IdPlacement}");
+                    var response = await client.DeleteAsync($"https://invent.doker.ru/api/Employers/{selectedRow.IdEmpolyer}");
 
                     // Если ответ успешный
                     if (response.IsSuccessStatusCode)
                     {
                         // Удаление выбранной строки из sfDataGrid
-                        var placeList = PlacementDG.ItemsSource as ObservableCollection<Placements>;
-                        placeList.Remove(selectedRow);
-                        PlacementDG.ItemsSource = placeList;
+                        var EmployerList = EmployerDG.ItemsSource as ObservableCollection<Employers>;
+                        EmployerList.Remove(selectedRow);
+                        EmployerDG.ItemsSource = EmployerList;
                         HandyControl.Controls.MessageBox.Show($"Удалено");
                     }
                     else
@@ -155,13 +127,37 @@ namespace Inventarisation.Views
                     }
                 }
             }
-            
+            else
+            {
+                HandyControl.Controls.MessageBox.Show("Строка не выбрана", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
-        private void SearchPlaceBtn_Click(object sender, RoutedEventArgs e)
+        private void RefreshWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.PlacementDG.SearchHelper.AllowFiltering = true;
-            this.PlacementDG.SearchHelper.Search(SearchPlacementTBox.Text);
+            LoadData();
+        }
+
+        private void SelectEmployerButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = EmployerDG.SelectedItem as Employers;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.EmployerSelectProp = selectedItem.FullName;
+                Properties.Settings.Default.IdEmployerSelectProp = selectedItem.IdEmpolyer;
+                Properties.Settings.Default.Save();
+            }
+
+            DialogResult = true;
+            this.Close();
+        }
+
+        private void SearchEmployerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.EmployerDG.SearchHelper.AllowFiltering = true;
+            this.EmployerDG.SearchHelper.Search(SearchEmployerTBox.Text);
         }
     }
 }

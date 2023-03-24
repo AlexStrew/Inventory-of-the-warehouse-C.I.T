@@ -130,5 +130,89 @@ namespace Inventarisation.Properties {
                 this["IdCompanySelectProp"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IdInventorySelectedProp {
+            get {
+                return ((int)(this["IdInventorySelectedProp"]));
+            }
+            set {
+                this["IdInventorySelectedProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PaymentSelectProp {
+            get {
+                return ((int)(this["PaymentSelectProp"]));
+            }
+            set {
+                this["PaymentSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CommentSelectProp {
+            get {
+                return ((string)(this["CommentSelectProp"]));
+            }
+            set {
+                this["CommentSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string InvoiceSelectProp {
+            get {
+                return ((string)(this["InvoiceSelectProp"]));
+            }
+            set {
+                this["InvoiceSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IdEmployerSelectProp {
+            get {
+                return ((int)(this["IdEmployerSelectProp"]));
+            }
+            set {
+                this["IdEmployerSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EmployerSelectProp {
+            get {
+                return ((string)(this["EmployerSelectProp"]));
+            }
+            set {
+                this["EmployerSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IdQueueSelectProp {
+            get {
+                return ((int)(this["IdQueueSelectProp"]));
+            }
+            set {
+                this["IdQueueSelectProp"] = value;
+            }
+        }
     }
 }

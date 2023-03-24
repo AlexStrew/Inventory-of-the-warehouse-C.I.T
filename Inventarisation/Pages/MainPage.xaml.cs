@@ -28,14 +28,8 @@ namespace Inventarisation.Pages
 
             InitializeComponent();
             AwaitDataLoad();
-            UserTextBlock.Text = Properties.Settings.Default.CurrentUser;
-
-            
-
-
+            UserTextBlock.Text = Properties.Settings.Default.CurrentUser;            
         }
-
-
 
         private async Task AwaitDataLoad()
         {
@@ -182,7 +176,7 @@ namespace Inventarisation.Pages
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             this.sfDataGrid.SearchHelper.AllowFiltering = true;
-            this.sfDataGrid.SearchHelper.Search(SearchTBox.Text);
+            this.sfDataGrid.SearchHelper.Search(SearchTextBox.Text);
         }
 
         private void QueueButton_Click(object sender, RoutedEventArgs e)
@@ -209,6 +203,75 @@ namespace Inventarisation.Pages
             if (win.ShowDialog() == true)
             {
                 Console.WriteLine("ok");
+            }
+        }
+
+        private void EditButtonWindows_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var selectedRow = sfDataGrid.SelectedItem as InvMain;
+
+            if (selectedRow != null)
+            {
+                MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите редактировать строку?", "Редактирование", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    Properties.Settings.Default.IdInventorySelectedProp = selectedRow.Id;
+                    Properties.Settings.Default.NomenSelectProp = selectedRow.NameDevice;
+                    Properties.Settings.Default.CompanySelectProp = selectedRow.CompanyName;
+                    Properties.Settings.Default.PlacementSelectProp = selectedRow.NamePlacement;
+
+                    Properties.Settings.Default.PaymentSelectProp = selectedRow.PaymentNum;
+                    Properties.Settings.Default.CommentSelectProp = selectedRow.Comment;
+                    Properties.Settings.Default.InvoiceSelectProp = selectedRow.Invoice;
+
+                    Properties.Settings.Default.Save();
+
+                    EditInventoryWindow win = new EditInventoryWindow();
+                    if (win.ShowDialog() == true)
+                    {
+                        Console.WriteLine("ok");
+                    }
+                    AwaitDataLoad();
+                }
+            }
+        }
+
+        private async void DeleteButtonWindows_Click(object sender, RoutedEventArgs e)
+        {
+         
+                var selectedRow = sfDataGrid.SelectedItem as Inventory;
+
+            // Если строка выбрана
+            if (selectedRow != null)
+            {
+                MessageBoxResult result = HandyControl.Controls.MessageBox.Show("Вы действительно хотите удалить строку?", "Удаление", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Создание HttpClient
+                    var client = new HttpClient();
+                    var protectedToken = Properties.Settings.Default.JWTtoken;
+                    var token = protectedToken;
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    // Отправка DELETE запроса на API
+                    var response = await client.DeleteAsync($"https://invent.doker.ru/api/Inventories/{selectedRow.Id}");
+
+                    // Если ответ успешный
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Удаление выбранной строки из sfDataGrid
+                        var inventList = sfDataGrid.ItemsSource as ObservableCollection<Inventory>;
+                        inventList.Remove(selectedRow);
+                        sfDataGrid.ItemsSource = inventList;
+                        HandyControl.Controls.MessageBox.Show($"Удалено");
+                    }
+                    else
+                    {
+                        HandyControl.Controls.MessageBox.Show($"Произошла ошибка при удалении: {response.ReasonPhrase}");
+                    }
+                }
+
             }
         }
     }

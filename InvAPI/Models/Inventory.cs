@@ -30,7 +30,7 @@ public partial class Inventory
 
     public string? Invoice { get; set; }
 
-    public int? WorkplaceId { get; set; }
+
 
     [JsonProperty("dateInvCreate")]
     public DateTime? DateInv { get; set; }

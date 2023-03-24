@@ -188,7 +188,7 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("invoice");
-            entity.Property(e => e.WorkplaceId).HasColumnName("workplace_id");
+           
 
             entity.Property(e => e.DateInv)
                 .HasColumnType("datetime")
@@ -233,6 +233,7 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasMaxLength(150)
                 .IsUnicode(false)
                 .HasColumnName("planner");
+            entity.Property(e => e.EmployerId).HasColumnName("employer_id");
 
             entity.HasOne(d => d.IdInventoryNavigation).WithMany(p => p.Movements)
                 .HasForeignKey(d => d.IdInventory)
@@ -333,12 +334,12 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasColumnName("date_scan");
             entity.Property(e => e.InventoryId).HasColumnName("inventory_id");
             entity.Property(e => e.IsDone).HasColumnName("is_done");
-            entity.Property(e => e.ParentId).HasColumnName("parent_id");
+            entity.Property(e => e.ListId).HasColumnName("list_id");
 
-            entity.HasOne(d => d.Inventory).WithMany(p => p.RevisionItems)
-                .HasForeignKey(d => d.InventoryId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_RevisionItems_Inventory");
+            //entity.HasOne(d => d.Inventory).WithMany(p => p.RevisionItems)
+            //    .HasForeignKey(d => d.InventoryId)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_RevisionItems_Inventory");
         });
 
         modelBuilder.Entity<UnitsMeasurement>(entity =>

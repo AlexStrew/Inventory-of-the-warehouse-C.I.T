@@ -19,7 +19,7 @@ namespace Inventarisation.Api.ApiModel
         public int NomenclatureId { get; set; }
 
         [JsonProperty("moveId")]
-        public int MoveId { get; set; }
+        public int? MoveId { get; set; }
 
         [JsonProperty("companyId")]
         public int CompanyId { get; set; }
@@ -33,12 +33,32 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("invoice")]
         public string Invoice { get; set; }
 
-        [JsonProperty("workplaceId")]
-        public int WorkplaceId { get; set; }
 
         [JsonProperty("dateInvCreate")]
         public DateTime DateInv { get; set; }
 
+    }
+
+
+    public class invAdding
+    {       
+        [JsonProperty("nomenclatureId")]
+        public int NomenclatureId { get; set; }
+
+        [JsonProperty("companyId")]
+        public int CompanyId { get; set; }
+
+        [JsonProperty("paymentNum")]
+        public int PaymentNum { get; set; }
+
+        [JsonProperty("comment")]
+        public string Comment { get; set; }
+
+        [JsonProperty("invoice")]
+        public string Invoice { get; set; }
+
+        [JsonProperty("dateInvCreate")]
+        public DateTime DateInv { get; set; }
     }
 
     public class Company
@@ -57,17 +77,10 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("idEmpolyer")]
         public int IdEmpolyer { get; set; }
 
-        [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        [JsonProperty("fullName")]
+        public string FullName { get; set; }
 
-        [JsonProperty("firstName")]
-        public string FirstName { get; set; }
-
-        [JsonProperty("patronymic")]
-        public string Patronymic { get; set; }
-
-        [JsonProperty("workplaces")]
-        public List<object> Workplaces { get; set; }
+        
     }
     public class Nomenclature
     {
@@ -120,14 +133,15 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("nomenclature_id")]
         public int NomenclatureId { get; set; }
 
+        [JsonProperty("name_placement")]
+        public string NamePlacement { get; set; }
+
         [JsonProperty("name_device")]
         public string NameDevice { get; set; }
 
-        [JsonProperty("id_workplace")]
-        public int IdWorkplace { get; set; }
-
-        [JsonProperty("name_workplace")]
-        public string NameWorkplace { get; set; }
+        [JsonProperty("id_placement")]
+        public int IdPlacement { get; set; }
+       
 
         [JsonProperty("id_movement")]
         public int IdMovement { get; set; }
@@ -175,14 +189,8 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("idInventory")]
         public int IdInventory { get; set; }
 
-        [JsonProperty("nameWorkplace")]
-        public string NameWorkplace { get; set; }
-
         [JsonProperty("placementIdWp")]
         public int PlacementIdWp { get; set; }
-
-        [JsonProperty("mol")]
-        public string Mol { get; set; }
 
         [JsonProperty("deviceId")]
         public int DeviceId { get; set; }
@@ -218,6 +226,23 @@ namespace Inventarisation.Api.ApiModel
         public string FullName { get; set; }
     }
 
+    public class RevisionItems
+    {
+        [JsonProperty("idQueue")]
+        public int IdQueue { get; set; }
+
+        [JsonProperty("parentId")]
+        public int ParentId { get; set; }
+
+        [JsonProperty("inventoryId")]
+        public int InventoryId { get; set; }
+
+        [JsonProperty("dateScan")]
+        public DateTime DateScan { get; set; }
+
+        [JsonProperty("isDone")]
+        public bool IsDone { get; set; }
+    }
 
 
 }

@@ -1,16 +1,11 @@
-﻿<Window x:Class="Inventarisation.Views.AddWindow"
+﻿<Window x:Class="Inventarisation.Views.EditInventoryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Inventarisation.Views"
-        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
-
-        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF" xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:Inventarisation.Views" xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="Добавление" Height="550" Width="1000">
-
-
+        Title="Редактирование" Height="550" Width="1000">
 
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -49,15 +44,15 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Margin="10 10 0 0" >
-                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="PaymentNumTB" Text="{Binding MyNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInputHandler"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Номер заявки на оплату" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="PaymentNumTB" hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Номер заявки на оплату" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
                         <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="CommentTB"   hc:InfoElement.Placeholder="Введите текст" hc:InfoElement.Title="Комментарии" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
-                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="InvoiceTB" Text="{Binding MyNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInputHandler"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Накладная" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="InvoiceTB" hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Накладная" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
                     </StackPanel>
                 </StackPanel>
 
             </Grid>
         </Border>
-             
+     
 
         <Border Grid.Column="1" Height="250" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
             <StackPanel Orientation="Vertical">
@@ -66,17 +61,24 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock FontWeight="DemiBold" FontSize="16" Margin="10 0 0 0">Привязка</TextBlock>
 
-
-                    <StackPanel Orientation="Vertical" Margin="10 10 0 0" Grid.Row="1">
-                        <!--<hc:ComboBox HorizontalAlignment="Left" x:Name="PlacementCBss" Width="250" Margin="0 10 0 0 " SelectionChanged="PlacementCB_SelectionChanged" hc:InfoElement.Placeholder="Выберите размещение" hc:TitleElement.Title="Размещение" hc:InfoElement.Necessary="True" />-->
-                    </StackPanel>
-                    
-                    <StackPanel Grid.Row="2" Margin="10 0 0 0" Orientation="Horizontal">
+                    <StackPanel Grid.Row="1" Margin="10 0 0 0" Orientation="Horizontal">
                         <hc:TextBox FontSize="14" HorizontalAlignment="Left"  x:Name="PlacementTBox" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите размещение" hc:InfoElement.Title="Размещение" hc:InfoElement.Necessary="True" Margin="0 10 0 0 " />
                         <Button  x:Name="SelectPlaceButton" Click="SelectPlaceButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Margin="10 0 0 0" Orientation="Horizontal">
+                        <hc:DatePicker Width="300" FontSize="14" HorizontalAlignment="Left"  x:Name="DateMoveTBox" hc:InfoElement.Placeholder="Выберите дату перемещения" hc:InfoElement.Title="Дата перемещения" Margin="0 10 0 0 "/>
+                        <!--<hc:TextBox FontSize="14" HorizontalAlignment="Left"  x:Name="PlacdementTBox" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите размещение" hc:InfoElement.Title="Размещение" hc:InfoElement.Necessary="True" Margin="0 10 0 0 " />-->
+                        <!--<Button  x:Name="SelectPlacdeButton" Click="SelectPlaceButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>-->
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="3" Margin="10 0 0 0" Orientation="Horizontal">
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left"  x:Name="EmployerTBox" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите сотрудника" hc:InfoElement.Title="Сотрудник" hc:InfoElement.Necessary="True" Margin="0 10 0 0 " />
+                        <Button  x:Name="SelectEmployerButton" Click="SelectEmployerButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -85,6 +87,6 @@
 
 
         <Label VerticalAlignment="Bottom" Grid.Column="1" Content="Внимание. Все поля должны быть заполнены !" Foreground="Red"/>
-        <Button FontSize="14" x:Name="SaveInvBtn" Click="SaveInvBtnOnClick" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="35" Width="100" Margin="0 0 15 15" Grid.Row="1" >Сохранить</Button>
+        <Button FontSize="14" x:Name="SaveInvBtn" Click="SaveInvBtnOnClick" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="right" Height="35" Width="150" Margin="0 0 15 15" Grid.Row="1" >Редактировать</Button>
     </Grid>
 </Window>
