@@ -5,6 +5,7 @@ using Syncfusion.UI.Xaml.Grid.Converter;
 using Syncfusion.XlsIO;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -12,6 +13,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Inventarisation.Pages
 {
@@ -55,11 +57,15 @@ namespace Inventarisation.Pages
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
+
+
                     sfDataGrid.ItemsSource = DamaskCollection;
                 }
             }
             BusyBar.IsBusy = false;
         }
+
+
 
 
         private void AddButtonWindows_Click(object sender, RoutedEventArgs e)

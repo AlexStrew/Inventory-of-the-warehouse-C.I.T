@@ -9,7 +9,7 @@ public partial class Placement
 
     public string? NamePlacement { get; set; }
 
-    public virtual ICollection<Movement> Movements { get; } = new List<Movement>();
+    //public virtual ICollection<Movement> Movements { get; } = new List<Movement>();
 
     //public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
 }

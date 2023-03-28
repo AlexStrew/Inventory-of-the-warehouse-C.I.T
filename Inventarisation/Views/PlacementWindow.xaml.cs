@@ -163,5 +163,21 @@ namespace Inventarisation.Views
             this.PlacementDG.SearchHelper.AllowFiltering = true;
             this.PlacementDG.SearchHelper.Search(SearchPlacementTBox.Text);
         }
+
+        private void PlacementDG_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedItem = PlacementDG.SelectedItem as Placements;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.PlacementSelectProp = selectedItem.NamePlacement;
+                Properties.Settings.Default.IdPlacementSelectProp = selectedItem.IdPlacement;
+                Properties.Settings.Default.Save();
+            }
+
+            DialogResult = true;
+            this.Close();
+        }
     }
 }

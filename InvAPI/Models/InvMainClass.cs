@@ -11,7 +11,7 @@ namespace InvAPI.Models
         public string invNum { get; set; }
 
         [JsonProperty("payment_num")]
-        public int? PaymentNum { get; set; }
+        public string? PaymentNum { get; set; }
 
         [JsonProperty("comment")]
         public string Comment { get; set; }

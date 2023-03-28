@@ -157,5 +157,21 @@ namespace Inventarisation.Views
             this.NomenclatureDG.SearchHelper.AllowFiltering = true;
             this.NomenclatureDG.SearchHelper.Search(SearchNomenclatureTBox.Text);
         }
+
+        private void NomenclatureDG_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var selectedItem = NomenclatureDG.SelectedItem as Nomenclature;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.NomenSelectProp = selectedItem.NameDevice;
+                Properties.Settings.Default.IdNomenSelectProp = selectedItem.IdNomenclature;
+                Properties.Settings.Default.Save();
+            }
+
+            DialogResult = true;
+            this.Close();
+        }
     }
 }

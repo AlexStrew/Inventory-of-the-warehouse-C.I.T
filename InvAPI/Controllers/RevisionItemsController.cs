@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace InvAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RevisionItemsController : ControllerBase
@@ -60,7 +60,7 @@ namespace InvAPI.Controllers
 
         // GET: api/RevisionItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<RevisionItem>>> GetRevisionItem(int id)
+        public async Task<ActionResult<IEnumerable<RevisionItemNomenInv>>> GetRevisionItem(int id)
         {
             // Исправлено: проверяем наличие элементов в таблице RevisionItems с помощью Any() вместо проверки на null
             if (!_context.RevisionItems.Any())
@@ -74,7 +74,7 @@ namespace InvAPI.Controllers
                                 join c in _context.Inventories on e.InventoryId equals c.Id
                                 join g in _context.Nomenclatures on c.NomenclatureId equals g.IdNomenclature
                                 where e.ListId == id // фильтруем по идентификатору элемента
-                                select new RevisionItem 
+                                select new RevisionItemNomenInv
                                 {
                                     ListId = e.ListId,
                                     InvNum = c.InvNum,

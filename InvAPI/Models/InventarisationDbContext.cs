@@ -56,6 +56,8 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
 
     public virtual DbSet<User> Users { get; set; }
 
+    public virtual DbSet<Subjects> Subjects { get; set; }
+
     public virtual DbSet<Workplace> Workplaces { get; set; }
 
     public virtual DbSet<WriteOff> WriteOffs { get; set; }
@@ -82,61 +84,7 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasConstraintName("FK_ActiveTasks_Inventory");
         });
 
-        //modelBuilder.Entity<AspNetRole>(entity =>
-        //{
-        //    entity.Property(e => e.Name).HasMaxLength(256);
-        //    entity.Property(e => e.NormalizedName).HasMaxLength(256);
-        //});
-
-        //modelBuilder.Entity<AspNetRoleClaim>(entity =>
-        //{
-        //    entity.Property(e => e.RoleId).HasMaxLength(450);
-
-        //    entity.HasOne(d => d.Role).WithMany(p => p.AspNetRoleClaims).HasForeignKey(d => d.RoleId);
-        //});
-
-        //modelBuilder.Entity<AspNetUser>(entity =>
-        //{
-        //    entity.Property(e => e.Email).HasMaxLength(256);
-        //    entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
-        //    entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
-        //    entity.Property(e => e.UserName).HasMaxLength(256);
-
-        //    entity.HasMany(d => d.Roles).WithMany(p => p.Users)
-        //        .UsingEntity<Dictionary<string, object>>(
-        //            "AspNetUserRole",
-        //            r => r.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
-        //            l => l.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
-        //            j =>
-        //            {
-        //                j.HasKey("UserId", "RoleId");
-        //                j.ToTable("AspNetUserRoles");
-        //            });
-        //});
-
-        //modelBuilder.Entity<AspNetUserClaim>(entity =>
-        //{
-        //    entity.Property(e => e.UserId).HasMaxLength(450);
-
-        //    entity.HasOne(d => d.User).WithMany(p => p.AspNetUserClaims).HasForeignKey(d => d.UserId);
-        //});
-
-        //modelBuilder.Entity<AspNetUserLogin>(entity =>
-        //{
-        //    entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
-
-        //    entity.Property(e => e.UserId).HasMaxLength(450);
-
-        //    entity.HasOne(d => d.User).WithMany(p => p.AspNetUserLogins).HasForeignKey(d => d.UserId);
-        //});
-
-        //modelBuilder.Entity<AspNetUserToken>(entity =>
-        //{
-        //    entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name });
-
-        //    entity.HasOne(d => d.User).WithMany(p => p.AspNetUserTokens).HasForeignKey(d => d.UserId);
-        //});
-
+   
         modelBuilder.Entity<Company>(entity =>
         {
             entity.HasKey(e => e.IdCompany);
@@ -182,7 +130,10 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasMaxLength(200)
                 .IsUnicode(false)
                 .HasColumnName("comment");
-            entity.Property(e => e.PaymentNum).HasColumnName("payment_num");
+            entity.Property(e => e.PaymentNum)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("payment_num");
 
             entity.Property(e => e.Invoice)
                 .HasMaxLength(200)
@@ -235,14 +186,14 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasColumnName("planner");
             entity.Property(e => e.EmployerId).HasColumnName("employer_id");
 
-            entity.HasOne(d => d.IdInventoryNavigation).WithMany(p => p.Movements)
-                .HasForeignKey(d => d.IdInventory)
-                .HasConstraintName("FK_Movements_Inventory");
+            //entity.HasOne(d => d.IdInventoryNavigation).WithMany(p => p.Movements)
+            //    .HasForeignKey(d => d.IdInventory)
+            //    .HasConstraintName("FK_Movements_Inventory");
 
-            entity.HasOne(d => d.Placement).WithMany(p => p.Movements)
-                .HasForeignKey(d => d.PlacementId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_Movements_Placements1");
+            //entity.HasOne(d => d.Placement).WithMany(p => p.Movements)
+            //    .HasForeignKey(d => d.PlacementId)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_Movements_Placements1");
         });
 
         modelBuilder.Entity<Nomenclature>(entity =>
@@ -252,21 +203,14 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
             entity.ToTable("Nomenclature");
 
             entity.Property(e => e.IdNomenclature).HasColumnName("id_nomenclature");
-            entity.Property(e => e.CountDevice).HasColumnName("count_device");
+           
             entity.Property(e => e.DateChange)
                 .HasColumnType("date")
                 .HasColumnName("date_change");
             entity.Property(e => e.DateCreation)
                 .HasColumnType("date")
                 .HasColumnName("date_creation");
-            entity.Property(e => e.Manufacturer)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("manufacturer");
-            entity.Property(e => e.Model)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("model");
+            
             entity.Property(e => e.NameDevice)
                 .HasMaxLength(100)
                 .IsUnicode(false)
@@ -335,11 +279,20 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
             entity.Property(e => e.InventoryId).HasColumnName("inventory_id");
             entity.Property(e => e.IsDone).HasColumnName("is_done");
             entity.Property(e => e.ListId).HasColumnName("list_id");
+   
+        });
 
-            //entity.HasOne(d => d.Inventory).WithMany(p => p.RevisionItems)
-            //    .HasForeignKey(d => d.InventoryId)
-            //    .OnDelete(DeleteBehavior.Cascade)
-            //    .HasConstraintName("FK_RevisionItems_Inventory");
+        modelBuilder.Entity<Subjects>(entity =>
+        {
+            entity.HasKey(e => e.IdSubject);
+
+            entity.Property(e => e.IdSubject).HasColumnName("id_subject");
+            entity.Property(e => e.NameSubject)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("name_subject");
+            entity.Property(e => e.NomenId).HasColumnName("nomen_id");
+
         });
 
         modelBuilder.Entity<UnitsMeasurement>(entity =>

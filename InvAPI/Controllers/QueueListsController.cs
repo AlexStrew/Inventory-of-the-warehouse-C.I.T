@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace InvAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class QueueListsController : ControllerBase
@@ -97,17 +97,20 @@ namespace InvAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteQueueLists(int id)
         {
-            if (_context.QueueLists == null)
+            bool isValueUsed = await _context.RevisionItems.AnyAsync(p => p.IdQueue == id);
+
+            if (isValueUsed)
             {
-                return NotFound();
+                return BadRequest("Значение используется в другой таблице");
             }
-            var QueueLists = await _context.QueueLists.FindAsync(id);
-            if (QueueLists == null)
+
+            var company = await _context.QueueLists.FindAsync(id);
+            if (company == null)
             {
                 return NotFound();
             }
 
-            _context.QueueLists.Remove(QueueLists);
+            _context.QueueLists.Remove(company);
             await _context.SaveChangesAsync();
 
             return NoContent();

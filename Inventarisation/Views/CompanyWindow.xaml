@@ -36,7 +36,7 @@
             AutoGenerateColumns="False"
             AllowResizingColumns="True"
             x:Name="CompanyDG"
-            
+            MouseDoubleClick="CompanyDG_MouseDoubleClick"
             ColumnSizer="Star"
             NavigationMode="Row">
             <Syncfusion:SfDataGrid.Columns>

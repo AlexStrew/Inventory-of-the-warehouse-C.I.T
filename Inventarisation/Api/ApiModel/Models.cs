@@ -49,7 +49,7 @@ namespace Inventarisation.Api.ApiModel
         public int CompanyId { get; set; }
 
         [JsonProperty("paymentNum")]
-        public int PaymentNum { get; set; }
+        public string PaymentNum { get; set; }
 
         [JsonProperty("comment")]
         public string Comment { get; set; }
@@ -59,6 +59,12 @@ namespace Inventarisation.Api.ApiModel
 
         [JsonProperty("dateInvCreate")]
         public DateTime DateInv { get; set; }
+
+     
+        
+
+        [JsonProperty("idPlacement")]
+        public int IdPlacement { get; set; }
     }
 
     public class Company
@@ -90,14 +96,6 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("nameDevice")]
         public string NameDevice { get; set; }
 
-        [JsonProperty("countDevice")]
-        public int? CountDevice { get; set; }
-
-        [JsonProperty("manufacturer")]
-        public string? Manufacturer { get; set; }
-
-        [JsonProperty("model")]
-        public string? Model { get; set; }
 
         [JsonProperty("date_creation")]
         public DateTime DateCreation { get; set; }
@@ -109,8 +107,6 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("inventories")]
         public List<object> Inventories { get; set; }
 
-        [JsonProperty("workplaces")]
-        public List<object> Workplaces { get; set; }
     }
 
     public class InvMain
@@ -141,7 +137,11 @@ namespace Inventarisation.Api.ApiModel
 
         [JsonProperty("id_placement")]
         public int IdPlacement { get; set; }
-       
+        [JsonProperty("id_subject")]
+        public int IdSubject { get; set; }
+
+        [JsonProperty("name_subject")]
+        public string NameSubject { get; set; }
 
         [JsonProperty("id_movement")]
         public int IdMovement { get; set; }
@@ -181,50 +181,9 @@ namespace Inventarisation.Api.ApiModel
        
     }
 
-    public class Workplace
-    {
-        [JsonProperty("idWorkplace")]
-        public int IdWorkplace { get; set; }
-
-        [JsonProperty("idInventory")]
-        public int IdInventory { get; set; }
-
-        [JsonProperty("placementIdWp")]
-        public int PlacementIdWp { get; set; }
-
-        [JsonProperty("deviceId")]
-        public int DeviceId { get; set; }
-
-        [JsonProperty("employerId")]
-        public int EmployerId { get; set; }
-
-       
-    }
+ 
 
 
-    public class WorkplaceConnected
-    {
-        [JsonProperty("id_workplace")]
-        public int IdWorkplace { get; set; }
-
-        [JsonProperty("id_inventory")]
-        public int IdInventory { get; set; }
-
-        [JsonProperty("placement_id_wp")]
-        public int PlacementIdWp { get; set; }
-
-        [JsonProperty("name_workplace")]
-        public string NameWorkplace { get; set; }
-
-        [JsonProperty("name_placement")]
-        public string NamePlacement { get; set; }
-
-        [JsonProperty("id_empolyer")]
-        public int IdEmpolyer { get; set; }
-
-        [JsonProperty("full_name")]
-        public string FullName { get; set; }
-    }
 
     public class RevisionItems
     {

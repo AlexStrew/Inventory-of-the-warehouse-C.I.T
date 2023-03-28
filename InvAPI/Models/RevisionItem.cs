@@ -7,10 +7,9 @@ namespace InvAPI.Models;
 public partial class RevisionItem
 {
     public int IdQueue { get; set; }
-    [JsonProperty("")]
+
     public int? ListId { get; set; }
-    public string? InvNum { get; set; }
-    public string? NameDevice { get; set; }
+
 
     public int? InventoryId { get; set; }
 
@@ -18,5 +17,23 @@ public partial class RevisionItem
 
     public bool? IsDone { get; set; }
 
+ 
+
+}
+ public partial class RevisionItemNomenInv
+{
+    public int IdQueue { get; set; }
+
+    public int? ListId { get; set; }
+
+    public string? InvNum { get; set; }
+
+    public string? NameDevice { get; set; }
+
+    public int? InventoryId { get; set; }
+
+    public DateTime? DateScan { get; set; }
+
+    public bool? IsDone { get; set; }
 
 }

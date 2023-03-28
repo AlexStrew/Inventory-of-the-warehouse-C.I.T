@@ -11,6 +11,7 @@ public partial class Inventory
     public int Id { get; set; }
 
     //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+    [JsonProperty("inv_num")]
     [NotMapped]
     public string? InvNum { get; set; }
 
@@ -18,13 +19,14 @@ public partial class Inventory
     {
         throw new NotSupportedException();
     }
+    [JsonProperty("nomenclature_id")]
     public int? NomenclatureId { get; set; }
 
     public int? MoveId { get; set; }
 
     public int? CompanyId { get; set; }
 
-    public int? PaymentNum { get; set; }
+    public string? PaymentNum { get; set; }
 
     public string? Comment { get; set; }
 
@@ -37,12 +39,11 @@ public partial class Inventory
 
     public virtual ICollection<ActiveTask> ActiveTasks { get; } = new List<ActiveTask>();
 
-    //public virtual Company? Company { get; set; }
+    //public virtual Movement? Movements { get; set; }
 
-    public virtual ICollection<Movement> Movements { get; } = new List<Movement>();
+    //public virtual ICollection<Movement> Movements { get; } = new List<Movement>();
 
-    //public virtual Nomenclature? Nomenclature { get; set; }
-
+    
     public virtual ICollection<RevisionItem> RevisionItems { get; } = new List<RevisionItem>();
 
     //public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();

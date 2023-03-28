@@ -76,45 +76,7 @@ namespace Inventarisation.Views
             CompanyNameCB.Text = Properties.Settings.Default.CompanySelectProp;
             
         }               
-
-        //private async void PlacementCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    var _client = new HttpClient();
-        //    _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-        //    var protectedToken = Properties.Settings.Default.JWTtoken;
-        //    var token = protectedToken;
-        //    _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        //    using (_client)
-        //    {
-        //        using (var response = await _client.GetAsync("https://invent.doker.ru/api/Workplaces/ConnectedTables"))
-        //        {
-        //            string apiResponse = await response.Content.ReadAsStringAsync();
-        //            var workplaces = JsonConvert.DeserializeObject<IEnumerable<WorkplaceConnected>>(apiResponse);
-        //            if (PlacementCB.SelectedItem != null)
-        //            {
-        //                string selectedPlacementName = PlacementCB.SelectedItem.ToString();
-
-        //                foreach (var workplace in workplaces)
-        //                {
-        //                    var selectedDataItem = workplaces.Where(item => item.NamePlacement == selectedPlacementName).FirstOrDefault();
-
-        //                    // Если элемент найден, выводим значение свойства FullName в TextBox
-        //                    if (selectedDataItem != null)
-        //                    {
-        //                        if (selectedDataItem.FullName == null || selectedDataItem.FullName == "")
-        //                        {
-        //                            OwnerNameTBox.Text = "";
-        //                        }
-        //                        OwnerNameTBox.Text = selectedDataItem.FullName;
-        //                    }
-        //                }
-
-        //            }
-                    
-        //        }
-
-        //    }
-        //}
+      
 
         private void PreviewTextInputHandler(object sender, TextCompositionEventArgs e)
         {
@@ -142,27 +104,27 @@ namespace Inventarisation.Views
             PlacementTBox.Text = Properties.Settings.Default.PlacementSelectProp;
         }
 
-
-
-
         private async void SaveInvBtnOnClick(object sender, RoutedEventArgs e)
         {
           
             
             //dateNew = DateTime.UtcNow;
-            if (NameDeviceTB.Text != "" && CompanyNameCB.Text != "" && PaymentNumTB.Text != "" && CommentTB.Text != "" && InvoiceTB.Text != "" && PlacementTBox.Text != "")
+            if (NameDeviceTB.Text != "" && CompanyNameCB.Text != "" && PaymentNumTB.Text != "" && CommentTB.Text != "" && InvoiceTB.Text != "")
             {
                 var invent = new invAdding
                 {
                     NomenclatureId = Properties.Settings.Default.IdNomenSelectProp,
                     CompanyId = Properties.Settings.Default.IdCompanySelectProp,
-                    PaymentNum = PaymentNumTB.Text.ConvertToInt(),
+                    PaymentNum = PaymentNumTB.Text,
                     Comment = CommentTB.Text,
                     Invoice = InvoiceTB.Text,
-                    DateInv = DateTime.UtcNow
+                    DateInv = DateTime.UtcNow,
+                    IdPlacement = 1,
+                    
 
                 };
 
+               
                 var _client = new HttpClient();
                 _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var protectedToken = Properties.Settings.Default.JWTtoken;
@@ -200,6 +162,11 @@ namespace Inventarisation.Views
             {
                 HandyControl.Controls.MessageBox.Show($"Поля не должны быть пустыми");
             }
+        }
+
+        private void SelectSubButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

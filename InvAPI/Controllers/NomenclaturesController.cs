@@ -89,13 +89,20 @@ namespace InvAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNomenclature(int id)
         {
-            var nomenclature = await _context.Nomenclatures.FindAsync(id);
-            if (nomenclature == null)
+            bool isValueUsed = await _context.Inventories.AnyAsync(p => p.NomenclatureId == id);
+
+            if (isValueUsed)
+            {
+                return BadRequest("Значение используется в другой таблице");
+            }
+
+            var nomen = await _context.Nomenclatures.FindAsync(id);
+            if (nomen == null)
             {
                 return NotFound();
             }
 
-            _context.Nomenclatures.Remove(nomenclature);
+            _context.Nomenclatures.Remove(nomen);
             await _context.SaveChangesAsync();
 
             return NoContent();

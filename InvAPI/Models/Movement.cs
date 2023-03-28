@@ -17,7 +17,8 @@ public partial class Movement
 
     public int? EmployerId { get; set; }
 
-    public virtual Inventory IdInventoryNavigation { get; set; } = null!;
+    //public virtual Inventory IdInventoryNavigation { get; set; } = null!;
+    //public virtual Inventory? Inventory { get; set; }
 
-    public virtual Placement? Placement { get; set; }
+    //public virtual Placement? Placement { get; set; }
 }

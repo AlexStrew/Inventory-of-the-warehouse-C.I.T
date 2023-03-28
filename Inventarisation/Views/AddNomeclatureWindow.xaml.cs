@@ -46,10 +46,7 @@ namespace Inventarisation.Views
             {
                 var nomenclature = new Nomenclature
                 {
-                    NameDevice = NameDeviceTBox.Text,
-                    CountDevice = int.Parse(CountDeviceTBox.Text),
-                    Manufacturer = ManufacturerDeviceTBox.Text,
-                    Model = ModelDeviceTBox.Text,
+                    NameDevice = NameDeviceTBox.Text,                    
                     DateCreation = DateTime.UtcNow,
                     DateChange = DateTime.UtcNow
                 };

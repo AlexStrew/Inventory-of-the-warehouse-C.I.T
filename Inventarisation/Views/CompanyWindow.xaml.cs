@@ -172,5 +172,21 @@ namespace Inventarisation.Views
             this.CompanyDG.SearchHelper.AllowFiltering = true;
             this.CompanyDG.SearchHelper.Search(SearchCompanyTBox.Text);
         }
+
+        private void CompanyDG_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedItem = CompanyDG.SelectedItem as Company;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.CompanySelectProp = selectedItem.CompanyName;
+                Properties.Settings.Default.IdCompanySelectProp = selectedItem.IdCompany;
+                Properties.Settings.Default.Save();
+            }
+
+            DialogResult = true;
+            this.Close();
+        }
     }
 }

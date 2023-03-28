@@ -23,14 +23,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border Height="395" Margin="5 5 5 5" VerticalAlignment="Top"  BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Padding="5">
+        <Border Height="450" Margin="5 5 5 5" VerticalAlignment="Top"  BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Padding="5">
             <Grid>
 
 
@@ -38,8 +38,13 @@
                     <TextBlock Text="Основная информация" FontWeight="DemiBold" FontSize="16" Margin="10 0 0 0"/>
 
                     <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
-                        <hc:TextBox FontSize="14" x:Name="NameDeviceTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите предмет" hc:InfoElement.Title="Наименование" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="14" x:Name="NameDeviceTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите категорию" hc:InfoElement.Title="Категория" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
                         <Button x:Name="SelectNumButton" Click="SelectNumButtonClick" Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                        <hc:TextBox FontSize="14" x:Name="NameSubjectTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите предмет" hc:InfoElement.Title="Наименование" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <Button x:Name="SelectSubButton" Click="SelectSubButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
@@ -59,7 +64,7 @@
         </Border>
              
 
-        <Border Grid.Column="1" Height="250" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
+        <Border Opacity="0" Grid.Column="1" Height="250" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
             <StackPanel Orientation="Vertical">
                 <Grid Margin="5 0 5 0">
                     <Grid.RowDefinitions>

@@ -159,5 +159,21 @@ namespace Inventarisation.Views
             this.EmployerDG.SearchHelper.AllowFiltering = true;
             this.EmployerDG.SearchHelper.Search(SearchEmployerTBox.Text);
         }
+
+        private void EmployerDG_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedItem = EmployerDG.SelectedItem as Employers;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.EmployerSelectProp = selectedItem.FullName;
+                Properties.Settings.Default.IdEmployerSelectProp = selectedItem.IdEmpolyer;
+                Properties.Settings.Default.Save();
+            }
+
+            DialogResult = true;
+            this.Close();
+        }
     }
 }

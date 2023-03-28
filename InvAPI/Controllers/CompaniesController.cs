@@ -89,6 +89,14 @@ namespace InvAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCompany(int id)
         {
+
+            bool isValueUsed = await _context.Inventories.AnyAsync(p => p.CompanyId == id);
+
+            if (isValueUsed)
+            {
+                return BadRequest("Значение используется в другой таблице");
+            }
+
             var company = await _context.Companies.FindAsync(id);
             if (company == null)
             {
