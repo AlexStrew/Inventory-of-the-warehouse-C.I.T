@@ -33,6 +33,21 @@ namespace InvAPI.Controllers
             return await _context.Subjects.ToListAsync();
         }
 
+        [HttpGet("getSorted/{id}")]
+        public async Task<ActionResult<IEnumerable<Subjects>>> GetSubjectsSorted(int id)
+        {
+            var subjects = await _context.Subjects
+                .Where(s => s.NomenId == id)
+                .ToListAsync();
+
+            if (subjects == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(subjects);
+        }
+
         // GET: api/Subjects/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Subjects>> GetSubjects(int id)
@@ -97,7 +112,7 @@ namespace InvAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSubjects(int id)
         {
-            bool isValueUsed = await _context.Nomenclatures.AnyAsync(p => p.IdNomenclature == id);
+            bool isValueUsed = await _context.Inventories.AnyAsync(p => p.SubjectId == id);
 
             if (isValueUsed)
             {

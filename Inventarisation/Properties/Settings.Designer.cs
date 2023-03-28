@@ -145,10 +145,10 @@ namespace Inventarisation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int PaymentSelectProp {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PaymentSelectProp {
             get {
-                return ((int)(this["PaymentSelectProp"]));
+                return ((string)(this["PaymentSelectProp"]));
             }
             set {
                 this["PaymentSelectProp"] = value;
@@ -212,6 +212,30 @@ namespace Inventarisation.Properties {
             }
             set {
                 this["IdQueueSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SubjectSelectProp {
+            get {
+                return ((string)(this["SubjectSelectProp"]));
+            }
+            set {
+                this["SubjectSelectProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IdSubjectSelectProp {
+            get {
+                return ((int)(this["IdSubjectSelectProp"]));
+            }
+            set {
+                this["IdSubjectSelectProp"] = value;
             }
         }
     }

@@ -8,7 +8,7 @@
 
         xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF" xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="Поступление на склад" Height="550" Width="1000">
+        Title="Поступление на склад" Height="600" Width="1000">
 
 
 
@@ -38,31 +38,37 @@
                     <TextBlock Text="Основная информация" FontWeight="DemiBold" FontSize="16" Margin="10 0 0 0"/>
 
                     <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
-                        <hc:TextBox FontSize="14" x:Name="NameDeviceTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите категорию" hc:InfoElement.Title="Категория" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="16" x:Name="NameDeviceTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите категорию" hc:InfoElement.Title="Категория" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
                         <Button x:Name="SelectNumButton" Click="SelectNumButtonClick" Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
-                        <hc:TextBox FontSize="14" x:Name="NameSubjectTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите предмет" hc:InfoElement.Title="Наименование" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="16" x:Name="NameSubjectTB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите предмет" hc:InfoElement.Title="Наименование" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
                         <Button x:Name="SelectSubButton" Click="SelectSubButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
-                        <hc:TextBox FontSize="14" x:Name="CompanyNameCB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите организацию" hc:InfoElement.Title="Название организации" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                        <hc:TextBox FontSize="16" x:Name="CompanyNameCB" IsReadOnly="True" PreviewTextInput="PreviewTextInputHandler"  Width="300"  hc:InfoElement.Placeholder="Выберите организацию" hc:InfoElement.Title="Название организации" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
                         <Button x:Name="AddCompanyBtn" Click="AddCompanyBtnOnClick" Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
 
                     </StackPanel>
 
-                    <StackPanel Orientation="Vertical" Margin="10 10 0 0" >
-                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="PaymentNumTB" Text="{Binding MyNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInputHandler"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Номер заявки на оплату" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
-                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="CommentTB"   hc:InfoElement.Placeholder="Введите текст" hc:InfoElement.Title="Комментарии" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
-                        <hc:TextBox FontSize="14" HorizontalAlignment="Left" Width="300" x:Name="InvoiceTB" Text="{Binding MyNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="PreviewTextInputHandler"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Накладная" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
-                    </StackPanel>
+                    
                 </StackPanel>
 
             </Grid>
         </Border>
-             
+
+        <Border Height="450" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Top"  BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Vertical" Margin="10 10 0 0" >
+                    <hc:TextBox FontSize="16" HorizontalAlignment="Left" Width="300" x:Name="PaymentNumTB"      hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Номер заявки на оплату" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                    <hc:TextBox FontSize="16" HorizontalAlignment="Left" Width="300" x:Name="CommentTB"   hc:InfoElement.Placeholder="Введите текст" hc:InfoElement.Title="Комментарии" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                    <hc:TextBox FontSize="16" HorizontalAlignment="Left" Width="300" x:Name="InvoiceTB"    hc:InfoElement.Placeholder="Введите номер" hc:InfoElement.Title="Накладная" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                    <hc:TextBox FontSize="16" HorizontalAlignment="Left" Width="300" x:Name="SerialNumberTB"    hc:InfoElement.Placeholder="Введите серийный номер" hc:InfoElement.Title="S/N (При отсутствии поставить 0 )" hc:InfoElement.Necessary="True" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
 
         <Border Opacity="0" Grid.Column="1" Height="250" Margin="5 90 5 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
             <StackPanel Orientation="Vertical">

@@ -123,7 +123,7 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
                 .HasComputedColumnSql("([dbo].[inv_num]([id]))", stored: true)
                 .IsFixedLength()
                 .HasColumnName("inv_num");
-            entity.Property(e => e.NomenclatureId).HasColumnName("nomenclature_id");
+           
             entity.Property(e => e.MoveId).HasColumnName("move_id");
             entity.Property(e => e.CompanyId).HasColumnName("company_id");
             entity.Property(e => e.Comment)
@@ -144,6 +144,10 @@ public partial class InventarisationDbContext : IdentityDbContext<IdentityUser>
             entity.Property(e => e.DateInv)
                 .HasColumnType("datetime")
                 .HasColumnName("dateInvCreate");
+
+            entity.Property(e => e.SubjectId).HasColumnName("subject_id");
+            entity.Property(e => e.SerialNumber).HasMaxLength(200)
+                .IsUnicode(false).HasColumnName("serial_number");
 
             //entity.HasOne(d => d.Company).WithMany(p => p.Inventories)
             //    .HasForeignKey(d => d.CompanyId)

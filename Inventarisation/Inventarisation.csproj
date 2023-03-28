@@ -30,7 +30,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -356,6 +356,9 @@
     <Compile Include="Views\AddPlacementWindow.xaml.cs">
       <DependentUpon>AddPlacementWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddSubjectWindow.xaml.cs">
+      <DependentUpon>AddSubjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
@@ -380,6 +383,9 @@
     <Compile Include="Views\EditPlacementWindow.xaml.cs">
       <DependentUpon>EditPlacementWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditSubjectWindow.xaml.cs">
+      <DependentUpon>EditSubjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployerWindow.xaml.cs">
       <DependentUpon>EmployerWindow.xaml</DependentUpon>
     </Compile>
@@ -397,6 +403,9 @@
     </Compile>
     <Compile Include="Views\QueueWindow.xaml.cs">
       <DependentUpon>QueueWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubjectWindow.xaml.cs">
+      <DependentUpon>SubjectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewSelectRevisionItemWindow.xaml.cs">
       <DependentUpon>ViewSelectRevisionItemWindow.xaml</DependentUpon>
@@ -453,6 +462,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddSubjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -485,6 +498,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EditSubjectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EmployerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -506,6 +523,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\QueueWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

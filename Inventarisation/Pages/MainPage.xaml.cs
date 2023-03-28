@@ -30,6 +30,7 @@ namespace Inventarisation.Pages
 
             InitializeComponent();
             AwaitDataLoad();
+            //LoadData();
             UserTextBlock.Text = Properties.Settings.Default.CurrentUser;            
         }
 
@@ -53,11 +54,10 @@ namespace Inventarisation.Pages
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             using (_client)
             {
-                using (var response = await _client.GetAsync($"https://invent.doker.ru/api/Inventories/ConnectedTables"))
+                using (var response = await _client.GetAsync("https://invent.doker.ru/api/Inventories/ConnectedTables"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);
-
+                    DamaskCollection = JsonConvert.DeserializeObject<ObservableCollection<InvMain>>(apiResponse);                                        
 
                     sfDataGrid.ItemsSource = DamaskCollection;
                 }
@@ -154,22 +154,22 @@ namespace Inventarisation.Pages
 
         private void CheckUserIdentity_Click(object sender, RoutedEventArgs e)
         {
-            WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            if (identity != null)
-            {
-                Console.WriteLine("Name: " + identity.Name);
-                Console.WriteLine("Authentication type: " + identity.AuthenticationType);
-                Console.WriteLine("Is authenticated: " + identity.IsAuthenticated);
-                Console.WriteLine("Token: " + identity.Token);
-                Console.WriteLine("Groups: " + identity.Groups);
-                Console.WriteLine("ImpersonationLevel: " + identity.ImpersonationLevel);
-                Console.WriteLine("AccessToken: " + identity.AccessToken);
-                Console.WriteLine("Actor: " + identity.Actor);
-                Console.WriteLine("DeviceClaims: " + identity.DeviceClaims);
-                Console.WriteLine("Owner: " + identity.Owner);
+            //WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            //if (identity != null)
+            //{
+            //    Console.WriteLine("Name: " + identity.Name);
+            //    Console.WriteLine("Authentication type: " + identity.AuthenticationType);
+            //    Console.WriteLine("Is authenticated: " + identity.IsAuthenticated);
+            //    Console.WriteLine("Token: " + identity.Token);
+            //    Console.WriteLine("Groups: " + identity.Groups);
+            //    Console.WriteLine("ImpersonationLevel: " + identity.ImpersonationLevel);
+            //    Console.WriteLine("AccessToken: " + identity.AccessToken);
+            //    Console.WriteLine("Actor: " + identity.Actor);
+            //    Console.WriteLine("DeviceClaims: " + identity.DeviceClaims);
+            //    Console.WriteLine("Owner: " + identity.Owner);
 
 
-            }
+            LoadData();
         }
 
         private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
@@ -214,7 +214,7 @@ namespace Inventarisation.Pages
 
         private void EditButtonWindows_Click(object sender, RoutedEventArgs e)
         {
-            
+
             var selectedRow = sfDataGrid.SelectedItem as InvMain;
 
             if (selectedRow != null)

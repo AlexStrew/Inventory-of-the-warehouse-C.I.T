@@ -1,0 +1,39 @@
+﻿<Window x:Class="Inventarisation.Views.EditSubjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventarisation.Views"
+        mc:Ignorable="d"
+        Title="Редактирование Предмета" Height="150" Width="200">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="5">
+
+
+            <TextBlock Text="Редактировать предмет"/>
+            <TextBox x:Name="SubjectTBox"/>
+
+        </StackPanel>
+
+
+        <Grid
+            Grid.Row="1"
+            Height="40"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
+            <Button
+                x:Name="EditSubjectBtn"
+                Width="100"
+                Margin="0,0,5,5"
+                Click="EditSubjectBtn_Click">
+                Сохранить
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

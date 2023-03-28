@@ -89,7 +89,7 @@ namespace InvAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNomenclature(int id)
         {
-            bool isValueUsed = await _context.Inventories.AnyAsync(p => p.NomenclatureId == id);
+            bool isValueUsed = await _context.Subjects.AnyAsync(p => p.NomenId == id);
 
             if (isValueUsed)
             {

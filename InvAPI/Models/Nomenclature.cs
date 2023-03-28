@@ -13,7 +13,7 @@ public partial class Nomenclature
 
     public DateTime? DateChange { get; set; }
 
-    public virtual ICollection<Inventory> Inventories { get; } = new List<Inventory>();
+    //public virtual ICollection<Inventory> Inventories { get; } = new List<Inventory>();
 
     //public virtual ICollection<Workplace> Workplaces { get; } = new List<Workplace>();
 }

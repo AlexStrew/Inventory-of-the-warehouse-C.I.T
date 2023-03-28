@@ -19,8 +19,7 @@ public partial class Inventory
     {
         throw new NotSupportedException();
     }
-    [JsonProperty("nomenclature_id")]
-    public int? NomenclatureId { get; set; }
+
 
     public int? MoveId { get; set; }
 
@@ -31,6 +30,10 @@ public partial class Inventory
     public string? Comment { get; set; }
 
     public string? Invoice { get; set; }
+
+    public int? SubjectId { get; set; }
+
+    public string? SerialNumber { get; set; }
 
 
 

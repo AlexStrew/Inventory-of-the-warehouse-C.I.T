@@ -32,8 +32,8 @@
     <Setting Name="IdInventorySelectedProp" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="PaymentSelectProp" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="PaymentSelectProp" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CommentSelectProp" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -48,6 +48,12 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="IdQueueSelectProp" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SubjectSelectProp" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IdSubjectSelectProp" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

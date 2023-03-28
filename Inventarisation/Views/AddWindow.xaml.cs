@@ -41,10 +41,7 @@ namespace Inventarisation.Views
         public AddWindow()
         {
             InitializeComponent();
-            ConfigHelper.Instance.SetLang("ru-ru");
-            
-
-           
+            ConfigHelper.Instance.SetLang("ru-ru");                       
 
         }
 
@@ -109,18 +106,17 @@ namespace Inventarisation.Views
           
             
             //dateNew = DateTime.UtcNow;
-            if (NameDeviceTB.Text != "" && CompanyNameCB.Text != "" && PaymentNumTB.Text != "" && CommentTB.Text != "" && InvoiceTB.Text != "")
+            if (NameDeviceTB.Text != "" && CompanyNameCB.Text != "" && PaymentNumTB.Text != "" && CommentTB.Text != "" && InvoiceTB.Text != "" && SerialNumberTB.Text != "")
             {
                 var invent = new invAdding
                 {
-                    NomenclatureId = Properties.Settings.Default.IdNomenSelectProp,
+                    SubjectId = Properties.Settings.Default.IdSubjectSelectProp,
                     CompanyId = Properties.Settings.Default.IdCompanySelectProp,
                     PaymentNum = PaymentNumTB.Text,
                     Comment = CommentTB.Text,
                     Invoice = InvoiceTB.Text,
-                    DateInv = DateTime.UtcNow,
-                    IdPlacement = 1,
-                    
+                    SerialNumber = SerialNumberTB.Text
+
 
                 };
 
@@ -166,7 +162,13 @@ namespace Inventarisation.Views
 
         private void SelectSubButton_Click(object sender, RoutedEventArgs e)
         {
+            SubjectWindow win = new SubjectWindow();
+            if (win.ShowDialog() == true)
+            {
 
+                Console.WriteLine("sdsd");
+            }
+            NameSubjectTB.Text = Properties.Settings.Default.SubjectSelectProp;
         }
     }
 }

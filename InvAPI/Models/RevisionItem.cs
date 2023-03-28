@@ -28,7 +28,7 @@ public partial class RevisionItem
 
     public string? InvNum { get; set; }
 
-    public string? NameDevice { get; set; }
+    public string? NameSubject { get; set; }
 
     public int? InventoryId { get; set; }
 

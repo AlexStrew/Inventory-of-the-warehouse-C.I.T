@@ -42,13 +42,13 @@ namespace InvAPI.Controllers
                 var result = (from e in _context.RevisionItems
                               join d in _context.QueueLists on e.IdQueue equals d.id_list
                               join c in _context.Inventories on e.InventoryId equals c.Id
-                              join g in _context.Nomenclatures on c.NomenclatureId equals g.IdNomenclature
+                              join g in _context.Subjects on c.SubjectId equals g.IdSubject
                               
                               select new
                               {
                                   id_list = e.ListId,
                                   inv_num = c.InvNum,
-                                  name_device = g.NameDevice,
+                                  name_subject = g.NameSubject,
                                   date_scan = e.DateScan,
                                   is_done = e.IsDone
                               }).ToList();
@@ -72,13 +72,13 @@ namespace InvAPI.Controllers
             var result = await (from e in _context.RevisionItems
                                 join d in _context.QueueLists on e.IdQueue equals d.id_list
                                 join c in _context.Inventories on e.InventoryId equals c.Id
-                                join g in _context.Nomenclatures on c.NomenclatureId equals g.IdNomenclature
+                                join g in _context.Subjects on c.SubjectId equals g.IdSubject
                                 where e.ListId == id // фильтруем по идентификатору элемента
                                 select new RevisionItemNomenInv
                                 {
                                     ListId = e.ListId,
                                     InvNum = c.InvNum,
-                                    NameDevice = g.NameDevice,
+                                    NameSubject = g.NameSubject,
                                     DateScan = e.DateScan,
                                     IsDone = e.IsDone
                                 }).ToListAsync();

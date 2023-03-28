@@ -13,10 +13,7 @@ namespace Inventarisation.Api.ApiModel
         public int Id { get; set; }
 
         [JsonProperty("invNum")]
-        public string InvNum { get; set; }
-
-        [JsonProperty("nomenclatureId")]
-        public int NomenclatureId { get; set; }
+        public string InvNum { get; set; } 
 
         [JsonProperty("moveId")]
         public int? MoveId { get; set; }
@@ -33,6 +30,8 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("invoice")]
         public string Invoice { get; set; }
 
+        [JsonProperty("subject_id")]
+        public int SubjectId { get; set; }
 
         [JsonProperty("dateInvCreate")]
         public DateTime DateInv { get; set; }
@@ -41,9 +40,12 @@ namespace Inventarisation.Api.ApiModel
 
 
     public class invAdding
-    {       
-        [JsonProperty("nomenclatureId")]
-        public int NomenclatureId { get; set; }
+    {
+        [JsonProperty("serialNumber")]
+        public string SerialNumber { get; set; }
+
+        [JsonProperty("subjectId")]
+        public int SubjectId { get; set; }
 
         [JsonProperty("companyId")]
         public int CompanyId { get; set; }
@@ -57,14 +59,9 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("invoice")]
         public string Invoice { get; set; }
 
-        [JsonProperty("dateInvCreate")]
-        public DateTime DateInv { get; set; }
-
      
-        
-
-        [JsonProperty("idPlacement")]
-        public int IdPlacement { get; set; }
+                     
+     
     }
 
     public class Company
@@ -104,8 +101,8 @@ namespace Inventarisation.Api.ApiModel
         public DateTime DateChange { get; set; }
 
 
-        [JsonProperty("inventories")]
-        public List<object> Inventories { get; set; }
+        //[JsonProperty("inventories")]
+        //public List<object> Inventories { get; set; }
 
     }
 
@@ -118,7 +115,7 @@ namespace Inventarisation.Api.ApiModel
         public string InvNum { get; set; }
 
         [JsonProperty("payment_num")]
-        public int PaymentNum { get; set; }
+        public string PaymentNum { get; set; }
 
         [JsonProperty("comment")]
         public string Comment { get; set; }
@@ -126,22 +123,11 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("invoice")]
         public string Invoice { get; set; }
 
-        [JsonProperty("nomenclature_id")]
-        public int NomenclatureId { get; set; }
+        [JsonProperty("id_placement")]
+        public int IdPlacement { get; set; }
 
         [JsonProperty("name_placement")]
         public string NamePlacement { get; set; }
-
-        [JsonProperty("name_device")]
-        public string NameDevice { get; set; }
-
-        [JsonProperty("id_placement")]
-        public int IdPlacement { get; set; }
-        [JsonProperty("id_subject")]
-        public int IdSubject { get; set; }
-
-        [JsonProperty("name_subject")]
-        public string NameSubject { get; set; }
 
         [JsonProperty("id_movement")]
         public int IdMovement { get; set; }
@@ -155,8 +141,41 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("company_name")]
         public string CompanyName { get; set; }
 
+        [JsonProperty("full_name")]
+        public string FullName { get; set; }
+
+        [JsonProperty("id_subject")]
+        public int IdSubject { get; set; }
+
+        [JsonProperty("name_subject")]
+        public string NameSubject { get; set; }
+
+        [JsonProperty("serial_number")]
+        public string SerialNumber { get; set; }
+
+
+
+
+
+        [JsonProperty("nomenclature_id")]
+        public int NomenclatureId { get; set; }
+
+
+
+        [JsonProperty("name_device")]
+        public string NameDevice { get; set; }
+
+
+
         [JsonProperty("date_creation")]
         public DateTime DateCreation { get; set; }
+
+        [JsonProperty("subject_id")]
+        public int SubjectId { get; set; }
+
+
+
+
 
     }
     public class QueueModel
@@ -181,8 +200,18 @@ namespace Inventarisation.Api.ApiModel
        
     }
 
- 
 
+    public class Subjects
+    {
+        [JsonProperty("idSubject")]
+        public int IdSubject { get; set; }
+
+        [JsonProperty("nameSubject")]
+        public string NameSubject { get; set; }
+
+        [JsonProperty("nomenId")]
+        public int NomenId { get; set; }
+    }
 
 
     public class RevisionItems

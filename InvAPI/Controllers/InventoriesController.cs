@@ -46,8 +46,7 @@ namespace InvAPI.Controllers
             using (_context)
             {
                 var result = (from e in _context.Inventories
-                              join d in _context.Nomenclatures on e.NomenclatureId equals d.IdNomenclature 
-                              join r in _context.Subjects on d.IdNomenclature equals r.NomenId
+                              join r in _context.Subjects on e.SubjectId equals r.IdSubject
                               join c in _context.Movements on e.MoveId equals c.IdMovement
                               join g in _context.Placements on c.PlacementId equals g.IdPlacement
                               join h in _context.Employers on c.EmployerId equals h.IdEmpolyer
@@ -59,8 +58,6 @@ namespace InvAPI.Controllers
                                   payment_num = e.PaymentNum,
                                   comment = e.Comment,
                                   invoice = e.Invoice,
-                                  nomenclature_id = e.NomenclatureId,
-                                  name_device = d.NameDevice,
                                   id_placement = g.IdPlacement,
                                   name_placement = g.NamePlacement,
                                   id_movement = c.IdMovement,
@@ -69,10 +66,11 @@ namespace InvAPI.Controllers
                                   company_name = f.CompanyName,
                                   full_name = h.FullName,
                                   id_subject = r.IdSubject,
-                                  name_subject = r.NameSubject
+                                  name_subject = r.NameSubject,
+                                  serial_number = e.SerialNumber
                               }).ToList();
                 // TODO utilize the above result
-
+                result.Reverse();
                 return result;
             }
         }
@@ -147,47 +145,7 @@ namespace InvAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Inventories
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPost]
-        //public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
-        //{
-        //    //_context.Inventories.Add(inventory);
-        //    //await _context.SaveChangesAsync();
-
-        //    //return CreatedAtAction("GetInventory", new { id = inventory.Id }, inventory);
-
-        //    using (SqlConnection connection = new SqlConnection(_connectionString))
-        //    {
-        //        connection.Open();
-        //        inventory.DateInv = DateTime.UtcNow;
-        //        SqlCommand command = new SqlCommand("INSERT INTO Inventory (nomenclature_id, company_id, payment_num, comment, invoice, dateInvCreate) VALUES (@nomenclature_id, @company_id, @payment_num, @comment, @invoice, @dateInvCreate); SELECT CAST(SCOPE_IDENTITY() AS INT)", connection);
-
-        //        command.Parameters.AddWithValue("@nomenclature_id", inventory.NomenclatureId);
-        //        command.Parameters.AddWithValue("@company_id", inventory.CompanyId);
-        //        command.Parameters.AddWithValue("@payment_num", inventory.PaymentNum);
-        //        command.Parameters.AddWithValue("@comment", inventory.Comment);
-        //        command.Parameters.AddWithValue("@invoice", inventory.Invoice);
-        //        command.Parameters.AddWithValue("@dateInvCreate", inventory.DateInv);
-        //        await Console.Out.WriteLineAsync(inventory.DateInv.ToString());
-
-        //        int insertedId = (int)command.ExecuteScalar();
-
-        //        SqlCommand inventoryItemsCommand = new SqlCommand("INSERT INTO Movements (id_inventory, date_move) VALUES (@inventory_id, @date_move)", connection);
-        //        Movement movement = new Movement();
-
-        //        inventoryItemsCommand.Parameters.Clear();
-        //        inventoryItemsCommand.Parameters.AddWithValue("@id_inventory", movement.IdInventory);
-        //        inventoryItemsCommand.Parameters.AddWithValue("@date_move", movement.DateMove);
-        //        inventoryItemsCommand.ExecuteNonQuery();
-        //    }
-
-
-        //    // Do something with the inserted id
-
-
-        //    return Ok();
-        //}
+       
         [HttpPost]
         public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
         {
@@ -197,15 +155,17 @@ namespace InvAPI.Controllers
                 inventory.DateInv = DateTime.UtcNow;
 
                 //добавление в Inventory
-                SqlCommand command = new SqlCommand("INSERT INTO Inventory (nomenclature_id, company_id, payment_num, comment, invoice, dateInvCreate) VALUES (@nomenclature_id, @company_id, @payment_num, @comment, @invoice, @dateInvCreate); SELECT CAST(SCOPE_IDENTITY() AS INT)", connection);
+                SqlCommand command = new SqlCommand("INSERT INTO Inventory ( company_id, payment_num, comment, invoice, dateInvCreate, subject_id, serial_number) VALUES (@company_id, @payment_num, @comment, @invoice, @dateInvCreate, @subject_id, @serial_number); SELECT CAST(SCOPE_IDENTITY() AS INT)", connection);
 
-                command.Parameters.AddWithValue("@nomenclature_id", inventory.NomenclatureId);
+                
                 command.Parameters.AddWithValue("@company_id", inventory.CompanyId);
                 command.Parameters.AddWithValue("@payment_num", inventory.PaymentNum);
                 command.Parameters.AddWithValue("@comment", inventory.Comment);
                 command.Parameters.AddWithValue("@invoice", inventory.Invoice);
                 command.Parameters.AddWithValue("@dateInvCreate", inventory.DateInv);
-                
+                command.Parameters.AddWithValue("@subject_id", inventory.SubjectId);
+                command.Parameters.AddWithValue("@serial_number", inventory.SerialNumber);
+
 
                 int insertedId = (int)command.ExecuteScalar();
 
@@ -213,31 +173,27 @@ namespace InvAPI.Controllers
                 connection.Open();
 
                 //добавление в Movements
-                SqlCommand inventoryItemsCommand = new SqlCommand("INSERT INTO Movements (id_inventory, date_move, placement_id) VALUES (@id_inventory, @date_move, @placement_id)", connection);
+                SqlCommand inventoryItemsCommand = new SqlCommand("INSERT INTO Movements ( id_inventory, date_move, placement_id, employer_id) VALUES (@id_inventory, @date_move, @placement_id, @employer_id)", connection);
                 int num = 1;
                 Movement movement = new()
                 {
                     IdInventory = insertedId,
                     DateMove = DateTime.UtcNow,
-                    PlacementId = num
+                    PlacementId = num,
+                    EmployerId = num
                     
                 };
                 inventoryItemsCommand.Parameters.AddWithValue("@id_inventory", movement.IdInventory);
                 inventoryItemsCommand.Parameters.AddWithValue("@date_move", movement.DateMove);
                 inventoryItemsCommand.Parameters.AddWithValue("@placement_id", movement.PlacementId);
+                inventoryItemsCommand.Parameters.AddWithValue("@employer_id", movement.EmployerId);
                 inventoryItemsCommand.ExecuteNonQuery();
 
                 connection.Close();
                 connection.Open();
 
-                //SqlCommand SubjectItemsCommand = new SqlCommand("INSERT INTO Subjects (name_subject, count_subject) VALUES (@name_subject, @count_subject)", connection);
-                //Subjects subjects = new();
-                //inventoryItemsCommand.Parameters.AddWithValue("@name_subject", subjects.NameSubject);
-                //inventoryItemsCommand.Parameters.AddWithValue("@count_subject", subjects.CountSubject);
-                //inventoryItemsCommand.ExecuteNonQuery();
+                
 
-                //connection.Close();
-                //connection.Open();
 
                 //получение последней записи из таблицы Movements для получения move_id (id_movement)
                 var lastRecord = await _context.Movements
