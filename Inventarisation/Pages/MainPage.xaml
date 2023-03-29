@@ -114,7 +114,7 @@
             ShowSortNumbers="True"
                 ShowToolTip="True"
             ShowRowHeader="True"
-            
+            MouseDoubleClick="sfDataGrid_MouseDoubleClick"
                 NavigationMode="Row"
             Grid.Row="1">
       

@@ -1,0 +1,39 @@
+﻿<Window x:Class="Inventarisation.Views.MoveInventoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventarisation.Views" xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        Title="История перемещений" Height="450" Width="800">
+    <Grid>
+        <Label Content="Инвентарный номер" VerticalAlignment="Top" Margin="10 20 0 0 " HorizontalAlignment="Left"/>
+        <hc:TextBox Width="100" Height="20" VerticalAlignment="Top" Margin="150 20 0 0" IsReadOnly="True" HorizontalAlignment="Left" x:Name="InvNumTBox"/>
+        <Border Grid.Column="1" Height="250" Margin="10 90 10 0" VerticalAlignment="Top" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="5 0 5 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontWeight="DemiBold" FontSize="16" Margin="10 0 0 0">Привязка</TextBlock>
+
+                    <StackPanel Grid.Row="1" Margin="10 0 0 0" Orientation="Horizontal">
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left"  x:Name="PlacementTBox" IsReadOnly="True" Width="300"  hc:InfoElement.Placeholder="Выберите размещение" hc:InfoElement.Title="Размещение" hc:InfoElement.Necessary="True" Margin="0 10 0 0 " />
+                        <Button  x:Name="SelectPlaceButton" Click="SelectPlaceButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
+                    </StackPanel>
+
+                  
+
+                    <StackPanel Grid.Row="3" Margin="10 0 0 0" Orientation="Horizontal">
+                        <hc:TextBox FontSize="14" HorizontalAlignment="Left"  x:Name="EmployerTBox" IsReadOnly="True"   Width="300"  hc:InfoElement.Placeholder="Выберите сотрудника" hc:InfoElement.Title="Сотрудник" hc:InfoElement.Necessary="True" Margin="0 10 0 0 " />
+                        <Button  x:Name="SelectEmployerButton" Click="SelectEmployerButton_Click"  Width="75" Margin="5 0 0 0 " VerticalAlignment="Bottom" >Выбрать</Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Button Content="Переместить" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" x:Name="ReplaceButton" Click="ReplaceButton_Click"/>
+    </Grid>
+</Window>

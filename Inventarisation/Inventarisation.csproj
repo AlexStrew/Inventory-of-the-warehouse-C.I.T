@@ -392,6 +392,9 @@
     <Compile Include="Views\InvNumQrPrintWindow.xaml.cs">
       <DependentUpon>InvNumQrPrintWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MoveInventoryWindow.xaml.cs">
+      <DependentUpon>MoveInventoryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\NomenclatureWindow.xaml.cs">
       <DependentUpon>NomenclatureWindow.xaml</DependentUpon>
     </Compile>
@@ -507,6 +510,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InvNumQrPrintWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MoveInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

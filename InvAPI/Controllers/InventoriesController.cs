@@ -64,6 +64,7 @@ namespace InvAPI.Controllers
                                   date_move = c.DateMove,
                                   id_company = f.IdCompany,
                                   company_name = f.CompanyName,
+                                  id_empolyer = h.IdEmpolyer,
                                   full_name = h.FullName,
                                   id_subject = r.IdSubject,
                                   name_subject = r.NameSubject,
@@ -116,33 +117,25 @@ namespace InvAPI.Controllers
 
         // PUT: api/Inventories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutInventory(int id, Inventory inventory)
+        [HttpPut("lastMoveSet/{id}")]
+        public async Task<IActionResult> PutInventory(int id)
         {
-            if (id != inventory.Id)
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                return BadRequest();
-            }
+                connection.Open();
+                var lastRecord = await _context.Movements
+                .OrderByDescending(m => m.IdMovement)
+                .Select(s => s.IdMovement)
+                .FirstOrDefaultAsync();
 
-            _context.Entry(inventory).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
+                //Обновление таблицы, добавление ранее созданного move_id
+                SqlCommand add = new SqlCommand("UPDATE Inventory SET move_id = @move_id WHERE Id = @inventory_id", connection);
+                add.Parameters.AddWithValue("@move_id", lastRecord);
+                add.Parameters.AddWithValue("@inventory_id", id);
+                add.ExecuteNonQuery();
+                connection.Close();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!InventoryExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return Ok();
         }
 
        

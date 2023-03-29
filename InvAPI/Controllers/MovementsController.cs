@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using InvAPI.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Data.SqlClient;
 
 namespace InvAPI.Controllers
 {
@@ -16,10 +17,11 @@ namespace InvAPI.Controllers
     public class MovementsController : ControllerBase
     {
         private readonly InventarisationDbContext _context;
-
+        private readonly string _connectionString;
         public MovementsController(InventarisationDbContext context)
         {
             _context = context;
+            _connectionString = "Data Source=SV-SQL-02\\SVSQL02;Initial Catalog=InventarisationDB;User ID=api-user;Password=QFgQJkWi4t;TrustServerCertificate=True";
         }
 
         // GET: api/Movements
@@ -27,6 +29,22 @@ namespace InvAPI.Controllers
         public async Task<ActionResult<IEnumerable<Movement>>> GetMovements()
         {
             return await _context.Movements.ToListAsync();
+        }
+
+        [HttpGet("getlast/")]
+        public async Task<ActionResult<int>> GetLastRecord()
+        {
+            var lastRecord = await _context.Movements
+                .OrderByDescending(m => m.IdMovement)
+                .Select(s => s.IdMovement)
+                .FirstOrDefaultAsync();
+
+            if (lastRecord == null)
+            {
+                return NotFound();
+            }
+
+            return lastRecord;
         }
 
         // GET: api/Movements/5
@@ -45,33 +63,25 @@ namespace InvAPI.Controllers
 
         // PUT: api/Movements/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutMovement(int id, Movement movement)
+        [HttpPut("empSetSet/")]
+        public async Task<IActionResult> PutInventory(int id)
         {
-            if (id != movement.IdMovement)
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                return BadRequest();
-            }
+                connection.Open();
+                var lastRecord = await _context.Movements
+                .OrderByDescending(m => m.IdMovement)
+                .Select(s => s.IdMovement)
+                .FirstOrDefaultAsync();
 
-            _context.Entry(movement).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
+                //Обновление таблицы, добавление ранее созданного move_id
+                SqlCommand add = new SqlCommand("UPDATE Movements SET employer_id = @employer_id WHERE id_movement = @id_movement", connection);
+                add.Parameters.AddWithValue("@id_movement", lastRecord);
+                add.Parameters.AddWithValue("@employer_id", id);
+                add.ExecuteNonQuery();
+                connection.Close();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovementExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Movements

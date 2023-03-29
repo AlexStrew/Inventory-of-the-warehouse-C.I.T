@@ -144,6 +144,9 @@ namespace Inventarisation.Api.ApiModel
         [JsonProperty("full_name")]
         public string FullName { get; set; }
 
+        [JsonProperty("id_empolyer")]
+        public int IdEmployer { get; set; }
+
         [JsonProperty("id_subject")]
         public int IdSubject { get; set; }
 
@@ -200,6 +203,27 @@ namespace Inventarisation.Api.ApiModel
        
     }
 
+
+    public class Movements
+    {
+        [JsonProperty("idMovement")]
+        public int IdMovement { get; set; }
+
+        [JsonProperty("idInventory")]
+        public int IdInventory { get; set; }
+
+        [JsonProperty("dateMove")]
+        public DateTime DateMove { get; set; }
+
+        [JsonProperty("placementId")]
+        public int PlacementId { get; set; }
+
+        [JsonProperty("planner")]
+        public string Planner { get; set; }
+
+        [JsonProperty("employerId")]
+        public int EmployerId { get; set; }
+    }
 
     public class Subjects
     {

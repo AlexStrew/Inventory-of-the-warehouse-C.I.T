@@ -280,5 +280,29 @@ namespace Inventarisation.Pages
 
             }
         }
+
+        private void sfDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var selectedItem = sfDataGrid.SelectedItem as InvMain;
+
+            // Если строка выбрана, сохраняем ее в Properties.Settings.Default.NomenSelectProp
+            if (selectedItem != null)
+            {
+                Properties.Settings.Default.IdInventorySelectedProp = selectedItem.Id;
+                Properties.Settings.Default.InvNumForPrint = selectedItem.InvNum;
+                Properties.Settings.Default.IdPlacementSelectProp = selectedItem.IdPlacement;
+                Properties.Settings.Default.PlacementSelectProp = selectedItem.NamePlacement;
+                Properties.Settings.Default.IdEmployerSelectProp = selectedItem.IdEmployer;
+                Properties.Settings.Default.EmployerSelectProp = selectedItem.FullName;
+                Properties.Settings.Default.Save();
+
+                MoveInventoryWindow win = new MoveInventoryWindow();
+                if (win.ShowDialog() == true)
+                {
+                    Console.WriteLine("ok");
+                }
+                LoadData();
+            }
+        }
     }
 }

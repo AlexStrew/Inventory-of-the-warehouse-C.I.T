@@ -147,7 +147,7 @@ namespace Inventarisation.Pages
             }
         }
 
-        private async void CheckConnectionServer()
+        private async Task CheckConnectionServer()
         {
             try
             {
@@ -172,7 +172,7 @@ namespace Inventarisation.Pages
 
         private async void CheckConUpd_Click(object sender, RoutedEventArgs e)
         {
-            CheckConnectionServer();
+            await CheckConnectionServer();
         }
     }
 }
