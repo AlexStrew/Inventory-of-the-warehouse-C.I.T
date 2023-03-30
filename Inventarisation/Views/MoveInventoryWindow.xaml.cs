@@ -96,7 +96,7 @@ namespace Inventarisation.Views
                                     {
                                         var inventory = new Inventory
                                         {
-                                            Id = Properties.Settings.Default.IdInventorySelectedProp, // сохраняем Id редактируемой компании
+                                            Id = Properties.Settings.Default.IdInventorySelectedProp, //  Id inv
                                             MoveId = result
                                         };
 
