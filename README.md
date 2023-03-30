@@ -14,17 +14,17 @@
 
   ## 🔮Wiki [^](#table)
 
--   Check documentation [here](https://github.com/timveur).
+-   Check documentation [here](https://github.com/AlexStrew).
 ---
 ### 🌊Test2 [^](#table)
 
--   [idk section](https://github.com/timveur) : lorem ipsum 
+-   [idk section](https://github.com/AlexStrew) : lorem ipsum 
 
 ---
 
 ### Contributing [^](#table)
 
-Your contributions are always welcome! ^\_^ If you want to contribute to this list, send a _pull request_, open an _issue_ or _contact with us. Please read the _[contributing guidelines](https://github.com/timveur)_ first, some sections have their own guidelines as a comment line.
+Your contributions are always welcome! ^\_^ If you want to contribute to this list, send a _pull request_, open an _issue_ or _contact with us. Please read the _[contributing guidelines](https://github.com/AlexStrew)_ first, some sections have their own guidelines as a comment line.
 
 ---
 
