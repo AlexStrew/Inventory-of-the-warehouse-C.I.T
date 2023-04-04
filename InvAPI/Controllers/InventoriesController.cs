@@ -138,7 +138,36 @@ namespace InvAPI.Controllers
             return Ok();
         }
 
-       
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutInventoryById(int id, Inventory inventory)
+        {
+            if (id != inventory.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(inventory).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!InventoryExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+
         [HttpPost]
         public async Task<ActionResult<Inventory>> PostInventory(Inventory inventory)
         {

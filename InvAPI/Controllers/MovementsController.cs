@@ -47,6 +47,61 @@ namespace InvAPI.Controllers
             return lastRecord;
         }
 
+
+        [Route("ConnectedTables")]
+        [HttpGet]
+        public object JoinStatement()
+        {
+            using (_context)
+            {
+                var result = (from m in _context.Movements
+                              join p in _context.Placements on m.PlacementId equals p.IdPlacement
+                              join e in _context.Employers on m.EmployerId equals e.IdEmpolyer
+                              select new
+                              {
+                                  id_movement = m.IdMovement,
+                                  date_move = m.DateMove,
+                                  id_inventory = m.IdInventory,
+                                  placement_id = m.PlacementId,
+                                  name_placement = p.NamePlacement,
+                                  planner = m.Planner,
+                                  employer_id = m.EmployerId,
+                                  full_name = e.FullName
+                              }).ToList();
+                // TODO utilize the above result
+                result.Reverse();
+                return result;
+            }
+        }
+        [HttpGet("gethistory/{id}")]
+        public ActionResult<List<object>> GetMovementById(int id)
+        {
+            var result = (from m in _context.Movements
+                          join p in _context.Placements on m.PlacementId equals p.IdPlacement
+                          join e in _context.Employers on m.EmployerId equals e.IdEmpolyer
+                          where m.IdInventory == id
+                          select new
+                          {
+                              id_movement = m.IdMovement,
+                              date_move = m.DateMove,
+                              id_inventory = m.IdInventory,
+                              placement_id = m.PlacementId,
+                              name_placement = p.NamePlacement,
+                              planner = m.Planner,
+                              employer_id = m.EmployerId,
+                              full_name = e.FullName
+                          }).ToList();
+
+            if (result.Count == 0) // если запись не найдена, возвращаем статус 404 Not Found
+            {
+                return NotFound();
+            }
+
+            return Ok(result); // возвращаем список объектов анонимного типа
+        }
+
+
+
         // GET: api/Movements/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Movement>> GetMovement(int id)
@@ -64,7 +119,7 @@ namespace InvAPI.Controllers
         // PUT: api/Movements/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("empSetSet/")]
-        public async Task<IActionResult> PutInventory(int id)
+        public async Task<IActionResult> PutMovement(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -83,6 +138,37 @@ namespace InvAPI.Controllers
             }
             return Ok();
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutMovementById(int id, Movement movement)
+        {
+            if (id != movement.IdMovement)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(movement).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!MovementExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+
 
         // POST: api/Movements
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

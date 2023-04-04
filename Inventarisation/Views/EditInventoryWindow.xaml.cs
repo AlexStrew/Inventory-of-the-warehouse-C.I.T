@@ -53,13 +53,13 @@ namespace Inventarisation.Views
         /// </summary>
         private void SelectNumButtonClick(object sender, RoutedEventArgs e)
         {
-            NomenclatureWindow win = new NomenclatureWindow();
+            SubjectWindow win = new SubjectWindow();
             if (win.ShowDialog() == true)
             {
 
                 Console.WriteLine("sdsd");
             }
-            NameDeviceTB.Text = Properties.Settings.Default.NomenSelectProp;
+            NameDeviceTB.Text = Properties.Settings.Default.SubjectSelectProp;
 
         }
 
@@ -104,39 +104,48 @@ namespace Inventarisation.Views
 
         private async void SaveInvBtnOnClick(object sender, RoutedEventArgs e)
         {
-
-            var client = new HttpClient();
-            var protectedToken = Properties.Settings.Default.JWTtoken;
-            var token = protectedToken;
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            // Создание объекта Company для редактирования
-            var editedCompany = new Inventory
+            if (string.IsNullOrWhiteSpace(PlacementTBox.Text) || string.IsNullOrWhiteSpace(EmployerTBox.Text) || string.IsNullOrWhiteSpace(NameDeviceTB.Text) || string.IsNullOrWhiteSpace(CompanyNameCB.Text) || string.IsNullOrWhiteSpace(PaymentNumTB.Text) || string.IsNullOrWhiteSpace(InvoiceTB.Text) || string.IsNullOrWhiteSpace(CommentTB.Text))
             {
-                Id = Properties.Settings.Default.IdInventorySelectedProp, // сохраняем Id редактируемой компании
-                //CompanyId  // новое значение для поля NameCompany,
-
-            };
-
-            // Преобразуем объект editedCompany в JSON
-            var editedCompanyJson = JsonConvert.SerializeObject(editedCompany);
-
-            // Отправка PUT запроса на API
-            var httpContent = new StringContent(editedCompanyJson, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync($"https://invent.doker.ru/api/Companies/{Properties.Settings.Default.IdCompanySelectProp}", httpContent);
-
-            // Если ответ успешный
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Компания успешно отредактирована.");
-                Properties.Settings.Default.IdCompanySelectProp = 0;
-                Properties.Settings.Default.CompanySelectProp = "";
-                Properties.Settings.Default.Save();
-                Close();
+                HandyControl.Controls.MessageBox.Show($"Поле: Наименование не должно быть пустым");
+                return;
             }
-            else
+            try
             {
-                MessageBox.Show("Не удалось отредактировать компанию. Попробуйте позже или обратитесь к администратору.");
+                var inventory = new Inventory()
+                {
+                    Id = Properties.Settings.Default.IdInventorySelectedProp,
+                    SubjectId = Properties.Settings.Default.IdSubjectSelectProp,
+                    CompanyId = Properties.Settings.Default.IdCompanySelectProp,
+                    PaymentNum = PaymentNumTB.Text,
+                    Invoice = InvoiceTB.Text,
+                    Comment = CommentTB.Text
+                };
+
+                var _client = new HttpClient();
+                _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var protectedToken = Properties.Settings.Default.JWTtoken;
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", protectedToken);
+                var json = JsonConvert.SerializeObject(inventory);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                using (_client)
+                {
+                    using (var response = await _client.PutAsync($"https://invent.doker.ru/api/Inventories/{Properties.Settings.Default.IdInventorySelectedProp}", content))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            HandyControl.Controls.MessageBox.Show("da");
+                        }
+                        else
+                        {
+                            HandyControl.Controls.MessageBox.Show("net");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+               HandyControl.Controls.MessageBox.Show(ex.Message);
             }
 
         }

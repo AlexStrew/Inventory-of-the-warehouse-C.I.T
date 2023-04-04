@@ -130,10 +130,9 @@
         <Grid x:Name="Header" Height="40" Grid.Column="0" >
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left" Margin="5">
                 <Button x:Name="NomenclatureBtn" Click="NomenclatureBtn_Click" Margin="0 0 5 0">Справочник</Button>
-                <Button x:Name="WriteOffBtn" Click="WriteOffBtn_Click">Списание</Button>
+                <Button x:Name="WriteOffBtn" Click="WriteOffBtn_Click" IsEnabled="False">Списание</Button>
                 <Button x:Name="QR" Click="QR_Click" Margin="5 0 0 0">Вход по Qr</Button>
-                <ToggleButton x:Name="ToggleButton" Content="Toggle Theme" 
-              Click="ToggleButton_Click" Margin="5 0 0 0"/>
+               
             </StackPanel>
         </Grid>
         <Frame x:Name="MainFrame" Grid.Row="1" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden"></Frame>

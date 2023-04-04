@@ -102,7 +102,7 @@
         <syncfusion:SfDataGrid
             ScrollMode="Async"
             FontWeight="DemiBold"
-            SummaryCalculationMode="OnDemandCaptionSummary"
+            
             x:Name="sfDataGrid"
                 Margin="5"
                 AllowFiltering="True"
@@ -128,7 +128,7 @@
                 <syncfusion:GridTextColumn  HeaderText="Комментарии" MappingName="Comment" Width="110" />
                 <syncfusion:GridTextColumn  HeaderText="Накладная"  MappingName="Invoice" />
                 <syncfusion:GridTextColumn  HeaderText="S/N"  MappingName="SerialNumber" />
-                <syncfusion:GridTemplateColumn MappingName="" syncfusion:FocusManagerHelper.WantsKeyInput="True">
+                <syncfusion:GridTemplateColumn MappingName="QR"  syncfusion:FocusManagerHelper.WantsKeyInput="True">
                     <syncfusion:GridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button  Content="Печать QR" x:Name="PrintInvNumQR" Click="PrintInvNumQR_Click" syncfusion:FocusManagerHelper.FocusedElement="True" CommandParameter="{Binding}" />
@@ -152,8 +152,9 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal">
        
             <Button FontWeight="SemiBold" x:Name="SaveToExcel" Click="SaveToExcel_Click" Content="Экспорт в Excel" Grid.Row="2" Width="Auto" Padding="5" Margin="5"/>
-            <Button FontWeight="SemiBold" x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
-            <Button  FontWeight="SemiBold" x:Name="CheckUserIdentity" Click="CheckUserIdentity_Click"  Content="Update" Grid.Row="2" Width="50" Margin="5" Padding="5"/>
+            <Button FontWeight="SemiBold" x:Name="GoPrint" Click="GoPrint_Click"  Content="Печать" Grid.Row="2" Width="80" Margin="5" Padding="5"/>
+            <Button  FontWeight="SemiBold" x:Name="CheckUserIdentity" Click="CheckUserIdentity_Click"  Content="Обновить" Grid.Row="2" Width="80" Margin="5" Padding="5"/>
+           
             <TextBlock  Text="User:"  VerticalAlignment="Center" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin=" 0 0 5 0"/>
             <TextBlock  x:Name="UserTextBlock"  VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Width="200" Foreground="Green" HorizontalAlignment="Left"/>
             <Border HorizontalAlignment="Right" 

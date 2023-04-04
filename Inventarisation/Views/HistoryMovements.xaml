@@ -1,0 +1,79 @@
+﻿<Window x:Class="Inventarisation.Views.HistoryMovements"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Inventarisation.Views" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"  xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+         Title="История перемещений" Height="450" Width="900">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="595"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Height="40" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="AddPlaceWinBtn" Click="AddPlaceWinBtn_Click">Добавить</Button>
+                <Button VerticalAlignment="Center" Margin="5 0 0 0" x:Name="RefreshWinBtn"  Click="RefreshWinBtn_Click">Обновить</Button>
+                <Button Width="100" HorizontalAlignment="Left" Margin="5 0 0 0" x:Name="CloseWindow" Click="CloseWindow_Click">Выбрать</Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
+                <TextBlock Text="Поиск" VerticalAlignment="Center"></TextBlock>
+                <TextBox FontWeight="SemiBold" x:Name="SearchPlacementTBox"  Height="30" MinWidth="250" Margin="5 0 0 0" VerticalContentAlignment="Center"/>
+                <Button Content="Поиск" x:Name="SearchPlaceBtn" Click="SearchPlaceBtn_Click"/>
+            </StackPanel>
+        </Grid>
+        <syncfusion:SfDataGrid 
+           
+            ScrollMode="Async"
+            FontWeight="DemiBold"
+            
+            x:Name="MoveDG"
+                Margin="5"
+                AllowFiltering="True"
+                AutoGenerateColumns="False"
+            AllowResizingColumns="True"
+            GroupDropAreaText="Перетащите сюда столбец для группировки"
+            ShowGroupDropArea="True" 
+                ColumnSizer="Star"
+            ShowSortNumbers="True"
+                ShowToolTip="True"
+            ShowRowHeader="True"
+            
+                NavigationMode="Row"
+            Grid.Row="1">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn HeaderText="Размещение" MappingName="NamePlacement"></syncfusion:GridTextColumn>
+                <syncfusion:GridDateTimeColumn HeaderText="Дата" MappingName="DateMove"></syncfusion:GridDateTimeColumn>
+                <syncfusion:GridTextColumn HeaderText="Сотрудник" MappingName="FullName"></syncfusion:GridTextColumn>
+
+            </syncfusion:SfDataGrid.Columns>
+            <syncfusion:SfDataGrid.TableSummaryRows>
+                <syncfusion:GridTableSummaryRow ShowSummaryInRow="False">
+                    <syncfusion:GridSummaryRow.SummaryColumns>
+                        <syncfusion:GridSummaryColumn Name="Перемещения" 
+                                              Format="'Всего : {Count:d}'"
+                                              MappingName="NamePlacement"
+                                              SummaryType="CountAggregate" />
+                    </syncfusion:GridSummaryRow.SummaryColumns>
+                </syncfusion:GridTableSummaryRow>
+            </syncfusion:SfDataGrid.TableSummaryRows>
+            
+        </syncfusion:SfDataGrid>
+
+        <Border Grid.Column="1" Height="300" Width="250" Grid.Row="1" VerticalAlignment="Center" Margin="10" BorderThickness="0.5" BorderBrush="Gray" CornerRadius="10">
+        <StackPanel Grid.Column="1" Grid.Row="1">
+                <hc:TextBox FontSize="14" HorizontalAlignment="Center"  x:Name="NameDeviceTBox" IsReadOnly="True" Width="200"  hc:InfoElement.Title="Наименование" Margin="0 5 0 0 " />
+                <hc:TextBox FontSize="14" HorizontalAlignment="Center"  x:Name="SerialNumberTBox" IsReadOnly="True" Width="200"  hc:InfoElement.Title="S/N" Margin="0 10 0 0 " />
+                <hc:TextBox FontSize="14" HorizontalAlignment="Center"  x:Name="CompanyTBox" IsReadOnly="True" Width="200"  hc:InfoElement.Title="Компания" Margin="0 10 0 0 " />
+                <hc:TextBox FontSize="14" HorizontalAlignment="Center"  x:Name="CommentTBox" IsReadOnly="True" Width="200"  hc:InfoElement.Title="Комментарий" Margin="0 10 0 0 " />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

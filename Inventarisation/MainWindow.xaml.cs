@@ -131,25 +131,7 @@ namespace Inventarisation
             }
         }
         
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ToggleButton.IsChecked.Value)
-            {
-                SfSkinManager.SetVisualStyle(this, VisualStyles.Windows11Dark);
-                //Environment.SetEnvironmentVariable("CurrentTheme", "Windows11Dark");
-                //SfSkinManager.SetVisualStyle(new OtherWindow(), VisualStyles.Windows11Dark);
-                currentTheme = VisualStyles.Windows11Dark;
-
-            }
-            else
-            {
-                SfSkinManager.SetVisualStyle(this, VisualStyles.Windows11Light);
-                //SfSkinManager.DefaultVisualStyle = VisualStyles.Windows11Light;
-                //Environment.SetEnvironmentVariable("CurrentTheme", "Windows11Light");\
-                currentTheme = VisualStyles.Windows11Light;
-
-            }
-        }
+        
 
         
     }

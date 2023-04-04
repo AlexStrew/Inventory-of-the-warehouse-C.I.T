@@ -238,5 +238,29 @@ namespace Inventarisation.Properties {
                 this["IdSubjectSelectProp"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SerialNumberSelectedProp {
+            get {
+                return ((string)(this["SerialNumberSelectedProp"]));
+            }
+            set {
+                this["SerialNumberSelectedProp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CommentSelectedProp {
+            get {
+                return ((string)(this["CommentSelectedProp"]));
+            }
+            set {
+                this["CommentSelectedProp"] = value;
+            }
+        }
     }
 }

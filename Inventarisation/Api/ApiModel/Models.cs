@@ -22,7 +22,7 @@ namespace Inventarisation.Api.ApiModel
         public int CompanyId { get; set; }
 
         [JsonProperty("paymentNum")]
-        public int PaymentNum { get; set; }
+        public string PaymentNum { get; set; }
 
         [JsonProperty("comment")]
         public string Comment { get; set; }
@@ -105,6 +105,36 @@ namespace Inventarisation.Api.ApiModel
         //public List<object> Inventories { get; set; }
 
     }
+
+
+
+    public class HistoryMove
+    {
+        [JsonProperty("id_movement")]
+        public int IdMovement { get; set; }
+
+        [JsonProperty("date_move")]
+        public DateTime DateMove { get; set; }
+
+        [JsonProperty("id_inventory")]
+        public int IdInventory { get; set; }
+
+        [JsonProperty("placement_id")]
+        public int PlacementId { get; set; }
+
+        [JsonProperty("name_placement")]
+        public string NamePlacement { get; set; }
+
+        [JsonProperty("planner")]
+        public object Planner { get; set; }
+
+        [JsonProperty("employer_id")]
+        public int EmployerId { get; set; }
+
+        [JsonProperty("full_name")]
+        public string FullName { get; set; }
+    }
+
 
     public class InvMain
     {

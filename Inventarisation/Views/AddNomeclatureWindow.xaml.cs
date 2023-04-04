@@ -42,7 +42,7 @@ namespace Inventarisation.Views
         /// </summary>
         private async void  AddNomenBtnClick(object sender, RoutedEventArgs e )
         {
-            if (NameDeviceTBox.Text != "" && NameDeviceTBox.Text != " " && CountDeviceTBox.Text != "" && ManufacturerDeviceTBox.Text != "" && ModelDeviceTBox.Text != "" && ManufacturerDeviceTBox.Text != "" && ManufacturerDeviceTBox.Text != "")
+            if (NameDeviceTBox.Text != "" && NameDeviceTBox.Text != " " )
             {
                 var nomenclature = new Nomenclature
                 {

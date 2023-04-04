@@ -172,9 +172,11 @@ namespace Inventarisation.Pages
             LoadData();
         }
 
-        private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
+        private async void ClearSearchButton_Click(object sender, RoutedEventArgs e)
         {
+            await LoadData();
             this.sfDataGrid.SearchHelper.ClearSearch();
+            SearchTextBox.Clear();
         }
 
 
@@ -223,7 +225,7 @@ namespace Inventarisation.Pages
                 if (result == MessageBoxResult.Yes)
                 {
                     Properties.Settings.Default.IdInventorySelectedProp = selectedRow.Id;
-                    Properties.Settings.Default.NomenSelectProp = selectedRow.NameDevice;
+                    Properties.Settings.Default.SubjectSelectProp = selectedRow.NameSubject;
                     Properties.Settings.Default.CompanySelectProp = selectedRow.CompanyName;
                     Properties.Settings.Default.PlacementSelectProp = selectedRow.NamePlacement;
 
@@ -290,13 +292,17 @@ namespace Inventarisation.Pages
             {
                 Properties.Settings.Default.IdInventorySelectedProp = selectedItem.Id;
                 Properties.Settings.Default.InvNumForPrint = selectedItem.InvNum;
+                Properties.Settings.Default.SubjectSelectProp = selectedItem.NameSubject;
+                Properties.Settings.Default.CommentSelectedProp = selectedItem.Comment;
+                Properties.Settings.Default.CompanySelectProp = selectedItem.CompanyName;
+                Properties.Settings.Default.SerialNumberSelectedProp = selectedItem.SerialNumber;
                 Properties.Settings.Default.IdPlacementSelectProp = selectedItem.IdPlacement;
                 Properties.Settings.Default.PlacementSelectProp = selectedItem.NamePlacement;
                 Properties.Settings.Default.IdEmployerSelectProp = selectedItem.IdEmployer;
                 Properties.Settings.Default.EmployerSelectProp = selectedItem.FullName;
                 Properties.Settings.Default.Save();
 
-                MoveInventoryWindow win = new MoveInventoryWindow();
+                HistoryMovements win = new HistoryMovements();
                 if (win.ShowDialog() == true)
                 {
                     Console.WriteLine("ok");
@@ -304,5 +310,14 @@ namespace Inventarisation.Pages
                 LoadData();
             }
         }
+
+        //private void test_Click(object sender, RoutedEventArgs e)
+        //{
+        //    HistoryMovements win = new HistoryMovements();
+        //    if (win.ShowDialog() == true)
+        //    {
+        //        Console.WriteLine("sdsd");
+        //    }
+        //}
     }
 }
